@@ -1,0 +1,8 @@
+F:\Project\C#\TodoList\TodoList\bin\Debug\TodoList.exe.config
+F:\Project\C#\TodoList\TodoList\bin\Debug\TodoList.exe
+F:\Project\C#\TodoList\TodoList\bin\Debug\TodoList.pdb
+F:\Project\C#\TodoList\TodoList\obj\Debug\TodoList.mainForm.resources
+F:\Project\C#\TodoList\TodoList\obj\Debug\TodoList.Properties.Resources.resources
+F:\Project\C#\TodoList\TodoList\obj\Debug\TodoList.csproj.GenerateResource.Cache
+F:\Project\C#\TodoList\TodoList\obj\Debug\TodoList.exe
+F:\Project\C#\TodoList\TodoList\obj\Debug\TodoList.pdb
