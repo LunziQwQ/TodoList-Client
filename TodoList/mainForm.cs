@@ -29,42 +29,20 @@ namespace TodoList {
         }
 
         private void mainForm_Load(object sender,EventArgs e) {
-            visualManager.mainFormLocation = this.Location;
-            visualManager.showNotice("Hello visualNotice");
-            
+            visualManager.visualMain = this;
+            visualManager.sendNotice("欢迎使用TodoList，点击窗口 通知将立即消失");
         }
 
 
         //实现点击窗口非控件区域时拖动窗口改变窗口位置*****************
-        private Point moveForm_MouseStartPosition = new Point(0, 0);       //触发mouseDown时的初始鼠标坐标，用于计算拖动偏移量
-        private Point moveForm_FormStartPosition = new Point(0, 0);        //触发mouseDown时的初始窗口坐标，用于实现窗口偏移
-        private bool isMoveFormEvent = false;
-
-        private void _moveForm_MouseDown(object sender, MouseEventArgs e) {
-            isMoveFormEvent = true;
-            moveForm_MouseStartPosition = this.PointToScreen(e.Location);
-            moveForm_FormStartPosition = this.Location;
-        }
-        private void _moveForm_MouseUP(object sender, MouseEventArgs e) {
-            isMoveFormEvent = false;
-            moveForm_MouseStartPosition = new Point(0, 0);
-            moveForm_FormStartPosition = new Point(0, 0);
-        }
-        private void _moveForm_MouseMove(object sender, MouseEventArgs e) {
-            if (isMoveFormEvent) {
-                Point offset = new Point(MousePosition.X - moveForm_MouseStartPosition.X, MousePosition.Y - moveForm_MouseStartPosition.Y);
-                this.Location = new Point(moveForm_FormStartPosition.X + offset.X, moveForm_FormStartPosition.Y + offset.Y);
-            }
-        }
-
         private void mainForm_MouseDown(object sender, MouseEventArgs e) {
-            _moveForm_MouseDown(sender, e);
+            visualManager.moveForm_MouseDown(sender, e);
         }
         private void mainForm_MouseUp(object sender, MouseEventArgs e) {
-            _moveForm_MouseUP(sender, e);
+            visualManager.moveForm_MouseUP(sender, e);
         }
         private void mainForm_MouseMove(object sender, MouseEventArgs e) {
-            _moveForm_MouseMove(sender, e);
+            visualManager.moveForm_MouseMove(sender, e);
         }
 
 

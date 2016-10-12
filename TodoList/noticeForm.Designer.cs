@@ -23,7 +23,9 @@
         /// the contents of this method with the code editor.
         /// </summary>
         private void InitializeComponent() {
+            this.components = new System.ComponentModel.Container();
             this.NoticeText = new System.Windows.Forms.Label();
+            this.Timer = new System.Windows.Forms.Timer(this.components);
             this.SuspendLayout();
             // 
             // NoticeText
@@ -34,14 +36,21 @@
             this.NoticeText.Location = new System.Drawing.Point(14, 31);
             this.NoticeText.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.NoticeText.Name = "NoticeText";
-            this.NoticeText.Size = new System.Drawing.Size(50, 27);
+            this.NoticeText.Size = new System.Drawing.Size(41, 21);
             this.NoticeText.TabIndex = 0;
             this.NoticeText.Text = "Test";
             this.NoticeText.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.NoticeText.Click += new System.EventHandler(this.noticeForm_Click);
+            // 
+            // Timer
+            // 
+            this.Timer.Enabled = true;
+            this.Timer.Interval = 10;
+            this.Timer.Tick += new System.EventHandler(this.Timer_Tick);
             // 
             // noticeForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 27F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 21F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(376, 85);
             this.Controls.Add(this.NoticeText);
@@ -52,6 +61,7 @@
             this.Opacity = 0.9D;
             this.Text = "Notice";
             this.Load += new System.EventHandler(this.noticeForm_Load);
+            this.Click += new System.EventHandler(this.noticeForm_Click);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -60,5 +70,6 @@
         #endregion
 
         private System.Windows.Forms.Label NoticeText;
+        private System.Windows.Forms.Timer Timer;
     }
 }
