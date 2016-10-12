@@ -10,10 +10,15 @@ using System.Windows.Forms;
 
 namespace TodoList {
     public partial class noticeForm : Form {
+        private VisualManager visualManager = VisualManager.getInstance();
         public noticeForm() {
             InitializeComponent();
         }
 
-
+        private void noticeForm_Load(object sender, EventArgs e) {
+            NoticeText.Text = MessageNotice.getInstance().MessageText;
+            Timer t = new Timer();
+            
+        }
     }
 }

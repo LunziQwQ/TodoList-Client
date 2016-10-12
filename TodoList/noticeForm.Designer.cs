@@ -34,14 +34,14 @@
             this.NoticeText.Location = new System.Drawing.Point(14, 31);
             this.NoticeText.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.NoticeText.Name = "NoticeText";
-            this.NoticeText.Size = new System.Drawing.Size(41, 21);
+            this.NoticeText.Size = new System.Drawing.Size(50, 27);
             this.NoticeText.TabIndex = 0;
             this.NoticeText.Text = "Test";
             this.NoticeText.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // noticeForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 21F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 27F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(376, 85);
             this.Controls.Add(this.NoticeText);
@@ -50,8 +50,8 @@
             this.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
             this.Name = "noticeForm";
             this.Opacity = 0.9D;
-            this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
             this.Text = "Notice";
+            this.Load += new System.EventHandler(this.noticeForm_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
