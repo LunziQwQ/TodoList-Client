@@ -6,19 +6,31 @@ using System.Threading.Tasks;
 
 namespace TodoList {
     class TaskItem {
-        private static int maxTitleLength = 30;
-        private static int maxTextLength = 255;
+        private const int maxTitleLength = 30;
+        private const int maxTextLength = 255;
 
         private string title;
         private string moreText;
-        private bool isStar;
+        public bool isStar;
+        public int index;
 
         public string Title {
             get { return title; }
             set {
-                if (value.Length >= maxTitleLength) {
-                    
-                }
+                if (value.Length <= maxTitleLength)
+                    title = value;
+                else
+                    VisualManager.getInstance().sendNotice("Error:Title out of the MaxTitleLength.");
+            }
+        }
+
+        public string MoreText {
+            get { return moreText; }
+            set {
+                if (value.Length <= maxTextLength)
+                    moreText = value;
+                else
+                    VisualManager.getInstance().sendNotice("Error:Text out of the MaxTextLength.");
             }
         }
     }

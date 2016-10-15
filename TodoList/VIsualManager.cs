@@ -9,10 +9,10 @@ using System.Drawing;
 
 namespace TodoList {
     class VisualManager {
-        private const double fadeAcceleration = 0.003;          //淡入淡出动画加速度
-        private MessageNotice message = MessageNotice.getInstance();
-        public mainForm visualMain;
-        public noticeForm visualNotice;
+        private const double fadeAcceleration = 0.003;                  //淡入淡出动画加速度
+        private MessageNotice message = MessageNotice.getInstance();    //通知实例
+        public mainForm visualMain;         //主窗口视图实例
+        public noticeForm visualNotice;     //通知窗口视图实例
         private int fadeTickCount = 0;
 
         //实现单例模式
@@ -34,12 +34,11 @@ namespace TodoList {
         //显示通知窗口并显示通知消息
         public void sendNotice(string text) {
             message.MessageText = text;
-            noticeForm temp = new noticeForm();
+            visualNotice = new noticeForm();
             Point mainFormLocation = visualMain.Location;
-            
-            temp.Show();
-            temp.Opacity = 0;
-            temp.Location = new Point(mainFormLocation.X + visualMain.Width, mainFormLocation.Y);
+            visualNotice.Show();
+            visualNotice.Opacity = 0.01;
+            visualNotice.Location = new Point(mainFormLocation.X + visualMain.Width, mainFormLocation.Y);
         }
 
         //实现点击窗口非控件区域时拖动窗口改变窗口位置*****************
@@ -60,7 +59,8 @@ namespace TodoList {
         public void moveForm_MouseMove(object sender, MouseEventArgs e) {
             if (isMoveFormEvent) {
                 Point offset = new Point(Control.MousePosition.X - moveForm_MouseStartPosition.X, Control.MousePosition.Y - moveForm_MouseStartPosition.Y);
-                visualMain.Location = new Point(moveForm_FormStartPosition.X + offset.X, moveForm_FormStartPosition.Y + offset.Y);
+                visualMain.Location = new Point(moveForm_FormStartPosition.X + offset.X, moveForm_FormStartPosition.Y + offset.Y);  //移动主窗口
+                visualNotice.Location = new Point(visualMain.Location.X + visualMain.Width, visualMain.Location.Y);                 //使通知窗口随主窗口移动
             }
         }
     }

@@ -21,13 +21,8 @@ namespace TodoList {
 
         public noticeForm() {
             InitializeComponent();
-        }
-
-        private void noticeForm_Load(object sender, EventArgs e) {
-            visualManager.visualNotice = this;
             NoticeText.Text = messageNotice.MessageText;
         }
-
         private void Timer_Tick(object sender, EventArgs e) {
             tickCount++;
             if(tickCount<=fadeInOut_Tick)

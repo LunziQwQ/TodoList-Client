@@ -26,19 +26,20 @@
             this.components = new System.ComponentModel.Container();
             this.NoticeText = new System.Windows.Forms.Label();
             this.Timer = new System.Windows.Forms.Timer(this.components);
+            this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
             this.SuspendLayout();
             // 
             // NoticeText
             // 
             this.NoticeText.AllowDrop = true;
             this.NoticeText.AutoEllipsis = true;
-            this.NoticeText.AutoSize = true;
-            this.NoticeText.Location = new System.Drawing.Point(14, 31);
+            this.NoticeText.Location = new System.Drawing.Point(14, 9);
             this.NoticeText.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.NoticeText.Name = "NoticeText";
-            this.NoticeText.Size = new System.Drawing.Size(41, 21);
+            this.NoticeText.Size = new System.Drawing.Size(348, 67);
             this.NoticeText.TabIndex = 0;
-            this.NoticeText.Text = "Test";
+            this.NoticeText.Text = "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa" +
+    "aa";
             this.NoticeText.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.NoticeText.Click += new System.EventHandler(this.noticeForm_Click);
             // 
@@ -60,10 +61,8 @@
             this.Name = "noticeForm";
             this.Opacity = 0.9D;
             this.Text = "Notice";
-            this.Load += new System.EventHandler(this.noticeForm_Load);
             this.Click += new System.EventHandler(this.noticeForm_Click);
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
@@ -71,5 +70,6 @@
 
         private System.Windows.Forms.Label NoticeText;
         private System.Windows.Forms.Timer Timer;
+        private System.Windows.Forms.SaveFileDialog saveFileDialog1;
     }
 }

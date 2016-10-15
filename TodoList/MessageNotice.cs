@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace TodoList {
     class MessageNotice {
-        private const int maxNoticeLength = 30;
+        private const int maxNoticeLength = 100;
         private const int maxAliveTime = 15;
         private int aliveTime = 3;              //通知持续时间
         private string messageText;             //通知内容

@@ -7,17 +7,26 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Threading;
+//Output debug info
+using System.Diagnostics;
 
 namespace TodoList {
     public partial class mainForm : Form {
         private VisualManager visualManager = VisualManager.getInstance();
+        private FileManager fileManager = FileManager.getInstance();
 
         public mainForm() {
             InitializeComponent();
         }
 
         private void btn_close_Click(object sender, EventArgs e) {
-            Close();
+            if (fileManager.autoSave()) {
+                visualManager.sendNotice("Save success.");
+                Close();
+            } else {
+                visualManager.sendNotice("Oops. Save Failed.");
+            }
         }
 
         private void btn_close_MouseEnter(object sender, EventArgs e) {
@@ -30,7 +39,9 @@ namespace TodoList {
 
         private void mainForm_Load(object sender,EventArgs e) {
             visualManager.visualMain = this;
-            visualManager.sendNotice("欢迎使用TodoList，点击窗口 通知将立即消失");
+            visualManager.sendNotice("    Welcome, Click here to hide this notice.");
+            
+            
         }
 
 
@@ -50,7 +61,9 @@ namespace TodoList {
         //**********************************************************
 
         private void label1_Click(object sender, EventArgs e) {
-
+            /*SaveFileDialog a = new SaveFileDialog();
+            Debug.Print((a.ShowDialog()==DialogResult.Cancel).ToString());
+            Debug.Print("GG: " + a.FileName);*/
         }
 
     }
