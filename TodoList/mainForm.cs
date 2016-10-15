@@ -15,6 +15,7 @@ namespace TodoList {
     public partial class mainForm : Form {
         private VisualManager visualManager = VisualManager.getInstance();
         private FileManager fileManager = FileManager.getInstance();
+        
 
         public mainForm() {
             InitializeComponent();
@@ -23,6 +24,7 @@ namespace TodoList {
         private void btn_close_Click(object sender, EventArgs e) {
             if (fileManager.autoSave()) {
                 visualManager.sendNotice("Save success.");
+                visualManager.closeAllForm = true;
                 Close();
             } else {
                 visualManager.sendNotice("Oops. Save Failed.");

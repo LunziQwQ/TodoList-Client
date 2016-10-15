@@ -13,6 +13,7 @@ namespace TodoList {
         private MessageNotice message = MessageNotice.getInstance();    //通知实例
         public mainForm visualMain;         //主窗口视图实例
         public noticeForm visualNotice;     //通知窗口视图实例
+        public bool closeAllForm = false;
         private int fadeTickCount = 0;
 
         //实现单例模式

@@ -29,13 +29,15 @@ namespace TodoList {
                 visualManager.noticeForm_fade(true);
             if (tickCount > fadeInOut_Tick + hold_Tick)
                 visualManager.noticeForm_fade(false);
-            if (tickCount == fadeInOut_Tick * 2 + hold_Tick)
+            if (tickCount == fadeInOut_Tick * 2 + hold_Tick) {
                 this.Close();
+                if(visualManager.closeAllForm)
+                    visualManager.visualMain.Close();
+            }
         }
 
         private void noticeForm_Click(object sender, EventArgs e) {
             this.tickCount = fadeInOut_Tick + hold_Tick;
         }
-        
     }
 }
