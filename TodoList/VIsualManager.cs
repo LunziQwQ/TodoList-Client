@@ -9,7 +9,15 @@ using System.Drawing;
 
 namespace TodoList {
     class VisualManager {
-        private const double fadeAcceleration = 0.003;                  //淡入淡出动画加速度
+        //淡入淡出动画加速度
+        private const double fadeAcceleration = 0.003;                  
+
+        //淡入淡出/窗口持续，时间：设置前面的数字，单位为ms
+        private const int fadeInOut_Tick = 500 / 10;
+        private const int hold_Tick = 2500 / 10;
+
+        private const int taskItemLabel_Heigth = 80;
+
         private MessageNotice message = MessageNotice.getInstance();    //通知实例
         public mainForm visualMain;         //主窗口视图实例
         public noticeForm visualNotice;     //通知窗口视图实例
@@ -26,11 +34,7 @@ namespace TodoList {
             return instance;
         }
 
-        public void noticeForm_fade(bool isIn) {
-            fadeTickCount += isIn ? 1 : -1;
-            if (fadeTickCount < 0) fadeTickCount = 0;   //边界维护，使每个noticeForm关闭后计数器一定为 0 ，防止fadeIn未完成时点击触发fadeOut使计数器为负数。
-            visualNotice.Opacity += (isIn) ? 0.02+fadeAcceleration*fadeTickCount : -0.02-fadeAcceleration*(50-fadeTickCount);
-        }
+        
 
         //显示通知窗口并显示通知消息
         public void sendNotice(string text) {
@@ -63,6 +67,38 @@ namespace TodoList {
                 visualMain.Location = new Point(moveForm_FormStartPosition.X + offset.X, moveForm_FormStartPosition.Y + offset.Y);  //移动主窗口
                 visualNotice.Location = new Point(visualMain.Location.X + visualMain.Width, visualMain.Location.Y);                 //使通知窗口随主窗口移动
             }
+        }
+        //计时器实现通知窗口淡入淡出效果**********************************************************
+        //当关闭窗口时，通知窗口消失后主窗口消失
+        public void noticeForm_fadeByTimer(int tickCount) {
+            if (tickCount <= fadeInOut_Tick)
+                noticeForm_fade(true);
+            if (tickCount > fadeInOut_Tick + hold_Tick)
+                noticeForm_fade(false);
+            if (tickCount == fadeInOut_Tick * 2 + hold_Tick) {
+                visualNotice.Close();
+                if (closeAllForm)
+                    visualMain.Close();
+            }
+        }
+        //每一tick改变窗口透明度
+        public void noticeForm_fade(bool isIn) {
+            fadeTickCount += isIn ? 1 : -1;
+            //边界维护，使每个noticeForm关闭后计数器一定为 0 ，防止fadeIn未完成时点击触发fadeOut使计数器为负数。
+            if (fadeTickCount < 0) fadeTickCount = 0;
+            visualNotice.Opacity += (isIn) ? 0.02 + fadeAcceleration * fadeTickCount : -0.02 - fadeAcceleration * (50 - fadeTickCount);
+        }
+        //返回开始淡出效果的tick计数，使控件立刻开始渐隐
+        public int noticeForm_Click() {
+            return fadeInOut_Tick + hold_Tick;
+        }
+
+        public void showItem(TaskItem item) {
+            Label itemLabel = new Label();
+            itemLabel.Name = "taskItem" + item.index.ToString();
+            itemLabel.Text = item.Title;
+            itemLabel.Size = new Size(431, taskItemLabel_Heigth);
+            
         }
     }
 }

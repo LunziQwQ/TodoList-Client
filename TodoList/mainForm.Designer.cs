@@ -35,8 +35,8 @@
             this.btn_close.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_close.Font = new System.Drawing.Font("Consolas", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_close.ForeColor = System.Drawing.SystemColors.ButtonShadow;
-            this.btn_close.Location = new System.Drawing.Point(369, 0);
-            this.btn_close.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btn_close.Location = new System.Drawing.Point(365, 0);
+            this.btn_close.Margin = new System.Windows.Forms.Padding(4);
             this.btn_close.Name = "btn_close";
             this.btn_close.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.btn_close.Size = new System.Drawing.Size(83, 41);
@@ -68,7 +68,7 @@
             this.TaskItem1.Location = new System.Drawing.Point(8, 75);
             this.TaskItem1.Margin = new System.Windows.Forms.Padding(0);
             this.TaskItem1.Name = "TaskItem1";
-            this.TaskItem1.Size = new System.Drawing.Size(431, 80);
+            this.TaskItem1.Size = new System.Drawing.Size(430, 80);
             this.TaskItem1.TabIndex = 3;
             this.TaskItem1.Text = "今天三点去厚德楼";
             this.TaskItem1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -79,14 +79,14 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(450, 629);
+            this.ClientSize = new System.Drawing.Size(445, 629);
             this.Controls.Add(this.TaskItem1);
             this.Controls.Add(this.TitleLabel);
             this.Controls.Add(this.btn_close);
             this.Cursor = System.Windows.Forms.Cursors.Default;
             this.ForeColor = System.Drawing.SystemColors.Window;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "mainForm";
             this.Opacity = 0.95D;
             this.Text = "TodoList";

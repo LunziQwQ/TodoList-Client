@@ -25,7 +25,6 @@ namespace TodoList {
             if (fileManager.autoSave()) {
                 visualManager.sendNotice("Save success.");
                 visualManager.closeAllForm = true;
-                Close();
             } else {
                 visualManager.sendNotice("Oops. Save Failed.");
             }
@@ -42,8 +41,6 @@ namespace TodoList {
         private void mainForm_Load(object sender,EventArgs e) {
             visualManager.visualMain = this;
             visualManager.sendNotice("    Welcome, Click here to hide this notice.");
-            
-            
         }
 
 
@@ -63,9 +60,16 @@ namespace TodoList {
         //**********************************************************
 
         private void label1_Click(object sender, EventArgs e) {
+            Label itemLabel = new Label();
+            itemLabel.Name = "taskItem2";
+            itemLabel.Text = "Test";
+            itemLabel.Size = new Size(431, 80);
+            itemLabel.Location = new Point(5, 180);
+            this.Controls.Add(itemLabel);
+            Debug.Print("-->");
             /*SaveFileDialog a = new SaveFileDialog();
-            Debug.Print((a.ShowDialog()==DialogResult.Cancel).ToString());
-            Debug.Print("GG: " + a.FileName);*/
+            Debug.Print("-->"+(a.ShowDialog()==DialogResult.Cancel).ToString());
+            Debug.Print("-->Path: " + a.FileName);*/
         }
 
     }

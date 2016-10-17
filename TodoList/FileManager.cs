@@ -18,13 +18,22 @@ namespace TodoList {
             return instance;
         }
 
+        public bool readSaveContent() {
+            try {
+                saveContent = File.ReadAllText(autoSavePath);
+            }catch(Exception e) {
+                return false;
+            }
+            return true;
+        }
+
         public bool autoSave() {
             try {
                 File.WriteAllText(autoSavePath, saveContent);
             }catch (Exception e) {
                 return false;
             }
-                return true;
+            return true;
         }
     }
 }

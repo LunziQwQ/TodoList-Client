@@ -38,8 +38,7 @@
             this.NoticeText.Name = "NoticeText";
             this.NoticeText.Size = new System.Drawing.Size(348, 67);
             this.NoticeText.TabIndex = 0;
-            this.NoticeText.Text = "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa" +
-    "aa";
+            this.NoticeText.Text = "This is the noticeForm";
             this.NoticeText.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.NoticeText.Click += new System.EventHandler(this.noticeForm_Click);
             // 
@@ -51,7 +50,7 @@
             // 
             // noticeForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 21F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 27F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(376, 85);
             this.Controls.Add(this.NoticeText);
