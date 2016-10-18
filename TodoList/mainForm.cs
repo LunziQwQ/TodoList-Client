@@ -23,10 +23,10 @@ namespace TodoList {
 
         private void btn_close_Click(object sender, EventArgs e) {
             if (fileManager.autoSave()) {
-                visualManager.sendNotice("Save success.");
+                visualManager.sendNotice("Save success.", 2);
                 visualManager.closeAllForm = true;
             } else {
-                visualManager.sendNotice("Oops. Save Failed.");
+                visualManager.sendNotice("Oops. Save Failed.", 2);
             }
         }
 
@@ -40,7 +40,14 @@ namespace TodoList {
 
         private void mainForm_Load(object sender,EventArgs e) {
             visualManager.visualMain = this;
-            visualManager.sendNotice("    Welcome, Click here to hide this notice.");
+            visualManager.sendNotice("    Welcome, Click here to hide this notice.", 3);
+            Label itemLabel = new Label();
+            itemLabel.Name = "taskItem5";
+            itemLabel.Text = "Test";
+            itemLabel.Size = new Size(50, 30);
+            itemLabel.Location = new Point(1, 1);
+            this.Controls.Add(itemLabel);
+            Debug.Print("-->Create");
         }
 
 
@@ -60,17 +67,18 @@ namespace TodoList {
         //**********************************************************
 
         private void label1_Click(object sender, EventArgs e) {
-            Label itemLabel = new Label();
-            itemLabel.Name = "taskItem2";
-            itemLabel.Text = "Test";
-            itemLabel.Size = new Size(431, 80);
-            itemLabel.Location = new Point(5, 180);
-            this.Controls.Add(itemLabel);
-            Debug.Print("-->");
+              
             /*SaveFileDialog a = new SaveFileDialog();
             Debug.Print("-->"+(a.ShowDialog()==DialogResult.Cancel).ToString());
             Debug.Print("-->Path: " + a.FileName);*/
         }
 
+        private void button2_Click(object sender, EventArgs e) {
+
+        }
+
+        private void button1_Click(object sender, EventArgs e) {
+
+        }
     }
 }

@@ -47,6 +47,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="FileManager.cs" />
+    <Compile Include="ItemList.cs" />
     <Compile Include="mainForm.cs">
       <SubType>Form</SubType>
     </Compile>

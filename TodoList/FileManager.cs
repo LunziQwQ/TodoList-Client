@@ -18,10 +18,16 @@ namespace TodoList {
             return instance;
         }
 
-        public bool readSaveContent() {
+        public string SaveContent {
+            get { return saveContent; }
+            set { saveContent = value; }
+        }
+
+        public bool readSaveFile() {
             try {
                 saveContent = File.ReadAllText(autoSavePath);
             }catch(Exception e) {
+                VisualManager.getInstance().sendNotice(e.Message, 2);
                 return false;
             }
             return true;
@@ -31,6 +37,7 @@ namespace TodoList {
             try {
                 File.WriteAllText(autoSavePath, saveContent);
             }catch (Exception e) {
+                VisualManager.getInstance().sendNotice(e.Message, 3);
                 return false;
             }
             return true;

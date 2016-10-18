@@ -12,9 +12,8 @@ namespace TodoList {
         //淡入淡出动画加速度
         private const double fadeAcceleration = 0.003;                  
 
-        //淡入淡出/窗口持续，时间：设置前面的数字，单位为ms
+        //淡入淡出时间：设置前面的数字，单位为ms
         private const int fadeInOut_Tick = 500 / 10;
-        private const int hold_Tick = 2500 / 10;
 
         private const int taskItemLabel_Heigth = 80;
 
@@ -37,8 +36,9 @@ namespace TodoList {
         
 
         //显示通知窗口并显示通知消息
-        public void sendNotice(string text) {
+        public void sendNotice(string text, int aliveTime) {
             message.MessageText = text;
+            message.AliveTime = aliveTime;
             visualNotice = new noticeForm();
             Point mainFormLocation = visualMain.Location;
             visualNotice.Show();
@@ -73,9 +73,9 @@ namespace TodoList {
         public void noticeForm_fadeByTimer(int tickCount) {
             if (tickCount <= fadeInOut_Tick)
                 noticeForm_fade(true);
-            if (tickCount > fadeInOut_Tick + hold_Tick)
+            if (tickCount > fadeInOut_Tick + message.AliveTime)
                 noticeForm_fade(false);
-            if (tickCount == fadeInOut_Tick * 2 + hold_Tick) {
+            if (tickCount == fadeInOut_Tick * 2 + message.AliveTime) {
                 visualNotice.Close();
                 if (closeAllForm)
                     visualMain.Close();
@@ -90,7 +90,7 @@ namespace TodoList {
         }
         //返回开始淡出效果的tick计数，使控件立刻开始渐隐
         public int noticeForm_Click() {
-            return fadeInOut_Tick + hold_Tick;
+            return fadeInOut_Tick + message.AliveTime;
         }
 
         public void showItem(TaskItem item) {
@@ -99,6 +99,11 @@ namespace TodoList {
             itemLabel.Text = item.Title;
             itemLabel.Size = new Size(431, taskItemLabel_Heigth);
             
+        }
+
+        public void changePage(int pageNumber) {
+
+
         }
     }
 }

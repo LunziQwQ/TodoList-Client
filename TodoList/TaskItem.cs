@@ -20,7 +20,7 @@ namespace TodoList {
                 if (value.Length <= maxTitleLength)
                     title = value;
                 else
-                    VisualManager.getInstance().sendNotice("Error:TitleLength out of the MaxTitleLength.");
+                    VisualManager.getInstance().sendNotice("Error:TitleLength out of the MaxTitleLength.", 3);
             }
         }
 
@@ -30,7 +30,7 @@ namespace TodoList {
                 if (value.Length <= maxTextLength)
                     moreText = value;
                 else
-                    VisualManager.getInstance().sendNotice("Error:TextLength out of the MaxTextLength.");
+                    VisualManager.getInstance().sendNotice("Error:TextLength out of the MaxTextLength.", 3);
             }
         }
 
@@ -42,6 +42,7 @@ namespace TodoList {
                 title = temp[2].Substring(6);
                 moreText = temp[3].Substring(9);
             }catch(Exception e) {
+                VisualManager.getInstance().sendNotice(e.Message, 3);
                 return false;
             }
             return true;
