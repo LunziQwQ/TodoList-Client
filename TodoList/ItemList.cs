@@ -9,6 +9,7 @@ namespace TodoList {
         private int length;
         private TaskItem[] list;
 
+        //外部只读，只允许内部初始化
         public int Length {
             get { return length; }
         }
@@ -37,6 +38,18 @@ namespace TodoList {
             foreach (TaskItem item in list) 
                 temp += item.itemToString();
             return temp;
+        }
+
+        public TaskItem[] getListByPage(int page) {
+            TaskItem[] _tempList = new TaskItem[5];
+            int _count = 0;
+            if (length >= page * 5 && page >= 1 && page <= 5)
+                for (int i = page * 5 - 1; i < 5 * page; i++) {
+                    if (i > length)
+                        _tempList[_count] = i < length ? list[i] : new TaskItem(false);
+                    _count++;
+                } else VisualManager.getInstance().sendNotice("Error:No more page to change.", 3);
+            return _tempList;
         }
     }
 }

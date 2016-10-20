@@ -26,14 +26,13 @@
             this.btn_close = new System.Windows.Forms.Button();
             this.TitleLabel = new System.Windows.Forms.Label();
             this.TaskItem1 = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
+            this.TaskItem2 = new System.Windows.Forms.Label();
+            this.TaskItem3 = new System.Windows.Forms.Label();
+            this.TaskItem4 = new System.Windows.Forms.Label();
+            this.TaskItem5 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
+            this.btn_pgUp = new System.Windows.Forms.Button();
+            this.btn_pgDn = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
@@ -83,61 +82,61 @@
             this.TaskItem1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.TaskItem1.Click += new System.EventHandler(this.label1_Click);
             // 
-            // label1
+            // TaskItem2
             // 
-            this.label1.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.label1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.label1.Font = new System.Drawing.Font("Microsoft YaHei", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.Black;
-            this.label1.Location = new System.Drawing.Point(8, 166);
-            this.label1.Margin = new System.Windows.Forms.Padding(0);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(430, 80);
-            this.label1.TabIndex = 4;
-            this.label1.Text = "今天三点去厚德楼";
-            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.TaskItem2.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.TaskItem2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.TaskItem2.Font = new System.Drawing.Font("Microsoft YaHei", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TaskItem2.ForeColor = System.Drawing.Color.Black;
+            this.TaskItem2.Location = new System.Drawing.Point(8, 166);
+            this.TaskItem2.Margin = new System.Windows.Forms.Padding(0);
+            this.TaskItem2.Name = "TaskItem2";
+            this.TaskItem2.Size = new System.Drawing.Size(430, 80);
+            this.TaskItem2.TabIndex = 4;
+            this.TaskItem2.Text = "今天三点去厚德楼";
+            this.TaskItem2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // label2
+            // TaskItem3
             // 
-            this.label2.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.label2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.label2.Font = new System.Drawing.Font("Microsoft YaHei", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.ForeColor = System.Drawing.Color.Black;
-            this.label2.Location = new System.Drawing.Point(8, 255);
-            this.label2.Margin = new System.Windows.Forms.Padding(0);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(430, 80);
-            this.label2.TabIndex = 5;
-            this.label2.Text = "今天三点去厚德楼";
-            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.TaskItem3.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.TaskItem3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.TaskItem3.Font = new System.Drawing.Font("Microsoft YaHei", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TaskItem3.ForeColor = System.Drawing.Color.Black;
+            this.TaskItem3.Location = new System.Drawing.Point(8, 255);
+            this.TaskItem3.Margin = new System.Windows.Forms.Padding(0);
+            this.TaskItem3.Name = "TaskItem3";
+            this.TaskItem3.Size = new System.Drawing.Size(430, 80);
+            this.TaskItem3.TabIndex = 5;
+            this.TaskItem3.Text = "今天三点去厚德楼";
+            this.TaskItem3.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // label3
+            // TaskItem4
             // 
-            this.label3.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.label3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.label3.Font = new System.Drawing.Font("Microsoft YaHei", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.ForeColor = System.Drawing.Color.Black;
-            this.label3.Location = new System.Drawing.Point(6, 344);
-            this.label3.Margin = new System.Windows.Forms.Padding(0);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(430, 80);
-            this.label3.TabIndex = 6;
-            this.label3.Text = "今天三点去厚德楼";
-            this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.TaskItem4.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.TaskItem4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.TaskItem4.Font = new System.Drawing.Font("Microsoft YaHei", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TaskItem4.ForeColor = System.Drawing.Color.Black;
+            this.TaskItem4.Location = new System.Drawing.Point(6, 344);
+            this.TaskItem4.Margin = new System.Windows.Forms.Padding(0);
+            this.TaskItem4.Name = "TaskItem4";
+            this.TaskItem4.Size = new System.Drawing.Size(430, 80);
+            this.TaskItem4.TabIndex = 6;
+            this.TaskItem4.Text = "今天三点去厚德楼";
+            this.TaskItem4.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // label4
+            // TaskItem5
             // 
-            this.label4.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.label4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.label4.Font = new System.Drawing.Font("Microsoft YaHei", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.ForeColor = System.Drawing.Color.Black;
-            this.label4.Location = new System.Drawing.Point(8, 436);
-            this.label4.Margin = new System.Windows.Forms.Padding(0);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(430, 80);
-            this.label4.TabIndex = 7;
-            this.label4.Text = "今天三点去厚德楼";
-            this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.TaskItem5.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.TaskItem5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.TaskItem5.Font = new System.Drawing.Font("Microsoft YaHei", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TaskItem5.ForeColor = System.Drawing.Color.Black;
+            this.TaskItem5.Location = new System.Drawing.Point(8, 436);
+            this.TaskItem5.Margin = new System.Windows.Forms.Padding(0);
+            this.TaskItem5.Name = "TaskItem5";
+            this.TaskItem5.Size = new System.Drawing.Size(430, 80);
+            this.TaskItem5.TabIndex = 7;
+            this.TaskItem5.Text = "今天三点去厚德楼";
+            this.TaskItem5.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // label5
             // 
@@ -151,47 +150,33 @@
             this.label5.Text = "1  ·  ·  ·  · ";
             this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // button1
+            // btn_pgUp
             // 
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Font = new System.Drawing.Font("Microsoft YaHei", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.ForeColor = System.Drawing.Color.DimGray;
-            this.button1.Location = new System.Drawing.Point(325, 564);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(51, 40);
-            this.button1.TabIndex = 9;
-            this.button1.Text = "←";
-            this.button1.TextAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.btn_pgUp.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_pgUp.Font = new System.Drawing.Font("Microsoft YaHei", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_pgUp.ForeColor = System.Drawing.Color.DimGray;
+            this.btn_pgUp.Location = new System.Drawing.Point(382, 564);
+            this.btn_pgUp.Name = "btn_pgUp";
+            this.btn_pgUp.Size = new System.Drawing.Size(51, 40);
+            this.btn_pgUp.TabIndex = 10;
+            this.btn_pgUp.Text = "→";
+            this.btn_pgUp.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.btn_pgUp.UseVisualStyleBackColor = true;
+            this.btn_pgUp.Click += new System.EventHandler(this.btn_pgUp_Click);
             // 
-            // button2
+            // btn_pgDn
             // 
-            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button2.Font = new System.Drawing.Font("Microsoft YaHei", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.ForeColor = System.Drawing.Color.DimGray;
-            this.button2.Location = new System.Drawing.Point(382, 564);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(51, 40);
-            this.button2.TabIndex = 10;
-            this.button2.Text = "→";
-            this.button2.TextAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
-            // 
-            // button3
-            // 
-            this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button3.Font = new System.Drawing.Font("Microsoft YaHei", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button3.ForeColor = System.Drawing.Color.DimGray;
-            this.button3.Location = new System.Drawing.Point(325, 564);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(51, 40);
-            this.button3.TabIndex = 9;
-            this.button3.Text = "←";
-            this.button3.TextAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.button3.UseVisualStyleBackColor = true;
-            this.button3.Click += new System.EventHandler(this.button1_Click);
+            this.btn_pgDn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_pgDn.Font = new System.Drawing.Font("Microsoft YaHei", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_pgDn.ForeColor = System.Drawing.Color.DimGray;
+            this.btn_pgDn.Location = new System.Drawing.Point(325, 564);
+            this.btn_pgDn.Name = "btn_pgDn";
+            this.btn_pgDn.Size = new System.Drawing.Size(51, 40);
+            this.btn_pgDn.TabIndex = 9;
+            this.btn_pgDn.Text = "←";
+            this.btn_pgDn.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.btn_pgDn.UseVisualStyleBackColor = true;
+            this.btn_pgDn.Click += new System.EventHandler(this.btn_pgDn_Click);
             // 
             // button4
             // 
@@ -213,14 +198,13 @@
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(445, 616);
             this.Controls.Add(this.button4);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.button3);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.btn_pgUp);
+            this.Controls.Add(this.btn_pgDn);
             this.Controls.Add(this.label5);
-            this.Controls.Add(this.label4);
-            this.Controls.Add(this.label3);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.TaskItem5);
+            this.Controls.Add(this.TaskItem4);
+            this.Controls.Add(this.TaskItem3);
+            this.Controls.Add(this.TaskItem2);
             this.Controls.Add(this.TaskItem1);
             this.Controls.Add(this.TitleLabel);
             this.Controls.Add(this.btn_close);
@@ -245,14 +229,13 @@
         private System.Windows.Forms.Button btn_close;
         private System.Windows.Forms.Label TitleLabel;
         private System.Windows.Forms.Label TaskItem1;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label TaskItem2;
+        private System.Windows.Forms.Label TaskItem3;
+        private System.Windows.Forms.Label TaskItem4;
+        private System.Windows.Forms.Label TaskItem5;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button btn_pgUp;
+        private System.Windows.Forms.Button btn_pgDn;
         private System.Windows.Forms.Button button4;
     }
 }

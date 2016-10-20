@@ -17,11 +17,13 @@ namespace TodoList {
 
         private const int taskItemLabel_Heigth = 80;
 
-        private MessageNotice message = MessageNotice.getInstance();    //通知实例
+        public ItemList mainList = new ItemList();
         public mainForm visualMain;         //主窗口视图实例
-        public noticeForm visualNotice;     //通知窗口视图实例
+        public noticeForm visualNotice;     //通知窗口视图实例 
+        public Label[] labelList;           //主窗口的五个控件列表
         public bool closeAllForm = false;
         private int fadeTickCount = 0;
+        private int nowPage = 1;
 
         //实现单例模式
         private VisualManager(){}
@@ -33,12 +35,10 @@ namespace TodoList {
             return instance;
         }
 
-        
-
         //显示通知窗口并显示通知消息
         public void sendNotice(string text, int aliveTime) {
-            message.MessageText = text;
-            message.AliveTime = aliveTime;
+            MessageNotice.getInstance().MessageText = text;
+            MessageNotice.getInstance().AliveTime = aliveTime;
             visualNotice = new noticeForm();
             Point mainFormLocation = visualMain.Location;
             visualNotice.Show();
@@ -73,9 +73,9 @@ namespace TodoList {
         public void noticeForm_fadeByTimer(int tickCount) {
             if (tickCount <= fadeInOut_Tick)
                 noticeForm_fade(true);
-            if (tickCount > fadeInOut_Tick + message.AliveTime)
+            if (tickCount > fadeInOut_Tick + MessageNotice.getInstance().AliveTime)
                 noticeForm_fade(false);
-            if (tickCount == fadeInOut_Tick * 2 + message.AliveTime) {
+            if (tickCount == fadeInOut_Tick * 2 + MessageNotice.getInstance().AliveTime) {
                 visualNotice.Close();
                 if (closeAllForm)
                     visualMain.Close();
@@ -90,20 +90,27 @@ namespace TodoList {
         }
         //返回开始淡出效果的tick计数，使控件立刻开始渐隐
         public int noticeForm_Click() {
-            return fadeInOut_Tick + message.AliveTime;
+            return fadeInOut_Tick + MessageNotice.getInstance().AliveTime;
         }
 
-        public void showItem(TaskItem item) {
-            Label itemLabel = new Label();
-            itemLabel.Name = "taskItem" + item.index.ToString();
-            itemLabel.Text = item.Title;
-            itemLabel.Size = new Size(431, taskItemLabel_Heigth);
-            
+        public void changePage(bool isNext) {
+            nowPage += isNext ? 1 : -1;
+            if (nowPage >= 1)
+                showPage(nowPage);
+            else
+                sendNotice("Error: No more page to change.", 2);
         }
 
-        public void changePage(int pageNumber) {
-
-
+        public void showPage(int page) {
+            TaskItem[] temp = new ItemList().getListByPage(nowPage);
+            foreach(TaskItem x in temp) {
+                Label _tempTabel = labelList[x.index % 5];
+                _tempTabel.Visible = x.Title.Equals("NULL") ? false : true;
+                if(_tempTabel.Visible)
+                    _tempTabel.Text = x.Title;
+                if (x.isStar) 
+                    _tempTabel.BackColor = Color.Orange;
+            }
         }
     }
 }

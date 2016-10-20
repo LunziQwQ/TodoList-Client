@@ -14,6 +14,11 @@ namespace TodoList {
         public bool isStar;
         public int index;
 
+        public TaskItem() { }
+        public TaskItem(bool isNull) {
+            title = "NULL";
+        }
+
         public string Title {
             get { return title; }
             set {
@@ -51,6 +56,9 @@ namespace TodoList {
         public string itemToString() {
             return String.Format("index:%d&isStar:%b&title:%s&moreText:%s\n", index, isStar, title, MoreText);
         }
+        
+        public void show() {
 
+        }
     }
 }

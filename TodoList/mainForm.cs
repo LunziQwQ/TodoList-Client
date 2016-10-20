@@ -39,15 +39,11 @@ namespace TodoList {
         }
 
         private void mainForm_Load(object sender,EventArgs e) {
+            //visualManager类的初始值传递
             visualManager.visualMain = this;
             visualManager.sendNotice("    Welcome, Click here to hide this notice.", 3);
-            Label itemLabel = new Label();
-            itemLabel.Name = "taskItem5";
-            itemLabel.Text = "Test";
-            itemLabel.Size = new Size(50, 30);
-            itemLabel.Location = new Point(1, 1);
-            this.Controls.Add(itemLabel);
-            Debug.Print("-->Create");
+            visualManager.labelList =new Label[]{ TaskItem1, TaskItem2, TaskItem3, TaskItem4, TaskItem5};
+            visualManager.mainList.init();
         }
 
 
@@ -73,12 +69,12 @@ namespace TodoList {
             Debug.Print("-->Path: " + a.FileName);*/
         }
 
-        private void button2_Click(object sender, EventArgs e) {
-
+        private void btn_pgUp_Click(object sender, EventArgs e) {
+            visualManager.changePage(true);
         }
 
-        private void button1_Click(object sender, EventArgs e) {
-
+        private void btn_pgDn_Click(object sender, EventArgs e) {
+            visualManager.changePage(false);
         }
     }
 }
