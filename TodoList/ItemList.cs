@@ -9,6 +9,15 @@ namespace TodoList {
         private int length;
         private TaskItem[] list;
 
+        private static ItemList instance;
+        private ItemList() { }
+        
+        public static ItemList getInstance() {
+            if (instance == null)
+                instance = new ItemList();
+            return instance;
+        }
+
         //外部只读，只允许内部初始化
         public int Length {
             get { return length; }
@@ -21,7 +30,7 @@ namespace TodoList {
         public bool init() {
             bool allSuccess = true;
             if (FileManager.getInstance().readSaveFile()) {
-                string[] contentList = FileManager.getInstance().SaveContent.Split(new char[] { '\n' });
+                string[] contentList = FileManager.getInstance().SaveContent.Split(new char[] { '#' });
                 length = contentList.Length;
                 list = new TaskItem[length];
                 for (int i = 0; i < length; i++) {

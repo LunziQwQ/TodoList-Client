@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.IO;
+using System.Diagnostics;
 
 namespace TodoList {
     class FileManager {
@@ -27,17 +28,18 @@ namespace TodoList {
             try {
                 saveContent = File.ReadAllText(autoSavePath);
             }catch(Exception e) {
-                VisualManager.getInstance().sendNotice(e.Message, 2);
+                Debug.Print("-->Class:FileManager, Line: 31 \n "+e.Message+"\n");
                 return false;
             }
             return true;
         }
 
         public bool autoSave() {
+            saveContent = ItemList.getInstance().listToString();
             try {
                 File.WriteAllText(autoSavePath, saveContent);
             }catch (Exception e) {
-                VisualManager.getInstance().sendNotice(e.Message, 3);
+                Debug.Print("-->Class:FileManager, Line: 42 \n" + e.Message+"\n");
                 return false;
             }
             return true;

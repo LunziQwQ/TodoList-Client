@@ -17,7 +17,6 @@ namespace TodoList {
 
         private const int taskItemLabel_Heigth = 80;
 
-        public ItemList mainList = new ItemList();
         public mainForm visualMain;         //主窗口视图实例
         public noticeForm visualNotice;     //通知窗口视图实例 
         public Label[] labelList;           //主窗口的五个控件列表
@@ -102,7 +101,7 @@ namespace TodoList {
         }
 
         public void showPage(int page) {
-            TaskItem[] temp = new ItemList().getListByPage(nowPage);
+            TaskItem[] temp = ItemList.getInstance().getListByPage(nowPage);
             foreach(TaskItem x in temp) {
                 Label _tempTabel = labelList[x.index % 5];
                 _tempTabel.Visible = x.Title.Equals("NULL") ? false : true;

@@ -41,9 +41,8 @@ namespace TodoList {
         private void mainForm_Load(object sender,EventArgs e) {
             //visualManager类的初始值传递
             visualManager.visualMain = this;
-            visualManager.sendNotice("    Welcome, Click here to hide this notice.", 3);
             visualManager.labelList =new Label[]{ TaskItem1, TaskItem2, TaskItem3, TaskItem4, TaskItem5};
-            visualManager.mainList.init();
+            visualManager.sendNotice(ItemList.getInstance().init() ? "    Welcome, Click here to hide this notice." : "Error:TaskItem init faild", 2);
         }
 
 

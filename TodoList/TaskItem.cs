@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Diagnostics;
 
 namespace TodoList {
     class TaskItem {
@@ -40,21 +41,22 @@ namespace TodoList {
         }
 
         public bool stringToItem(string itemContent) {
-            string[] temp = itemContent.Split(new char[] {'#'});
+            Debug.Print("--> Content: " + itemContent);
+            string[] temp = itemContent.Split(new char[] {'&'});
             try {
                 index = Int32.Parse(temp[0].Substring(6));
                 isStar = Boolean.Parse(temp[1].Substring(7));
                 title = temp[2].Substring(6);
                 moreText = temp[3].Substring(9);
             }catch(Exception e) {
-                VisualManager.getInstance().sendNotice(e.Message, 3);
+                Debug.Print("-->Class:TaskItem, Line: 51 \n"+e.Message+"\n");
                 return false;
             }
             return true;
         }
 
         public string itemToString() {
-            return String.Format("index:%d&isStar:%b&title:%s&moreText:%s\n", index, isStar, title, MoreText);
+            return String.Format("index:{0}&isStar:{1}&title:{2}&moreText:{3}#", index, isStar, title, MoreText);
         }
         
         public void show() {
