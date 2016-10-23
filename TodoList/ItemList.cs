@@ -11,7 +11,7 @@ namespace TodoList {
 
         private static ItemList instance;
         private ItemList() { }
-        
+
         public static ItemList getInstance() {
             if (instance == null)
                 instance = new ItemList();
@@ -28,23 +28,22 @@ namespace TodoList {
         }
 
         public bool init() {
-            bool allSuccess = true;
             if (FileManager.getInstance().readSaveFile()) {
                 string[] contentList = FileManager.getInstance().SaveContent.Split(new char[] { '#' });
-                length = contentList.Length;
+                length = contentList.Length - 1;
                 list = new TaskItem[length];
                 for (int i = 0; i < length; i++) {
                     list[i] = new TaskItem();
-                    if(!list[i].stringToItem(contentList[i]))
-                        allSuccess = false;
+                    if (!list[i].stringToItem(contentList[i]))
+                        return false;
                 }
-                return allSuccess ? true : false;
+                return true;
             } else return false;
         }
 
         public string listToString() {
             string temp = "";
-            foreach (TaskItem item in list) 
+            foreach (TaskItem item in list)
                 temp += item.itemToString();
             return temp;
         }
