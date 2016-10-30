@@ -15,7 +15,8 @@ namespace TodoList {
 
         private const int labelMenuOffset = 100;
         private const int offsetAcceleration = 1;
-        public int nowNoticeFormCount = -1;
+        public int nowNoticeFormCount = 0;     //当前已存在的消息窗口数量
+        public bool[] isNoticeFormLocationExist = new bool[5];   //当前已占用的消息位置
 
         public mainForm visualMain;             //主窗口视图实例
         public noticeForm visualNotice;         //通知窗口视图实例 
@@ -43,13 +44,21 @@ namespace TodoList {
 
         //显示通知窗口并显示通知消息
         public void sendNotice(string text, int aliveTime) {
+            if (nowNoticeFormCount == 5) return;
             MessageNotice.getInstance().MessageText = text;
             MessageNotice.getInstance().AliveTime = aliveTime;
             visualNotice = new noticeForm();
             visualNotice.Opacity = 0;
             Point mainFormLocation = visualMain.Location;
             visualNotice.Show();
-            visualNotice.Location = new Point(mainFormLocation.X + visualMain.Width, mainFormLocation.Y + nowNoticeFormCount * (5 + visualNotice.Size.Height));
+            for (int i = 0; i < 5; i++) {
+                if (!isNoticeFormLocationExist[i]) {
+                    visualNotice.Location = new Point(mainFormLocation.X + visualMain.Width, mainFormLocation.Y + i * (5 + visualNotice.Size.Height));
+                    visualNotice.locationIndex = i;
+                    isNoticeFormLocationExist[i] = true;
+                    break;
+                }
+            }
         }
 
         //实现点击窗口非控件区域时拖动窗口改变窗口位置*****************
@@ -71,7 +80,7 @@ namespace TodoList {
             if (isMoveFormEvent) {
                 Point offset = new Point(Control.MousePosition.X - moveForm_MouseStartPosition.X, Control.MousePosition.Y - moveForm_MouseStartPosition.Y);
                 visualMain.Location = new Point(moveForm_FormStartPosition.X + offset.X, moveForm_FormStartPosition.Y + offset.Y);  //移动主窗口
-                visualNotice.Location = new Point(visualMain.Location.X + visualMain.Width, visualMain.Location.Y);                 //使通知窗口随主窗口移动
+                //visualNotice.Location = new Point(visualMain.Location.X + visualMain.Width, visualMain.Location.Y);                 //使通知窗口随主窗口移动
             }
         }
 

@@ -22,6 +22,12 @@ namespace TodoList {
             title = "null";
         }
 
+        public override bool Equals(object obj) {
+            if (obj == null) return false;
+            TaskItem objAsTaskItem = obj as TaskItem;
+            return objAsTaskItem.index == index && objAsTaskItem.title == title;
+        }
+
         public string Title {
             get { return title; }
             set {

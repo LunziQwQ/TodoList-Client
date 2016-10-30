@@ -16,6 +16,7 @@ namespace TodoList {
         private const double fadeAcceleration = 0.003;
         private int fadeTickCount = 0;          //消息窗口的tickcount
         public int tickCount = 0;      //计时器tick计数，用于控制淡入淡出阶段
+        public int locationIndex;
        
         public noticeForm() {
             InitializeComponent();
@@ -31,7 +32,8 @@ namespace TodoList {
             if (tickCount == fadeInOut_Tick * 2 + MessageNotice.getInstance().AliveTime) {
                 visualManager.nowNoticeFormCount--;
                 this.Close();
-                if (visualManager.closeAllForm && visualManager.nowNoticeFormCount == -1)
+                visualManager.isNoticeFormLocationExist[locationIndex] = false;
+                if (visualManager.closeAllForm && visualManager.nowNoticeFormCount == 0)
                     visualManager.visualMain.Close();
         }
     }
