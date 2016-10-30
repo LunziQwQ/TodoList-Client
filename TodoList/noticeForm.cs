@@ -12,14 +12,15 @@ namespace TodoList {
     public partial class noticeForm : Form {
         private VisualManager visualManager = VisualManager.getInstance();
         private MessageNotice messageNotice = MessageNotice.getInstance();
-        private int tickCount = 0;      //计时器tick计数，用于控制淡入淡出阶段
+        public int tickCount = 0;      //计时器tick计数，用于控制淡入淡出阶段
        
         public noticeForm() {
             InitializeComponent();
-            NoticeText.Text = messageNotice.MessageText;
+            
         }
         private void Timer_Tick(object sender, EventArgs e) {
             tickCount++;
+            NoticeText.Text = messageNotice.MessageText;
             visualManager.noticeForm_fadeByTimer(tickCount);
         }
 

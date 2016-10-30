@@ -23,6 +23,8 @@ namespace TodoList {
         public noticeForm visualNotice;         //通知窗口视图实例 
         public Label[] labelList;               //主窗口的五个label列表
         public Point[] labelListStartLocation;  //主窗口的五个label初始位置
+        public Label[] btn_delList;             //主窗口的五个删除按钮列表
+        public Label[] btn_editList;            //主窗口的五个编辑按钮列表
         public bool closeAllForm = false;       //判断是否为点击关闭按钮后触发的消息窗口
         private int fadeTickCount = 0;          //消息窗口的tickcount
         private int nowPage = 1;                //当前主窗口列表页数
@@ -46,10 +48,11 @@ namespace TodoList {
         public void sendNotice(string text, int aliveTime) {
             MessageNotice.getInstance().MessageText = text;
             MessageNotice.getInstance().AliveTime = aliveTime;
-            visualNotice = new noticeForm();
+            if(visualNotice == null) visualNotice = new noticeForm();
+            visualNotice.tickCount = 0;
+            visualNotice.Opacity = 0;
             Point mainFormLocation = visualMain.Location;
             visualNotice.Show();
-            visualNotice.Opacity = 0.01;
             visualNotice.Location = new Point(mainFormLocation.X + visualMain.Width, mainFormLocation.Y);
         }
 
@@ -83,7 +86,7 @@ namespace TodoList {
             if (tickCount > fadeInOut_Tick + MessageNotice.getInstance().AliveTime)
                 noticeForm_fade(false);
             if (tickCount == fadeInOut_Tick * 2 + MessageNotice.getInstance().AliveTime) {
-                visualNotice.Close();
+                visualNotice.Hide();
                 if (closeAllForm)
                     visualMain.Close();
             }
@@ -122,8 +125,14 @@ namespace TodoList {
                 }
                 _count++;
             }
-            for(int i = 0; i < 5; i++) 
+            for (int i = 0; i < 5; i++) {
                 labelList[i].Visible = labelList[i].Text == "null" ? false : true;
+                btn_delList[i].Visible = labelList[i].Text == "null" ? false : true;
+                btn_editList[i].Visible = labelList[i].Text == "null" ? false : true;
+                labelList[i].Location = labelListStartLocation[i];
+                isLabelMenuOffseting[i] = false;
+                lableMenuOffsetStatus[i] = false;
+            }
         }
 
         public void addItem() {
@@ -131,10 +140,15 @@ namespace TodoList {
             showPage();
         }
 
+        public void delItem(int index) {
+            ItemList.getInstance().delItme(ItemList.getInstance().getListByPage(nowPage)[index].index);
+            showPage();
+        }
+
         public void item_mouseClick(int item_index, int nowTick) {
             foreach(bool x in isLabelMenuOffseting) {
                 if (x) {
-                    sendNotice("Error:menuIsOffseting", 3);
+                    sendNotice("Error:Menu is offseting now.", 2);
                     return;
                 }
             }

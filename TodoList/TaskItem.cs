@@ -59,9 +59,5 @@ namespace TodoList {
         public string itemToString() {
             return String.Format("index:{0}&isStar:{1}&title:{2}&moreText:{3}#", index, isStar, title, MoreText);
         }
-        
-        public void show() {
-
-        }
     }
 }

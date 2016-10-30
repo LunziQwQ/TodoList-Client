@@ -68,7 +68,16 @@ namespace TodoList {
         }
 
         public void addItem() {
-            list.Add(new TaskItem());
+            TaskItem _tempItem = new TaskItem();
+            _tempItem.index = list.Count;
+            list.Add(_tempItem);
+        }
+
+        public void delItme(int _index) {
+            Predicate<TaskItem> FindValue = delegate (TaskItem x) {
+                return x.index == _index;
+            };
+            list.Remove(list.Find(FindValue));
         }
     }
 }

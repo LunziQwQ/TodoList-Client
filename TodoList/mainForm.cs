@@ -43,7 +43,13 @@ namespace TodoList {
             //visualManager类的初始值传递
             visualManager.visualMain = this;
             visualManager.labelList =new Label[]{ TaskItem1, TaskItem2, TaskItem3, TaskItem4, TaskItem5};
+            foreach(Label x in visualManager.labelList) 
+                x.BringToFront();
+            #region
             visualManager.labelListStartLocation = new Point[] { TaskItem1.Location, TaskItem2.Location, TaskItem3.Location, TaskItem4.Location, TaskItem5.Location };
+            visualManager.btn_delList = new Label[] { btn_del1, btn_del2, btn_del3, btn_del4, btn_del5 };
+            visualManager.btn_editList = new Label[] { btn_edit1, btn_edit2, btn_edit3, btn_edit4, btn_edit5 };
+            #endregion
             visualManager.sendNotice(ItemList.getInstance().init() ? "    Welcome, Click here to hide this notice." : "Error:TaskItem init faild", 2);
             visualManager.showPage();
         }
@@ -76,7 +82,7 @@ namespace TodoList {
             visualManager.addItem();
         }
 
-        #region LabelList_MouseClickEvent
+        #region LabelList_MouseRightClickEvent
         private void TaskItem1_MouseClick(object sender, MouseEventArgs e) {
             if (e.Button == MouseButtons.Right)
                 visualManager.item_mouseClick(1, tickCount);
@@ -102,11 +108,35 @@ namespace TodoList {
                 visualManager.item_mouseClick(5, tickCount);
         }
         #endregion
+        #region btn_delListClickEvent
+        private void btn_del1_Click(object sender, EventArgs e) {
+            visualManager.delItem(0);
+        }
 
+        private void btn_del2_Click(object sender, EventArgs e) {
+            visualManager.delItem(1);
+        }
+
+        private void btn_del3_Click(object sender, EventArgs e) {
+            visualManager.delItem(2);
+        }
+
+        private void btn_del4_Click(object sender, EventArgs e) {
+            visualManager.delItem(3);
+        }
+
+        private void btn_del5_Click(object sender, EventArgs e) {
+            visualManager.delItem(4);
+        }
+        #endregion
         private void timer1_Tick(object sender, EventArgs e) {
             tickCount++;
             Debug.Print("-->"+tickCount.ToString());
             visualManager.mainForm_menuOffsetByTimer(tickCount);
+        }
+
+        private void btn_edit1_Click(object sender, EventArgs e) {
+            
         }
     }
 }
