@@ -18,3 +18,6 @@ D:\Project\C#\TodoList\TodoList\obj\Debug\TodoList.pdb
 F:\Project\C#\TodoList\TodoList\obj\Debug\TodoList.csprojResolveAssemblyReference.cache
 F:\Project\C#\TodoList\TodoList\obj\Debug\TodoList.noticeForm.resources
 D:\Project\C#\TodoList\TodoList\obj\Debug\TodoList.noticeForm.resources
+F:\Project\C#\TodoList\C#\TodoList\bin\Debug\TodoList.exe.config
+F:\Project\C#\TodoList\C#\TodoList\obj\Debug\TodoList.exe
+F:\Project\C#\TodoList\C#\TodoList\obj\Debug\TodoList.pdb
