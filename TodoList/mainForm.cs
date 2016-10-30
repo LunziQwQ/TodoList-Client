@@ -16,6 +16,7 @@ namespace TodoList {
         private VisualManager visualManager = VisualManager.getInstance();
         private FileManager fileManager = FileManager.getInstance();
         
+        private int tickCount = 0;
 
         public mainForm() {
             InitializeComponent();
@@ -42,7 +43,9 @@ namespace TodoList {
             //visualManager类的初始值传递
             visualManager.visualMain = this;
             visualManager.labelList =new Label[]{ TaskItem1, TaskItem2, TaskItem3, TaskItem4, TaskItem5};
+            visualManager.labelListStartLocation = new Point[] { TaskItem1.Location, TaskItem2.Location, TaskItem3.Location, TaskItem4.Location, TaskItem5.Location };
             visualManager.sendNotice(ItemList.getInstance().init() ? "    Welcome, Click here to hide this notice." : "Error:TaskItem init faild", 2);
+            visualManager.showPage();
         }
 
 
@@ -61,19 +64,49 @@ namespace TodoList {
 
         //**********************************************************
 
-        private void label1_Click(object sender, EventArgs e) {
-              
-            /*SaveFileDialog a = new SaveFileDialog();
-            Debug.Print("-->"+(a.ShowDialog()==DialogResult.Cancel).ToString());
-            Debug.Print("-->Path: " + a.FileName);*/
-        }
-
         private void btn_pgUp_Click(object sender, EventArgs e) {
             visualManager.changePage(true);
         }
 
         private void btn_pgDn_Click(object sender, EventArgs e) {
             visualManager.changePage(false);
+        }
+
+        private void btn_add_Click(object sender, EventArgs e) {
+            visualManager.addItem();
+        }
+
+        #region LabelList_MouseClickEvent
+        private void TaskItem1_MouseClick(object sender, MouseEventArgs e) {
+            if (e.Button == MouseButtons.Right)
+                visualManager.item_mouseClick(1, tickCount);
+        }
+
+        private void TaskItem2_MouseClick(object sender, MouseEventArgs e) {
+            if (e.Button == MouseButtons.Right)
+                visualManager.item_mouseClick(2, tickCount);
+        }
+
+        private void TaskItem3_MouseClick(object sender, MouseEventArgs e) {
+            if (e.Button == MouseButtons.Right)
+                visualManager.item_mouseClick(3, tickCount);
+        }
+
+        private void TaskItem4_MouseClick(object sender, MouseEventArgs e) {
+            if (e.Button == MouseButtons.Right)
+                visualManager.item_mouseClick(4, tickCount);
+        }
+
+        private void TaskItem5_MouseClick(object sender, MouseEventArgs e) {
+            if (e.Button == MouseButtons.Right)
+                visualManager.item_mouseClick(5, tickCount);
+        }
+        #endregion
+
+        private void timer1_Tick(object sender, EventArgs e) {
+            tickCount++;
+            Debug.Print("-->"+tickCount.ToString());
+            visualManager.mainForm_menuOffsetByTimer(tickCount);
         }
     }
 }

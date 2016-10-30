@@ -15,9 +15,11 @@ namespace TodoList {
         public bool isStar;
         public int index;
 
-        public TaskItem() { }
+        public TaskItem() {
+            title = "Please edit the new item";
+        }
         public TaskItem(bool isNull) {
-            title = "NULL";
+            title = "null";
         }
 
         public string Title {
@@ -39,7 +41,6 @@ namespace TodoList {
                     VisualManager.getInstance().sendNotice("Error:TextLength out of the MaxTextLength.", 3);
             }
         }
-
         public bool stringToItem(string itemContent) {
             Debug.Print("--> Content: " + itemContent);
             string[] temp = itemContent.Split(new char[] {'&'});

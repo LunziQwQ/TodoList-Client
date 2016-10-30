@@ -14,15 +14,23 @@ namespace TodoList {
 
         //淡入淡出时间：设置前面的数字，单位为ms
         private const int fadeInOut_Tick = 500 / 10;
-
         private const int taskItemLabel_Heigth = 80;
 
-        public mainForm visualMain;         //主窗口视图实例
-        public noticeForm visualNotice;     //通知窗口视图实例 
-        public Label[] labelList;           //主窗口的五个控件列表
-        public bool closeAllForm = false;
-        private int fadeTickCount = 0;
-        private int nowPage = 1;
+        private const int labelMenuOffset = 100;
+        private const int offsetAcceleration = 1;
+
+        public mainForm visualMain;             //主窗口视图实例
+        public noticeForm visualNotice;         //通知窗口视图实例 
+        public Label[] labelList;               //主窗口的五个label列表
+        public Point[] labelListStartLocation;  //主窗口的五个label初始位置
+        public bool closeAllForm = false;       //判断是否为点击关闭按钮后触发的消息窗口
+        private int fadeTickCount = 0;          //消息窗口的tickcount
+        private int nowPage = 1;                //当前主窗口列表页数
+        private int menuOffsetStartTick;
+
+        private bool[] isLabelMenuOffseting = new bool[5];
+        private bool[] lableMenuOffsetStatus = new bool[5]; //true offseted,false origin position
+
 
         //实现单例模式
         private VisualManager(){}
@@ -93,23 +101,60 @@ namespace TodoList {
         }
 
         public void changePage(bool isNext) {
+            int _tempPage = nowPage;
             nowPage += isNext ? 1 : -1;
-            if (nowPage >= 1)
-                showPage(nowPage);
-            else
+            if (nowPage >= 1 && nowPage <= 5)
+                showPage();
+            else {
                 sendNotice("Error: No more page to change.", 2);
-        }
-
-        public void showPage(int page) {
-            TaskItem[] temp = ItemList.getInstance().getListByPage(nowPage);
-            foreach(TaskItem x in temp) {
-                Label _tempTabel = labelList[x.index % 5];
-                _tempTabel.Visible = x.Title.Equals("NULL") ? false : true;
-                if(_tempTabel.Visible)
-                    _tempTabel.Text = x.Title;
-                if (x.isStar) 
-                    _tempTabel.BackColor = Color.Orange;
+                nowPage = _tempPage;
             }
         }
+
+        public void showPage() {
+            TaskItem[] temp = ItemList.getInstance().getListByPage(nowPage);
+            int _count = 0;
+            foreach (TaskItem x in temp) {
+                if(x.Title != "") {
+                    labelList[_count].Text = x.Title;
+                    if (x.isStar)
+                        labelList[_count].BackColor = Color.Orange;
+                }
+                _count++;
+            }
+            for(int i = 0; i < 5; i++) 
+                labelList[i].Visible = labelList[i].Text == "null" ? false : true;
+        }
+
+        public void addItem() {
+            ItemList.getInstance().addItem();
+            showPage();
+        }
+
+        public void item_mouseClick(int item_index, int nowTick) {
+            foreach(bool x in isLabelMenuOffseting) {
+                if (x) {
+                    sendNotice("Error:menuIsOffseting", 3);
+                    return;
+                }
+            }
+            menuOffsetStartTick = nowTick;
+            isLabelMenuOffseting[item_index - 1] = true;
+        }
+
+       
+        public void mainForm_menuOffsetByTimer(int tickCount) {
+            int _tempCount = tickCount - menuOffsetStartTick,
+                _tempAcceleration = _tempCount/4 * offsetAcceleration;
+            for (int i = 0; i < 5; i++)
+                if (isLabelMenuOffseting[i] && _tempCount <= 30) {
+                    labelList[i].Location = new Point(labelList[i].Location.X + (lableMenuOffsetStatus[i] ? 1 + _tempAcceleration : -(1 + _tempAcceleration)), labelList[i].Location.Y);
+                    if (_tempCount == 30) {
+                        isLabelMenuOffseting[i] = false;
+                        lableMenuOffsetStatus[i] = !lableMenuOffsetStatus[i];
+                    } 
+                }
+        }
+        //将菜单移动方法抽成独立函数，与菜单逻辑分离
     }
 }

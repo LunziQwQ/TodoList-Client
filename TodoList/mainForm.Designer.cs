@@ -23,6 +23,7 @@
         /// the contents of this method with the code editor.
         /// </summary>
         private void InitializeComponent() {
+            this.components = new System.ComponentModel.Container();
             this.btn_close = new System.Windows.Forms.Button();
             this.TitleLabel = new System.Windows.Forms.Label();
             this.TaskItem1 = new System.Windows.Forms.Label();
@@ -30,10 +31,11 @@
             this.TaskItem3 = new System.Windows.Forms.Label();
             this.TaskItem4 = new System.Windows.Forms.Label();
             this.TaskItem5 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
+            this.PageIndex = new System.Windows.Forms.Label();
             this.btn_pgUp = new System.Windows.Forms.Button();
             this.btn_pgDn = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
+            this.btn_add = new System.Windows.Forms.Button();
+            this.mainFormTimer = new System.Windows.Forms.Timer(this.components);
             this.SuspendLayout();
             // 
             // btn_close
@@ -73,14 +75,14 @@
             this.TaskItem1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.TaskItem1.Font = new System.Drawing.Font("Microsoft YaHei", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.TaskItem1.ForeColor = System.Drawing.Color.Black;
-            this.TaskItem1.Location = new System.Drawing.Point(8, 75);
+            this.TaskItem1.Location = new System.Drawing.Point(3, 75);
             this.TaskItem1.Margin = new System.Windows.Forms.Padding(0);
             this.TaskItem1.Name = "TaskItem1";
             this.TaskItem1.Size = new System.Drawing.Size(430, 80);
             this.TaskItem1.TabIndex = 3;
-            this.TaskItem1.Text = "今天三点去厚德楼";
+            this.TaskItem1.Text = "undefined";
             this.TaskItem1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.TaskItem1.Click += new System.EventHandler(this.label1_Click);
+            this.TaskItem1.MouseClick += new System.Windows.Forms.MouseEventHandler(this.TaskItem1_MouseClick);
             // 
             // TaskItem2
             // 
@@ -93,8 +95,9 @@
             this.TaskItem2.Name = "TaskItem2";
             this.TaskItem2.Size = new System.Drawing.Size(430, 80);
             this.TaskItem2.TabIndex = 4;
-            this.TaskItem2.Text = "今天三点去厚德楼";
+            this.TaskItem2.Text = "undefined";
             this.TaskItem2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.TaskItem2.MouseClick += new System.Windows.Forms.MouseEventHandler(this.TaskItem2_MouseClick);
             // 
             // TaskItem3
             // 
@@ -107,8 +110,9 @@
             this.TaskItem3.Name = "TaskItem3";
             this.TaskItem3.Size = new System.Drawing.Size(430, 80);
             this.TaskItem3.TabIndex = 5;
-            this.TaskItem3.Text = "今天三点去厚德楼";
+            this.TaskItem3.Text = "undefined";
             this.TaskItem3.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.TaskItem3.MouseClick += new System.Windows.Forms.MouseEventHandler(this.TaskItem3_MouseClick);
             // 
             // TaskItem4
             // 
@@ -121,8 +125,9 @@
             this.TaskItem4.Name = "TaskItem4";
             this.TaskItem4.Size = new System.Drawing.Size(430, 80);
             this.TaskItem4.TabIndex = 6;
-            this.TaskItem4.Text = "今天三点去厚德楼";
+            this.TaskItem4.Text = "undefined";
             this.TaskItem4.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.TaskItem4.MouseClick += new System.Windows.Forms.MouseEventHandler(this.TaskItem4_MouseClick);
             // 
             // TaskItem5
             // 
@@ -135,20 +140,21 @@
             this.TaskItem5.Name = "TaskItem5";
             this.TaskItem5.Size = new System.Drawing.Size(430, 80);
             this.TaskItem5.TabIndex = 7;
-            this.TaskItem5.Text = "今天三点去厚德楼";
+            this.TaskItem5.Text = "undefined";
             this.TaskItem5.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.TaskItem5.MouseClick += new System.Windows.Forms.MouseEventHandler(this.TaskItem5_MouseClick);
             // 
-            // label5
+            // PageIndex
             // 
-            this.label5.BackColor = System.Drawing.Color.Transparent;
-            this.label5.Font = new System.Drawing.Font("Microsoft YaHei", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label5.ForeColor = System.Drawing.Color.DimGray;
-            this.label5.Location = new System.Drawing.Point(167, 529);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(100, 23);
-            this.label5.TabIndex = 8;
-            this.label5.Text = "1  ·  ·  ·  · ";
-            this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.PageIndex.BackColor = System.Drawing.Color.Transparent;
+            this.PageIndex.Font = new System.Drawing.Font("Microsoft YaHei", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.PageIndex.ForeColor = System.Drawing.Color.DimGray;
+            this.PageIndex.Location = new System.Drawing.Point(167, 529);
+            this.PageIndex.Name = "PageIndex";
+            this.PageIndex.Size = new System.Drawing.Size(100, 23);
+            this.PageIndex.TabIndex = 8;
+            this.PageIndex.Text = "1  ·  ·  ·  · ";
+            this.PageIndex.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // btn_pgUp
             // 
@@ -178,18 +184,24 @@
             this.btn_pgDn.UseVisualStyleBackColor = true;
             this.btn_pgDn.Click += new System.EventHandler(this.btn_pgDn_Click);
             // 
-            // button4
+            // btn_add
             // 
-            this.button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button4.Font = new System.Drawing.Font("Microsoft YaHei", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button4.ForeColor = System.Drawing.Color.DimGray;
-            this.button4.Location = new System.Drawing.Point(14, 564);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(51, 40);
-            this.button4.TabIndex = 11;
-            this.button4.Text = "S";
-            this.button4.TextAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.button4.UseVisualStyleBackColor = true;
+            this.btn_add.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_add.Font = new System.Drawing.Font("Microsoft YaHei", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_add.ForeColor = System.Drawing.Color.DimGray;
+            this.btn_add.Location = new System.Drawing.Point(14, 564);
+            this.btn_add.Name = "btn_add";
+            this.btn_add.Size = new System.Drawing.Size(50, 40);
+            this.btn_add.TabIndex = 11;
+            this.btn_add.Text = "+";
+            this.btn_add.UseVisualStyleBackColor = true;
+            this.btn_add.Click += new System.EventHandler(this.btn_add_Click);
+            // 
+            // mainFormTimer
+            // 
+            this.mainFormTimer.Enabled = true;
+            this.mainFormTimer.Interval = 10;
+            this.mainFormTimer.Tick += new System.EventHandler(this.timer1_Tick);
             // 
             // mainForm
             // 
@@ -197,10 +209,10 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(445, 616);
-            this.Controls.Add(this.button4);
+            this.Controls.Add(this.btn_add);
             this.Controls.Add(this.btn_pgUp);
             this.Controls.Add(this.btn_pgDn);
-            this.Controls.Add(this.label5);
+            this.Controls.Add(this.PageIndex);
             this.Controls.Add(this.TaskItem5);
             this.Controls.Add(this.TaskItem4);
             this.Controls.Add(this.TaskItem3);
@@ -233,10 +245,11 @@
         private System.Windows.Forms.Label TaskItem3;
         private System.Windows.Forms.Label TaskItem4;
         private System.Windows.Forms.Label TaskItem5;
-        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label PageIndex;
         private System.Windows.Forms.Button btn_pgUp;
         private System.Windows.Forms.Button btn_pgDn;
-        private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.Button btn_add;
+        private System.Windows.Forms.Timer mainFormTimer;
     }
 }
 

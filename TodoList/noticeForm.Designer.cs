@@ -26,7 +26,6 @@
             this.components = new System.ComponentModel.Container();
             this.NoticeText = new System.Windows.Forms.Label();
             this.Timer = new System.Windows.Forms.Timer(this.components);
-            this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
             this.SuspendLayout();
             // 
             // NoticeText
@@ -69,6 +68,5 @@
 
         private System.Windows.Forms.Label NoticeText;
         private System.Windows.Forms.Timer Timer;
-        private System.Windows.Forms.SaveFileDialog saveFileDialog1;
     }
 }
