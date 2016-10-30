@@ -16,7 +16,7 @@ namespace TodoList {
         private VisualManager visualManager = VisualManager.getInstance();
         private FileManager fileManager = FileManager.getInstance();
         
-        private int tickCount = 0;
+        private int tickCount = -1;
 
         public mainForm() {
             InitializeComponent();
