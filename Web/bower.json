@@ -1,0 +1,30 @@
+{
+  "name": "TodoList",
+  "homepage": "https://github.com/LunziQwQ/TodoList_ByCloudSync",
+  "authors": [
+    "XX",
+    "Lunzi"
+  ],
+  "description": "The web frontEnd of TodoList",
+  "main": "index.html",
+  "keywords": [
+    "web",
+    "frontEnd",
+    "TodoList"
+  ],
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "html5shiv": "^3.7.3",
+    "respond": "^1.4.2",
+    "jquery": "^3.1.1",
+    "font-awesome": "^4.7.0"
+  }
+}
