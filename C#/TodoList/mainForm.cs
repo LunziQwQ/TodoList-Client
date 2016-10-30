@@ -45,10 +45,11 @@ namespace TodoList {
             visualManager.labelList =new Label[]{ TaskItem1, TaskItem2, TaskItem3, TaskItem4, TaskItem5};
             foreach(Label x in visualManager.labelList) 
                 x.BringToFront();
-            #region
+            #region someToolSendToClass"VisiualManager"
             visualManager.labelListStartLocation = new Point[] { TaskItem1.Location, TaskItem2.Location, TaskItem3.Location, TaskItem4.Location, TaskItem5.Location };
             visualManager.btn_delList = new Label[] { btn_del1, btn_del2, btn_del3, btn_del4, btn_del5 };
             visualManager.btn_editList = new Label[] { btn_edit1, btn_edit2, btn_edit3, btn_edit4, btn_edit5 };
+            visualManager.pageIndex = this.PageIndex;
             #endregion
             visualManager.sendNotice(ItemList.getInstance().init() ? "    Welcome, Click here to hide this notice." : "Error:TaskItem init faild", 2);
             visualManager.showPage();

@@ -24,13 +24,20 @@ namespace TodoList {
         public Point[] labelListStartLocation;  //主窗口的五个label初始位置
         public Label[] btn_delList;             //主窗口的五个删除按钮列表
         public Label[] btn_editList;            //主窗口的五个编辑按钮列表
+        public Label pageIndex;                 //主窗口的页码label
         public bool closeAllForm = false;       //判断是否为点击关闭按钮后触发的消息窗口
         private int nowPage = 1;                //当前主窗口列表页数
         private int menuOffsetStartTick;
 
         private bool[] isLabelMenuOffseting = new bool[5];
         private bool[] lableMenuOffsetStatus = new bool[5]; //true offseted,false origin position
-
+        private string[] pageIndexTextList =  {
+            "1  ·  ·  ·  · ",
+            "·  2  ·  ·  · ",
+            "·  ·  3  ·  · ",
+            "·  ·  ·  4  · ",
+            "·  ·  ·  ·  5 ",
+        };
 
         //实现单例模式
         private VisualManager(){}
@@ -87,9 +94,10 @@ namespace TodoList {
         public void changePage(bool isNext) {
             int _tempPage = nowPage;
             nowPage += isNext ? 1 : -1;
-            if (nowPage >= 1 && nowPage <= 5)
+            if (nowPage >= 1 && nowPage <= 5) {
                 showPage();
-            else {
+                pageIndex.Text = pageIndexTextList[nowPage - 1];
+            } else {
                 sendNotice("Error: No more page to change.", 2);
                 nowPage = _tempPage;
             }
