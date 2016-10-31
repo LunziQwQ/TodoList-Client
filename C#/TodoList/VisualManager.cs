@@ -73,21 +73,20 @@ namespace TodoList {
         private Point moveForm_FormStartPosition = new Point(0, 0);        //触发mouseDown时的初始窗口坐标，用于实现窗口偏移
         private bool isMoveFormEvent = false;
 
-        public void moveForm_MouseDown(object sender, MouseEventArgs e) {
+        public void moveForm_MouseDown(Point location) {
             isMoveFormEvent = true;
-            moveForm_MouseStartPosition = visualMain.PointToScreen(e.Location);
+            moveForm_MouseStartPosition = visualMain.PointToScreen(location);
             moveForm_FormStartPosition = visualMain.Location;
         }
-        public void moveForm_MouseUP(object sender, MouseEventArgs e) {
+        public void moveForm_MouseUP() {
             isMoveFormEvent = false;
             moveForm_MouseStartPosition = new Point(0, 0);
             moveForm_FormStartPosition = new Point(0, 0);
         }
-        public void moveForm_MouseMove(object sender, MouseEventArgs e) {
+        public void moveForm_MouseMove() {
             if (isMoveFormEvent) {
                 Point offset = new Point(Control.MousePosition.X - moveForm_MouseStartPosition.X, Control.MousePosition.Y - moveForm_MouseStartPosition.Y);
                 visualMain.Location = new Point(moveForm_FormStartPosition.X + offset.X, moveForm_FormStartPosition.Y + offset.Y);  //移动主窗口
-                //visualNotice.Location = new Point(visualMain.Location.X + visualMain.Width, visualMain.Location.Y);                 //使通知窗口随主窗口移动
             }
         }
 
@@ -134,6 +133,15 @@ namespace TodoList {
             showPage();
         }
 
+        public void editItem(int index) {
+            ItemEditForm visualEdit = new ItemEditForm(index, nowPage);
+            visualEdit.Show();
+        }
+        public void changeIsStar(int index) {
+            bool _temp = ItemList.getInstance().getListByPage(nowPage)[index].isStar;
+            _temp = !_temp;
+        }
+
         public void item_mouseClick(int item_index, int nowTick) {
             foreach(bool x in isLabelMenuOffseting) {
                 if (x) {
@@ -149,15 +157,15 @@ namespace TodoList {
         public void mainForm_menuOffsetByTimer(int tickCount) {
             int _tempCount = tickCount - menuOffsetStartTick,
                 _tempAcceleration = _tempCount/4 * offsetAcceleration;
-            for (int i = 0; i < 5; i++)
+            for (int i = 0; i < 5; i++) {
                 if (isLabelMenuOffseting[i] && _tempCount <= 30) {
                     labelList[i].Location = new Point(labelList[i].Location.X + (lableMenuOffsetStatus[i] ? 1 + _tempAcceleration : -(1 + _tempAcceleration)), labelList[i].Location.Y);
                     if (_tempCount == 30) {
                         isLabelMenuOffseting[i] = false;
                         lableMenuOffsetStatus[i] = !lableMenuOffsetStatus[i];
-                    } 
+                    }
                 }
+            }
         }
-        //将菜单移动方法抽成独立函数，与菜单逻辑分离
     }
 }

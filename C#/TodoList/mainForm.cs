@@ -58,13 +58,13 @@ namespace TodoList {
 
         //实现点击窗口非控件区域时拖动窗口改变窗口位置*****************
         private void mainForm_MouseDown(object sender, MouseEventArgs e) {
-            visualManager.moveForm_MouseDown(sender, e);
+            visualManager.moveForm_MouseDown(e.Location);
         }
         private void mainForm_MouseUp(object sender, MouseEventArgs e) {
-            visualManager.moveForm_MouseUP(sender, e);
+            visualManager.moveForm_MouseUP();
         }
         private void mainForm_MouseMove(object sender, MouseEventArgs e) {
-            visualManager.moveForm_MouseMove(sender, e);
+            visualManager.moveForm_MouseMove();
         }
 
 
@@ -130,14 +130,33 @@ namespace TodoList {
             visualManager.delItem(4);
         }
         #endregion
+        #region btn_editClickEventList
+        private void btn_edit1_Click(object sender, EventArgs e) {
+            visualManager.editItem(0);
+        }
+
+        private void btn_edit2_Click(object sender, EventArgs e) {
+            visualManager.editItem(1);
+        }
+
+        private void btn_edit3_Click(object sender, EventArgs e) {
+            visualManager.editItem(2);
+        }
+
+        private void btn_edit4_Click(object sender, EventArgs e) {
+            visualManager.editItem(3);
+        }
+
+        private void btn_edit5_Click(object sender, EventArgs e) {
+            visualManager.editItem(4);
+        }
+        #endregion
+
         private void timer1_Tick(object sender, EventArgs e) {
             tickCount++;
             Debug.Print("-->"+tickCount.ToString());
             visualManager.mainForm_menuOffsetByTimer(tickCount);
         }
 
-        private void btn_edit1_Click(object sender, EventArgs e) {
-            
-        }
     }
 }

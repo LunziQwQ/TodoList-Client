@@ -63,7 +63,6 @@ namespace TodoList {
                 Debug.Print("-->"+_tempList[_count].Title);
                 _count++;
             }
-
             return _tempList;
         }
 
@@ -74,10 +73,18 @@ namespace TodoList {
         }
 
         public void delItme(int _index) {
+            list.Remove(getItemByIndex(_index));
+        }
+
+        public void editItem(int _index, string text) {
+            getItemByIndex(_index).Title = text;
+        }
+
+        private TaskItem getItemByIndex(int _index) {
             Predicate<TaskItem> FindValue = delegate (TaskItem x) {
                 return x.index == _index;
             };
-            list.Remove(list.Find(FindValue));
+            return list.Find(FindValue);
         }
     }
 }
