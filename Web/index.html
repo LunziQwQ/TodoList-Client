@@ -6,9 +6,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>TodoList</title>
 
-    <link href="bower_components/font-awesome/css/font-awesome.min.css">
-    <link href="widgets/general.css">
-    <link href="widgets/header.css">
+    <link href="widgets/cssreset-context-min.css" rel="stylesheet">
+    <link href="bower_components/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+    <link href="widgets/general.css" rel="stylesheet">
+    <link href="widgets/header.css" rel="stylesheet">
 
     <!--[if lt IE 9]>
       <script src="bower_components/html5shiv/dist/html5shiv.min.js"></script>
@@ -18,17 +19,32 @@
 <body>
 
 <header>
-    <div class="brand">
-        <a href="index.html">
-            <img src="" alt="brand">
-        </a>
-    </div>
-    <div class="search">
+    <div class="container">
+        <div class="header-left">
+            <a href="index.html">
+                <img src="images/logo_temp.png" alt="brand">
+            </a>
+            <a href="javascript:void(0);"><i class="fa fa-bars" aria-hidden="true"></i></a>
+        </div><!-- / header-left -->
 
-    </div>
+        <div class="header-right">
+            <a href="javascript:void(0);"><i class="fa fa-plus" aria-hidden="true"></i></i></a>
+            <a href="javascript:void(0);"><i class="fa fa-bell-o" aria-hidden="true"></i></a>
+            <a href="javascript:void(0);"><i class="fa fa-cog" aria-hidden="true"></i></a>
+        </div><!-- / header-left -->
+
+        <div class="search">
+            <div>
+                <i class="fa fa-search" aria-hidden="true"></i>
+                <input type="text" placeholder="快速查找">
+            </div>
+        </div><!-- / search -->
+    </div><!-- / container -->
 </header>
 
 <script src="bower_components/jquery/dist/jquery.min.js"></script>
+<script src="widgets/header.js"></script>
+
 
 </body>
 </html>
