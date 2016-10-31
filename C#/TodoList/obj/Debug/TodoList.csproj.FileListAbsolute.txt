@@ -39,3 +39,4 @@ D:\Project\C#\TodoList\C#\TodoList\obj\Debug\TodoList.csproj.GenerateResource.Ca
 D:\Project\C#\TodoList\C#\TodoList\obj\Debug\TodoList.exe
 D:\Project\C#\TodoList\C#\TodoList\obj\Debug\TodoList.pdb
 D:\Project\C#\TodoList\C#\TodoList\obj\Debug\TodoList.ItemEditForm.resources
+F:\Project\C#\TodoList\C#\TodoList\obj\Debug\TodoList.ItemEditForm.resources

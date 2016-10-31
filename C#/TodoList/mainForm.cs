@@ -58,13 +58,13 @@ namespace TodoList {
 
         //实现点击窗口非控件区域时拖动窗口改变窗口位置*****************
         private void mainForm_MouseDown(object sender, MouseEventArgs e) {
-            visualManager.moveForm_MouseDown(e.Location);
+            visualManager.moveForm_MouseDown(e.Location, this);
         }
         private void mainForm_MouseUp(object sender, MouseEventArgs e) {
             visualManager.moveForm_MouseUP();
         }
         private void mainForm_MouseMove(object sender, MouseEventArgs e) {
-            visualManager.moveForm_MouseMove();
+            visualManager.moveForm_MouseMove(this);
         }
 
 

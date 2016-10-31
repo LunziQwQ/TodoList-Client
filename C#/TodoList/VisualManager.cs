@@ -73,20 +73,20 @@ namespace TodoList {
         private Point moveForm_FormStartPosition = new Point(0, 0);        //触发mouseDown时的初始窗口坐标，用于实现窗口偏移
         private bool isMoveFormEvent = false;
 
-        public void moveForm_MouseDown(Point location) {
+        public void moveForm_MouseDown(Point location, Form form) {
             isMoveFormEvent = true;
-            moveForm_MouseStartPosition = visualMain.PointToScreen(location);
-            moveForm_FormStartPosition = visualMain.Location;
+            moveForm_MouseStartPosition = form.PointToScreen(location);
+            moveForm_FormStartPosition = form.Location;
         }
         public void moveForm_MouseUP() {
             isMoveFormEvent = false;
             moveForm_MouseStartPosition = new Point(0, 0);
             moveForm_FormStartPosition = new Point(0, 0);
         }
-        public void moveForm_MouseMove() {
+        public void moveForm_MouseMove(Form form) {
             if (isMoveFormEvent) {
                 Point offset = new Point(Control.MousePosition.X - moveForm_MouseStartPosition.X, Control.MousePosition.Y - moveForm_MouseStartPosition.Y);
-                visualMain.Location = new Point(moveForm_FormStartPosition.X + offset.X, moveForm_FormStartPosition.Y + offset.Y);  //移动主窗口
+                form.Location = new Point(moveForm_FormStartPosition.X + offset.X, moveForm_FormStartPosition.Y + offset.Y);  //移动主窗口
             }
         }
 
@@ -108,8 +108,7 @@ namespace TodoList {
             foreach (TaskItem x in temp) {
                 if(x.Title != "") {
                     labelList[_count].Text = x.Title;
-                    if (x.isStar)
-                        labelList[_count].BackColor = Color.Orange;
+                    labelList[_count].BackColor = x.isStar ? Color.Orange : Color.WhiteSmoke;
                 }
                 _count++;
             }
@@ -122,6 +121,9 @@ namespace TodoList {
                 lableMenuOffsetStatus[i] = false;
             }
         }
+        public TaskItem getItemByVisualIndex(int index) {
+            return ItemList.getInstance().getListByPage(nowPage)[index];
+        }
 
         public void addItem() {
             ItemList.getInstance().addItem();
@@ -129,7 +131,8 @@ namespace TodoList {
         }
 
         public void delItem(int index) {
-            ItemList.getInstance().delItme(ItemList.getInstance().getListByPage(nowPage)[index].index);
+            ItemList.getInstance()
+                .delItme(getItemByVisualIndex(index).index);
             showPage();
         }
 
@@ -138,8 +141,8 @@ namespace TodoList {
             visualEdit.Show();
         }
         public void changeIsStar(int index) {
-            bool _temp = ItemList.getInstance().getListByPage(nowPage)[index].isStar;
-            _temp = !_temp;
+            ItemList.getInstance()
+                .changeIsStar(getItemByVisualIndex(index).index);
         }
 
         public void item_mouseClick(int item_index, int nowTick) {

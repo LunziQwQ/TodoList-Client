@@ -80,11 +80,17 @@ namespace TodoList {
             getItemByIndex(_index).Title = text;
         }
 
+        public void changeIsStar(int _index) {
+            getItemByIndex(_index).isStar = !getItemByIndex(_index).isStar;
+        }
+
         private TaskItem getItemByIndex(int _index) {
             Predicate<TaskItem> FindValue = delegate (TaskItem x) {
                 return x.index == _index;
             };
             return list.Find(FindValue);
         }
+
+
     }
 }
