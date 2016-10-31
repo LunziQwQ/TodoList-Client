@@ -48,8 +48,8 @@ namespace TodoList {
         }
 
         private void btn_isStar_Click(object sender, EventArgs e) {
-            btn_isStar.BackColor = !thisItem.isStar ? Color.Orange : Color.White;
             visualManager.changeIsStar(index);
+            btn_isStar.BackColor = thisItem.isStar ? Color.Orange : Color.White;
         }
     }
 }
