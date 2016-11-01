@@ -29,6 +29,10 @@ namespace TodoList {
         private int nowPage = 1;                //当前主窗口列表页数
         private int menuOffsetStartTick;
 
+        private bool isPageOffsetTurnLeft = false;
+        public bool isPageOffseting = false;
+        private int pageOffsetStartTick;
+
         private bool[] isLabelMenuOffseting = new bool[5];
         private bool[] lableMenuOffsetStatus = new bool[5]; //true offseted,false origin position
         private string[] pageIndexTextList =  {
@@ -190,9 +194,7 @@ namespace TodoList {
             }
         }
 
-        private bool isPageOffsetTurnLeft = false;
-        public bool isPageOffseting = false;
-        private int pageOffsetStartTick;
+
         public void mainForm_PageOffsetByTimer(int tickCount) {
             int _tempCount = tickCount - pageOffsetStartTick;
             if (isPageOffseting) {
@@ -218,5 +220,8 @@ namespace TodoList {
                 }
             }
         }
+        public void editForm_inputOutOfMaxLength() {
+            sendNotice("Error:Input out of max length",2);
+        } 
     }
 }

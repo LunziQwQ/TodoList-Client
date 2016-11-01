@@ -13,6 +13,9 @@ namespace TodoList {
         private VisualManager visualManager = VisualManager.getInstance();
         private int index, nowPage;
         private TaskItem thisItem;
+        private string tempSaveInputText;
+
+
         public ItemEditForm(int index,int nowPage) {
             InitializeComponent();
             this.index = index;
@@ -45,6 +48,22 @@ namespace TodoList {
 
         private void ItemEditForm_MouseMove(object sender, MouseEventArgs e) {
             visualManager.moveForm_MouseMove(this);
+        }
+
+        private void editText_KeyPress(object sender, KeyPressEventArgs e) {
+            if (e.KeyChar == (char)Keys.Enter)
+                btn_confirm_Click(sender, e);
+        }
+
+        private void editText_TextChanged(object sender, EventArgs e) {
+            if(editText.Text.Length >= TaskItem.maxTitleLength) {
+                visualManager.editForm_inputOutOfMaxLength();
+                editText.Focus();
+                editText.Text = tempSaveInputText;
+            } else {
+                tempSaveInputText = editText.Text;
+            }
+
         }
 
         private void btn_isStar_Click(object sender, EventArgs e) {

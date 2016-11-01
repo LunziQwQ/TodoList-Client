@@ -32,21 +32,22 @@
             // 
             // editText
             // 
-            this.editText.Location = new System.Drawing.Point(38, 22);
-            this.editText.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.editText.Location = new System.Drawing.Point(51, 27);
+            this.editText.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.editText.Multiline = true;
             this.editText.Name = "editText";
-            this.editText.Size = new System.Drawing.Size(276, 30);
+            this.editText.Size = new System.Drawing.Size(367, 36);
             this.editText.TabIndex = 0;
+            this.editText.TextChanged += new System.EventHandler(this.editText_TextChanged);
+            this.editText.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.editText_KeyPress);
             // 
             // btn_confirm
             // 
             this.btn_confirm.AutoSize = true;
             this.btn_confirm.Font = new System.Drawing.Font("Microsoft YaHei", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_confirm.Location = new System.Drawing.Point(61, 97);
-            this.btn_confirm.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.btn_confirm.Location = new System.Drawing.Point(81, 119);
             this.btn_confirm.Name = "btn_confirm";
-            this.btn_confirm.Size = new System.Drawing.Size(76, 22);
+            this.btn_confirm.Size = new System.Drawing.Size(93, 27);
             this.btn_confirm.TabIndex = 1;
             this.btn_confirm.Text = "Confirm";
             this.btn_confirm.Click += new System.EventHandler(this.btn_confirm_Click);
@@ -55,10 +56,9 @@
             // 
             this.btn_cancel.AutoSize = true;
             this.btn_cancel.Font = new System.Drawing.Font("Microsoft YaHei", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_cancel.Location = new System.Drawing.Point(236, 97);
-            this.btn_cancel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.btn_cancel.Location = new System.Drawing.Point(315, 119);
             this.btn_cancel.Name = "btn_cancel";
-            this.btn_cancel.Size = new System.Drawing.Size(62, 22);
+            this.btn_cancel.Size = new System.Drawing.Size(78, 27);
             this.btn_cancel.TabIndex = 3;
             this.btn_cancel.Text = "Cancel";
             this.btn_cancel.Click += new System.EventHandler(this.btn_cancel_Click);
@@ -66,26 +66,26 @@
             // btn_isStar
             // 
             this.btn_isStar.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btn_isStar.Location = new System.Drawing.Point(160, 65);
-            this.btn_isStar.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btn_isStar.Location = new System.Drawing.Point(213, 80);
+            this.btn_isStar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btn_isStar.Name = "btn_isStar";
-            this.btn_isStar.Size = new System.Drawing.Size(32, 33);
+            this.btn_isStar.Size = new System.Drawing.Size(43, 41);
             this.btn_isStar.TabIndex = 4;
             this.btn_isStar.TabStop = false;
             this.btn_isStar.Click += new System.EventHandler(this.btn_isStar_Click);
             // 
             // ItemEditForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(351, 135);
+            this.ClientSize = new System.Drawing.Size(468, 166);
             this.ControlBox = false;
             this.Controls.Add(this.btn_isStar);
             this.Controls.Add(this.btn_cancel);
             this.Controls.Add(this.btn_confirm);
             this.Controls.Add(this.editText);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "ItemEditForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "ItemEdit";

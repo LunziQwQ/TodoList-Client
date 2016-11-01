@@ -7,8 +7,8 @@ using System.Diagnostics;
 
 namespace TodoList {
     class TaskItem {
-        private const int maxTitleLength = 30;
-        private const int maxTextLength = 255;
+        public const int maxTitleLength = 30;
+        public const int maxTextLength = 255;
 
         private string title;
         private string moreText;
