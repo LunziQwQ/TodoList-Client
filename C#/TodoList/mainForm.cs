@@ -158,6 +158,5 @@ namespace TodoList {
             visualManager.mainForm_menuOffsetByTimer(tickCount);
             visualManager.mainForm_PageOffsetByTimer(tickCount);
         }
-
     }
 }

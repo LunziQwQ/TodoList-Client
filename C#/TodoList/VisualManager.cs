@@ -97,7 +97,10 @@ namespace TodoList {
                 isPageOffseting = true;
                 isPageOffsetTurnLeft = isNext;
                 pageOffsetStartTick = tickCount;
-                pageIndex.Text = pageIndexTextList[nowPage - 1];
+                for (int i = 0; i < 5; i++)  {
+                    btn_delList[i].Visible = false;
+                    btn_editList[i].Visible = false;
+                }
             } else {
                 sendNotice("Error: No more page to change.", 2);
                 nowPage = _tempPage;
@@ -105,23 +108,37 @@ namespace TodoList {
         }
 
         public void showPage() {
-            TaskItem[] temp = ItemList.getInstance().getListByPage(nowPage);
+            visualValueUpdate();
+            visualToolsVisibleSet();
+            visualToolsInit();
+        }
+        private void visualToolsInit() {
+            for (int i = 0; i < 5; i++) {
+                labelList[i].Location = labelListStartLocation[i];
+                isLabelMenuOffseting[i] = false;
+                lableMenuOffsetStatus[i] = false;
+                isPageOffseting = false;
+            }
+        }
+
+        private void visualToolsVisibleSet() {
+            for (int i = 0; i < 5; i++) {
+                labelList[i].Visible = labelList[i].Text == "null" ? false : true;
+                btn_delList[i].Visible = labelList[i].Text == "null" ? false : true;
+                btn_editList[i].Visible = labelList[i].Text == "null" ? false : true;
+            }
+        }
+
+        private void visualValueUpdate() {
             int _count = 0;
-            foreach (TaskItem x in temp) {
-                if(x.Title != "") {
+            foreach (TaskItem x in ItemList.getInstance().getListByPage(nowPage)) {
+                if (x.Title != "") {
                     labelList[_count].Text = x.Title;
                     labelList[_count].BackColor = x.isStar ? Color.Orange : Color.WhiteSmoke;
                 }
                 _count++;
             }
-            for (int i = 0; i < 5; i++) {
-                labelList[i].Visible = labelList[i].Text == "null" ? false : true;
-                btn_delList[i].Visible = labelList[i].Text == "null" ? false : true;
-                btn_editList[i].Visible = labelList[i].Text == "null" ? false : true;
-                labelList[i].Location = labelListStartLocation[i];
-                isLabelMenuOffseting[i] = false;
-                lableMenuOffsetStatus[i] = false;
-            }
+            pageIndex.Text = pageIndexTextList[nowPage - 1];
         }
         public TaskItem getItemByVisualIndex(int index) {
             return ItemList.getInstance().getListByPage(nowPage)[index];
@@ -183,17 +200,21 @@ namespace TodoList {
                     foreach (Label x in labelList) {
                         x.Location = new Point(x.Location.X + (isPageOffsetTurnLeft ? -4 : 4), x.Location.Y);
                     }
+                    if(_tempCount != 0&& labelList[0].Location == labelListStartLocation[0])
+                        showPage();
                 } else {
                     foreach (Label x in labelList) {
                         x.Location = new Point(isPageOffsetTurnLeft ? 445 : -445, x.Location.Y);
                     }
-                    showPage();
-                }
-                if (_tempCount == 230) {
+                    visualValueUpdate();
+                    visualToolsVisibleSet();
                     for (int i = 0; i < 5; i++) {
-                        labelList[i].Location = labelListStartLocation[i];
+                        btn_delList[i].Visible = false;
+                        btn_editList[i].Visible = false;
                     }
-                    isPageOffseting = false;
+                }
+                if (_tempCount == 228) {
+                    showPage();
                 }
             }
         }
