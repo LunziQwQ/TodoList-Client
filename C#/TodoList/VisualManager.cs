@@ -90,11 +90,13 @@ namespace TodoList {
             }
         }
 
-        public void changePage(bool isNext) {
+        public void changePage(bool isNext, int tickCount) {
             int _tempPage = nowPage;
             nowPage += isNext ? 1 : -1;
             if (nowPage >= 1 && nowPage <= 5) {
-                showPage();
+                isPageOffseting = true;
+                isPageOffsetTurnLeft = isNext;
+                pageOffsetStartTick = tickCount;
                 pageIndex.Text = pageIndexTextList[nowPage - 1];
             } else {
                 sendNotice("Error: No more page to change.", 2);
@@ -167,6 +169,31 @@ namespace TodoList {
                         isLabelMenuOffseting[i] = false;
                         lableMenuOffsetStatus[i] = !lableMenuOffsetStatus[i];
                     }
+                }
+            }
+        }
+
+        private bool isPageOffsetTurnLeft = false;
+        public bool isPageOffseting = false;
+        private int pageOffsetStartTick;
+        public void mainForm_PageOffsetByTimer(int tickCount) {
+            int _tempCount = tickCount - pageOffsetStartTick;
+            if (isPageOffseting) {
+                if (_tempCount != 115) {
+                    foreach (Label x in labelList) {
+                        x.Location = new Point(x.Location.X + (isPageOffsetTurnLeft ? -4 : 4), x.Location.Y);
+                    }
+                } else {
+                    foreach (Label x in labelList) {
+                        x.Location = new Point(isPageOffsetTurnLeft ? 445 : -445, x.Location.Y);
+                    }
+                    showPage();
+                }
+                if (_tempCount == 230) {
+                    for (int i = 0; i < 5; i++) {
+                        labelList[i].Location = labelListStartLocation[i];
+                    }
+                    isPageOffseting = false;
                 }
             }
         }

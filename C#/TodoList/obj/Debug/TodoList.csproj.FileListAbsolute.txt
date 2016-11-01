@@ -8,3 +8,14 @@ F:\Project\C#\TodoList\C#\TodoList\obj\Debug\TodoList.Properties.Resources.resou
 F:\Project\C#\TodoList\C#\TodoList\obj\Debug\TodoList.csproj.GenerateResource.Cache
 F:\Project\C#\TodoList\C#\TodoList\obj\Debug\TodoList.exe
 F:\Project\C#\TodoList\C#\TodoList\obj\Debug\TodoList.pdb
+D:\Project\C#\TodoList\C#\TodoList\bin\Debug\TodoList.exe.config
+D:\Project\C#\TodoList\C#\TodoList\obj\Debug\TodoList.exe
+D:\Project\C#\TodoList\C#\TodoList\obj\Debug\TodoList.pdb
+D:\Project\C#\TodoList\C#\TodoList\bin\Debug\TodoList.exe
+D:\Project\C#\TodoList\C#\TodoList\bin\Debug\TodoList.pdb
+D:\Project\C#\TodoList\C#\TodoList\obj\Debug\TodoList.csprojResolveAssemblyReference.cache
+D:\Project\C#\TodoList\C#\TodoList\obj\Debug\TodoList.ItemEditForm.resources
+D:\Project\C#\TodoList\C#\TodoList\obj\Debug\TodoList.mainForm.resources
+D:\Project\C#\TodoList\C#\TodoList\obj\Debug\TodoList.noticeForm.resources
+D:\Project\C#\TodoList\C#\TodoList\obj\Debug\TodoList.Properties.Resources.resources
+D:\Project\C#\TodoList\C#\TodoList\obj\Debug\TodoList.csproj.GenerateResource.Cache

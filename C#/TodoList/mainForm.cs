@@ -72,11 +72,11 @@ namespace TodoList {
         //**********************************************************
 
         private void btn_pgUp_Click(object sender, EventArgs e) {
-            visualManager.changePage(true);
+            visualManager.changePage(true, tickCount);
         }
 
         private void btn_pgDn_Click(object sender, EventArgs e) {
-            visualManager.changePage(false);
+            visualManager.changePage(false, tickCount);
         }
 
         private void btn_add_Click(object sender, EventArgs e) {
@@ -156,6 +156,7 @@ namespace TodoList {
             tickCount++;
             Debug.Print("-->"+tickCount.ToString());
             visualManager.mainForm_menuOffsetByTimer(tickCount);
+            visualManager.mainForm_PageOffsetByTimer(tickCount);
         }
 
     }
