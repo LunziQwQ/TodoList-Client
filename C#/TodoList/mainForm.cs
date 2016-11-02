@@ -154,7 +154,6 @@ namespace TodoList {
 
         private void timer1_Tick(object sender, EventArgs e) {
             tickCount++;
-            Debug.Print("-->"+tickCount.ToString());
             visualManager.mainForm_menuOffsetByTimer(tickCount);
             visualManager.mainForm_PageOffsetByTimer(tickCount);
         }

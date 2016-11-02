@@ -58,7 +58,6 @@ namespace TodoList {
 
             int _count = 0;
             for (int i = (page - 1) * 5; i < 5 * page; i++) {
-                Debug.Print("-->" + list.Count);
                 _tempList[_count] = i < list.Count ? list[i] : new TaskItem(false);
                 Debug.Print("-->"+_tempList[_count].Title);
                 _count++;

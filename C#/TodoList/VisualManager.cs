@@ -14,7 +14,8 @@ namespace TodoList {
         private const int taskItemLabel_Heigth = 80;
 
         private const int labelMenuOffset = 100;
-        private const int offsetAcceleration = 1;
+        private const int LabelOffsetAcceleration = 1;
+        private const int PageOffsetAcceleration = 1;
         public int nowNoticeFormCount = 0;     //当前已存在的消息窗口数量
         public bool[] isNoticeFormLocationExist = new bool[5];   //当前已占用的消息位置
 
@@ -182,10 +183,10 @@ namespace TodoList {
        
         public void mainForm_menuOffsetByTimer(int tickCount) {
             int _tempCount = tickCount - menuOffsetStartTick,
-                _tempAcceleration = _tempCount/4 * offsetAcceleration;
+                _tempSpeed = _tempCount/4 * LabelOffsetAcceleration + 1;
             for (int i = 0; i < 5; i++) {
                 if (isLabelMenuOffseting[i] && _tempCount <= 30) {
-                    labelList[i].Location = new Point(labelList[i].Location.X + (lableMenuOffsetStatus[i] ? 1 + _tempAcceleration : -(1 + _tempAcceleration)), labelList[i].Location.Y);
+                    labelList[i].Location = new Point(labelList[i].Location.X + (lableMenuOffsetStatus[i] ? _tempSpeed : -_tempSpeed), labelList[i].Location.Y);
                     if (_tempCount == 30) {
                         isLabelMenuOffseting[i] = false;
                         lableMenuOffsetStatus[i] = !lableMenuOffsetStatus[i];
@@ -196,11 +197,12 @@ namespace TodoList {
 
 
         public void mainForm_PageOffsetByTimer(int tickCount) {
-            int _tempCount = tickCount - pageOffsetStartTick;
+            int _tempCount = tickCount - pageOffsetStartTick,
+                _tempSpeed = _tempCount < 16 ? 25 : 25 - PageOffsetAcceleration * (_tempCount - 12)/2;
             if (isPageOffseting) {
-                if (_tempCount != 115) {
+                if (_tempCount != 12) {
                     foreach (Label x in labelList) {
-                        x.Location = new Point(x.Location.X + (isPageOffsetTurnLeft ? -4 : 4), x.Location.Y);
+                        x.Location = new Point(x.Location.X + (isPageOffsetTurnLeft ? -_tempSpeed: _tempSpeed), x.Location.Y);
                     }
                     if(_tempCount != 0&& labelList[0].Location == labelListStartLocation[0])
                         showPage();
@@ -215,13 +217,13 @@ namespace TodoList {
                         btn_editList[i].Visible = false;
                     }
                 }
-                if (_tempCount == 228) {
+                if (_tempCount == 35) {
                     showPage();
                 }
             }
         }
         public void editForm_inputOutOfMaxLength() {
-            sendNotice("Error:Input out of max length",2);
+            sendNotice("Error:Input out of max length", 2);
         } 
     }
 }

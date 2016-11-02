@@ -32,11 +32,11 @@
             // 
             // editText
             // 
-            this.editText.Location = new System.Drawing.Point(51, 27);
+            this.editText.Font = new System.Drawing.Font("Microsoft YaHei", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.editText.Location = new System.Drawing.Point(51, 32);
             this.editText.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.editText.Multiline = true;
             this.editText.Name = "editText";
-            this.editText.Size = new System.Drawing.Size(367, 36);
+            this.editText.Size = new System.Drawing.Size(367, 31);
             this.editText.TabIndex = 0;
             this.editText.TextChanged += new System.EventHandler(this.editText_TextChanged);
             this.editText.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.editText_KeyPress);
