@@ -11,31 +11,38 @@ namespace TodoList {
     class VisualManager {
 
         //淡入淡出时间：设置前面的数字，单位为ms
-        private const int taskItemLabel_Heigth = 80;
+        private const int 
+            taskItemLabel_Heigth = 80,
+            labelMenuOffset = 100,
+            LabelOffsetAcceleration = 1,
+            PageOffsetAcceleration = 1;
 
-        private const int labelMenuOffset = 100;
-        private const int LabelOffsetAcceleration = 1;
-        private const int PageOffsetAcceleration = 1;
         public int nowNoticeFormCount = 0;     //当前已存在的消息窗口数量
         public bool[] isNoticeFormLocationExist = new bool[5];   //当前已占用的消息位置
 
         public mainForm visualMain;             //主窗口视图实例
         public noticeForm visualNotice;         //通知窗口视图实例 
-        public Label[] labelList;               //主窗口的五个label列表
         public Point[] labelListStartLocation;  //主窗口的五个label初始位置
-        public Label[] btn_delList;             //主窗口的五个删除按钮列表
-        public Label[] btn_editList;            //主窗口的五个编辑按钮列表
+        public Label[] 
+            btn_delList, 
+            btn_editList, 
+            labelList;//主窗口的五个编辑，删除按钮以及Item列表
+
         public Label pageIndex;                 //主窗口的页码label
         public bool closeAllForm = false;       //判断是否为点击关闭按钮后触发的消息窗口
         private int nowPage = 1;                //当前主窗口列表页数
-        private int menuOffsetStartTick;
+
+        private int 
+            menuOffsetStartTick,
+            pageOffsetStartTick;
 
         private bool isPageOffsetTurnLeft = false;
         public bool isPageOffseting = false;
-        private int pageOffsetStartTick;
 
-        private bool[] isLabelMenuOffseting = new bool[5];
-        private bool[] lableMenuOffsetStatus = new bool[5]; //true offseted,false origin position
+        private bool[]
+            isLabelMenuOffseting = new bool[5],
+            lableMenuOffsetStatus = new bool[5]; //true offseted,false origin position
+
         private string[] pageIndexTextList =  {
             "1  ·  ·  ·  · ",
             "·  2  ·  ·  · ",

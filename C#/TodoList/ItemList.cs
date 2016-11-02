@@ -8,7 +8,6 @@ using System.Diagnostics;
 
 namespace TodoList {
     class ItemList {
-        //private int length;
         private List<TaskItem> list = new List<TaskItem>();
 
         private static ItemList instance;
@@ -19,11 +18,6 @@ namespace TodoList {
                 instance = new ItemList();
             return instance;
         }
-
-        //外部只读，只允许内部初始化
-        /*public int Length {
-            get { return length; }
-        }*/
 
         private List<TaskItem> List {
             get { return list; }
@@ -89,7 +83,5 @@ namespace TodoList {
             };
             return list.Find(FindValue);
         }
-
-
     }
 }
