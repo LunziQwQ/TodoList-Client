@@ -6,6 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Drawing;
+using System.Diagnostics;
 
 namespace TodoList {
     class VisualManager {
@@ -17,7 +18,9 @@ namespace TodoList {
             LabelOffsetAcceleration = 1,
             PageOffsetAcceleration = 1;
 
-        public int nowNoticeFormCount = 0;     //当前已存在的消息窗口数量
+        public int 
+            mainForm_nowTick,
+            nowNoticeFormCount = 0;     //当前已存在的消息窗口数量
         public bool[] isNoticeFormLocationExist = new bool[5];   //当前已占用的消息位置
 
         public mainForm visualMain;             //主窗口视图实例
@@ -141,7 +144,7 @@ namespace TodoList {
             }
         }
 
-        private void visualValueUpdate() {
+        public void visualValueUpdate() {
             int _count = 0;
             foreach (TaskItem x in ItemList.getInstance().getListByPage(nowPage)) {
                 if (x.Title != "") {
@@ -158,13 +161,15 @@ namespace TodoList {
 
         public void addItem() {
             ItemList.getInstance().addItem();
-            showPage();
+            visualValueUpdate();
+            item_mouseClick(0);
         }
 
         public void delItem(int index) {
             ItemList.getInstance()
                 .delItme(getItemByVisualIndex(index).index);
-            showPage();
+            visualValueUpdate();
+            item_mouseClick(0);
         }
 
         public void editItem(int index) {
@@ -176,14 +181,18 @@ namespace TodoList {
                 .changeIsStar(getItemByVisualIndex(index).index);
         }
 
-        public void item_mouseClick(int item_index, int nowTick) {
-            foreach(bool x in isLabelMenuOffseting) {
-                if (x) {
+        public void item_mouseClick(int item_index) {
+            for(int i= 0; i < 5; i++) {
+                if (isLabelMenuOffseting[i]) {
                     sendNotice("Error:Menu is offseting now.", 2);
                     return;
+                } else if (lableMenuOffsetStatus[i]) {
+                    Debug.Print("-->"+i.ToString());
+                    item_index = i + 1;
+                    break;   
                 }
             }
-            menuOffsetStartTick = nowTick;
+            menuOffsetStartTick = mainForm_nowTick;
             isLabelMenuOffseting[item_index - 1] = true;
         }
 

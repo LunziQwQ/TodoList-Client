@@ -11,7 +11,7 @@ using System.Windows.Forms;
 namespace TodoList {
     public partial class ItemEditForm: Form {
         private VisualManager visualManager = VisualManager.getInstance();
-        private int index, nowPage;
+        private int index;
         private TaskItem thisItem;
         private string tempSaveInputText;
 
@@ -27,14 +27,16 @@ namespace TodoList {
 
         private void btn_confirm_Click(object sender, EventArgs e) {
             thisItem.Title = editText.Text;
-            visualManager.showPage();
             visualManager.visualMain.Enabled = true;
+            visualManager.visualValueUpdate();
+            visualManager.item_mouseClick(0);
             this.Close();
         }
 
         private void btn_cancel_Click(object sender, EventArgs e) {
-            visualManager.showPage();
+            visualManager.visualValueUpdate();
             visualManager.visualMain.Enabled = true;
+            visualManager.item_mouseClick(0);
             this.Close();
         }
 
