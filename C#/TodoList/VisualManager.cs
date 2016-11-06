@@ -13,7 +13,7 @@ namespace TodoList {
 
         //淡入淡出时间：设置前面的数字，单位为ms
         private const int 
-            taskItemLabel_Heigth = 80,
+            taskItemLabel_Heigth = 80,          
             labelMenuOffset = 100,
             LabelOffsetAcceleration = 1,
             PageOffsetAcceleration = 1;
@@ -29,7 +29,7 @@ namespace TodoList {
         public Label[] 
             btn_delList, 
             btn_editList, 
-            labelList;//主窗口的五个编辑，删除按钮以及Item列表
+            labelList;                          //主窗口的五个编辑，删除按钮以及Item列表
 
         public Label pageIndex;                 //主窗口的页码label
         public bool closeAllForm = false;       //判断是否为点击关闭按钮后触发的消息窗口
@@ -127,6 +127,7 @@ namespace TodoList {
             visualToolsVisibleSet();
             visualToolsInit();
         }
+
         private void visualToolsInit() {
             for (int i = 0; i < 5; i++) {
                 labelList[i].Location = labelListStartLocation[i];
@@ -162,6 +163,7 @@ namespace TodoList {
         public void addItem() {
             ItemList.getInstance().addItem();
             visualValueUpdate();
+            visualToolsVisibleSet();
             item_mouseClick(0);
         }
 
@@ -169,6 +171,7 @@ namespace TodoList {
             ItemList.getInstance()
                 .delItme(getItemByVisualIndex(index).index);
             visualValueUpdate();
+            visualToolsVisibleSet();
             item_mouseClick(0);
         }
 
@@ -187,13 +190,13 @@ namespace TodoList {
                     sendNotice("Error:Menu is offseting now.", 2);
                     return;
                 } else if (lableMenuOffsetStatus[i]) {
-                    Debug.Print("-->"+i.ToString());
-                    item_index = i + 1;
+                    item_index = i;
                     break;   
                 }
             }
             menuOffsetStartTick = mainForm_nowTick;
-            isLabelMenuOffseting[item_index - 1] = true;
+            Debug.Print("-->" + (item_index).ToString());
+            isLabelMenuOffseting[item_index] = true;
         }
 
        

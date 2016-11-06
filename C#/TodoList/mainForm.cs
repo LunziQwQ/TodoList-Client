@@ -86,27 +86,27 @@ namespace TodoList {
         #region LabelList_MouseRightClickEvent
         private void TaskItem1_MouseClick(object sender, MouseEventArgs e) {
             if (e.Button == MouseButtons.Right)
-                visualManager.item_mouseClick(1);
+                visualManager.item_mouseClick(0);
         }
 
         private void TaskItem2_MouseClick(object sender, MouseEventArgs e) {
             if (e.Button == MouseButtons.Right)
-                visualManager.item_mouseClick(2);
+                visualManager.item_mouseClick(1);
         }
 
         private void TaskItem3_MouseClick(object sender, MouseEventArgs e) {
             if (e.Button == MouseButtons.Right)
-                visualManager.item_mouseClick(3);
+                visualManager.item_mouseClick(2);
         }
 
         private void TaskItem4_MouseClick(object sender, MouseEventArgs e) {
             if (e.Button == MouseButtons.Right)
-                visualManager.item_mouseClick(4);
+                visualManager.item_mouseClick(3);
         }
 
         private void TaskItem5_MouseClick(object sender, MouseEventArgs e) {
             if (e.Button == MouseButtons.Right)
-                visualManager.item_mouseClick(5);
+                visualManager.item_mouseClick(4);
         }
         #endregion
         #region btn_delListClickEvent
