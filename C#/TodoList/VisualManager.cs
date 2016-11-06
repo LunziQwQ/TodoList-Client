@@ -10,42 +10,42 @@ using System.Diagnostics;
 
 namespace TodoList {
     class VisualManager {
-
-        //淡入淡出时间：设置前面的数字，单位为ms
+        
         private const int 
-            taskItemLabel_Heigth = 80,          
-            labelMenuOffset = 100,
-            LabelOffsetAcceleration = 1,
-            PageOffsetAcceleration = 1;
+            taskItemLabel_Heigth = 80,      //每个项目Item高度            
+            LabelOffsetAcceleration = 1,    //项目Item动画加速度
+            PageOffsetAcceleration = 1;     //翻页动画加速度
+        private int
+            menuOffsetStartTick,            //Item动画的开始Tick
+            pageOffsetStartTick,            //翻页动画的开始Tick
+            nowPage = 1;            //当前主窗口所在页码
+        public int
+            mainForm_nowTick,               //主窗口的计时器Tick
+            nowNoticeFormCount = 0;         //当前已存在的消息窗口数量
 
-        public int 
-            mainForm_nowTick,
-            nowNoticeFormCount = 0;     //当前已存在的消息窗口数量
-        public bool[] isNoticeFormLocationExist = new bool[5];   //当前已占用的消息位置
+        //当前已占用的消息窗口位置 true:正在占用 false:空闲
+        public bool[] isNoticeFormLocationExist = new bool[5];
+        public bool 
+            isCloseAllForm = false,         //当前是否为点击关闭按钮后触发的消息窗口
+            isPageOffseting = false;        //当前是否在进行翻页动画
+        private bool[]
+            isLabelMenuOffseting = new bool[5],     //各个Item动画是否正在进行
+            lableMenuOffsetStatus = new bool[5];    //各个Item动画当前位置 ture:Offseted   false:Origin
+        private bool isPageOffsetTurnLeft = false;  //当前翻页动画方向
 
-        public mainForm visualMain;             //主窗口视图实例
-        public noticeForm visualNotice;         //通知窗口视图实例 
-        public Point[] labelListStartLocation;  //主窗口的五个label初始位置
+        public mainForm visualMain;             //主窗口实例
+        public noticeForm visualNotice;         //最新通知窗口实例 
+
+        //主窗口的五个编辑，删除按钮以及Item列表
         public Label[] 
             btn_delList, 
             btn_editList, 
-            labelList;                          //主窗口的五个编辑，删除按钮以及Item列表
-
+            labelList;                          
         public Label pageIndex;                 //主窗口的页码label
-        public bool closeAllForm = false;       //判断是否为点击关闭按钮后触发的消息窗口
-        private int nowPage = 1;                //当前主窗口列表页数
 
-        private int 
-            menuOffsetStartTick,
-            pageOffsetStartTick;
+        public Point[] labelListStartLocation;  //五个项目Item的label初始位置
 
-        private bool isPageOffsetTurnLeft = false;
-        public bool isPageOffseting = false;
-
-        private bool[]
-            isLabelMenuOffseting = new bool[5],
-            lableMenuOffsetStatus = new bool[5]; //true offseted,false origin position
-
+        //页码Label各页的文本列表
         private string[] pageIndexTextList =  {
             "1  ·  ·  ·  · ",
             "·  2  ·  ·  · ",
@@ -54,15 +54,15 @@ namespace TodoList {
             "·  ·  ·  ·  5 ",
         };
 
-        //实现单例模式
+        #region 实现单例模式
         private VisualManager(){}
         private static VisualManager instance;
-        
         public static VisualManager getInstance() {
             if (instance == null)
                 instance = new VisualManager();
             return instance;
         }
+        #endregion
 
         //显示通知窗口并显示通知消息
         public void sendNotice(string text, int aliveTime) {
@@ -83,7 +83,7 @@ namespace TodoList {
             }
         }
 
-        //实现点击窗口非控件区域时拖动窗口改变窗口位置*****************
+        #region 点击窗口非控件区域时拖动窗口改变窗口位置*****************
         private Point moveForm_MouseStartPosition = new Point(0, 0);       //触发mouseDown时的初始鼠标坐标，用于计算拖动偏移量
         private Point moveForm_FormStartPosition = new Point(0, 0);        //触发mouseDown时的初始窗口坐标，用于实现窗口偏移
         private bool isMoveFormEvent = false;
@@ -104,7 +104,9 @@ namespace TodoList {
                 form.Location = new Point(moveForm_FormStartPosition.X + offset.X, moveForm_FormStartPosition.Y + offset.Y);  //移动主窗口
             }
         }
+        #endregion
 
+        //主窗口翻页，激活翻页Flag
         public void changePage(bool isNext, int tickCount) {
             int _tempPage = nowPage;
             nowPage += isNext ? 1 : -1;
@@ -122,12 +124,15 @@ namespace TodoList {
             }
         }
 
+        #region 页面初始化，信息更新，控件复位
+        //初始化页面
         public void showPage() {
             visualValueUpdate();
             visualToolsVisibleSet();
             visualToolsInit();
         }
 
+        //初始化所有动画及控件位置
         private void visualToolsInit() {
             for (int i = 0; i < 5; i++) {
                 labelList[i].Location = labelListStartLocation[i];
@@ -137,6 +142,7 @@ namespace TodoList {
             }
         }
 
+        //根据获得的ItemList决定控件是否显示
         private void visualToolsVisibleSet() {
             for (int i = 0; i < 5; i++) {
                 labelList[i].Visible = labelList[i].Text == "null" ? false : true;
@@ -145,6 +151,7 @@ namespace TodoList {
             }
         }
 
+        //根据获得的ItemList更新控件信息
         public void visualValueUpdate() {
             int _count = 0;
             foreach (TaskItem x in ItemList.getInstance().getListByPage(nowPage)) {
@@ -156,23 +163,24 @@ namespace TodoList {
             }
             pageIndex.Text = pageIndexTextList[nowPage - 1];
         }
-        public TaskItem getItemByVisualIndex(int index) {
-            return ItemList.getInstance().getListByPage(nowPage)[index];
-        }
+        #endregion
+
+        #region Item增删查改，变更isStar状态
 
         public void addItem() {
             ItemList.getInstance().addItem();
             visualValueUpdate();
             visualToolsVisibleSet();
-            item_mouseClick(0);
         }
 
         public void delItem(int index) {
             ItemList.getInstance()
                 .delItme(getItemByVisualIndex(index).index);
-            visualValueUpdate();
-            visualToolsVisibleSet();
-            item_mouseClick(0);
+            showPage();
+        }
+
+        public TaskItem getItemByVisualIndex(int index) {
+            return ItemList.getInstance().getListByPage(nowPage)[index];
         }
 
         public void editItem(int index) {
@@ -183,7 +191,9 @@ namespace TodoList {
             ItemList.getInstance()
                 .changeIsStar(getItemByVisualIndex(index).index);
         }
+        #endregion
 
+        //右键ItemLabel时触发动画位移，检查使已位移的控件复位
         public void item_mouseClick(int item_index) {
             for(int i= 0; i < 5; i++) {
                 if (isLabelMenuOffseting[i]) {
@@ -199,7 +209,8 @@ namespace TodoList {
             isLabelMenuOffseting[item_index] = true;
         }
 
-       
+        #region 主窗口动画实现，Item位移，翻页位移
+
         public void mainForm_menuOffsetByTimer(int tickCount) {
             int _tempCount = tickCount - menuOffsetStartTick,
                 _tempSpeed = _tempCount/4 * LabelOffsetAcceleration + 1;
@@ -213,7 +224,6 @@ namespace TodoList {
                 }
             }
         }
-
 
         public void mainForm_PageOffsetByTimer(int tickCount) {
             int _tempCount = tickCount - pageOffsetStartTick,
@@ -241,8 +251,7 @@ namespace TodoList {
                 }
             }
         }
-        public void editForm_inputOutOfMaxLength() {
-            sendNotice("Error:Input out of max length", 2);
-        } 
+        #endregion
+
     }
 }

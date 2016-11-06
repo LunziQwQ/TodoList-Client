@@ -7,12 +7,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.Threading;
-//Output debug info
-using System.Diagnostics;
 
 namespace TodoList {
     public partial class mainForm : Form {
+
         private VisualManager visualManager = VisualManager.getInstance();
         private FileManager fileManager = FileManager.getInstance();
         
@@ -22,23 +20,7 @@ namespace TodoList {
             InitializeComponent();
         }
 
-        private void btn_close_Click(object sender, EventArgs e) {
-            if (fileManager.autoSave()) {
-                visualManager.sendNotice("Save success.", 2);
-                visualManager.closeAllForm = true;
-            } else {
-                visualManager.sendNotice("Oops. Save Failed.", 2);
-            }
-        }
-
-        private void btn_close_MouseEnter(object sender, EventArgs e) {
-            btn_close.BackColor = Color.OrangeRed;
-        }
-
-        private void btn_close_MouseLeave(object sender, EventArgs e) {
-            btn_close.BackColor = Color.Transparent;
-        }
-
+        
         private void mainForm_Load(object sender,EventArgs e) {
             //visualManager类的初始值传递
             visualManager.visualMain = this;
@@ -55,8 +37,7 @@ namespace TodoList {
             visualManager.showPage();
         }
 
-
-        //实现点击窗口非控件区域时拖动窗口改变窗口位置*****************
+        #region 点击窗口非控件区域时拖动窗口改变窗口位置
         private void mainForm_MouseDown(object sender, MouseEventArgs e) {
             visualManager.moveForm_MouseDown(e.Location, this);
         }
@@ -66,10 +47,24 @@ namespace TodoList {
         private void mainForm_MouseMove(object sender, MouseEventArgs e) {
             visualManager.moveForm_MouseMove(this);
         }
+        #endregion
+        #region 关闭，新增Item，翻页按钮
+        private void btn_close_Click(object sender, EventArgs e) {
+            if (fileManager.autoSave()) {
+                visualManager.sendNotice("Save success.", 2);
+                visualManager.isCloseAllForm = true;
+            } else {
+                visualManager.sendNotice("Oops. Save Failed.", 2);
+            }
+        }
 
+        private void btn_close_MouseEnter(object sender, EventArgs e) {
+            btn_close.BackColor = Color.OrangeRed;
+        }
 
-
-        //**********************************************************
+        private void btn_close_MouseLeave(object sender, EventArgs e) {
+            btn_close.BackColor = Color.Transparent;
+        }
 
         private void btn_pgUp_Click(object sender, EventArgs e) {
             visualManager.changePage(true, tickCount);
@@ -82,8 +77,8 @@ namespace TodoList {
         private void btn_add_Click(object sender, EventArgs e) {
             visualManager.addItem();
         }
-
-        #region LabelList_MouseRightClickEvent
+        #endregion
+        #region LabelList_MouseRightClickEventList
         private void TaskItem1_MouseClick(object sender, MouseEventArgs e) {
             if (e.Button == MouseButtons.Right)
                 visualManager.item_mouseClick(0);
@@ -109,7 +104,7 @@ namespace TodoList {
                 visualManager.item_mouseClick(4);
         }
         #endregion
-        #region btn_delListClickEvent
+        #region btn_delClickEventList
         private void btn_del1_Click(object sender, EventArgs e) {
             visualManager.delItem(0);
         }

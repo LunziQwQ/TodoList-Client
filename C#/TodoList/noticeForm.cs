@@ -33,7 +33,7 @@ namespace TodoList {
                 visualManager.nowNoticeFormCount--;
                 this.Close();
                 visualManager.isNoticeFormLocationExist[locationIndex] = false;
-                if (visualManager.closeAllForm && visualManager.nowNoticeFormCount == 0)
+                if (visualManager.isCloseAllForm && visualManager.nowNoticeFormCount == 0)
                     visualManager.visualMain.Close();
         }
     }
