@@ -7,7 +7,6 @@ using System.Diagnostics;
 
 namespace TodoList {
     class TaskItem {
-        public const int maxTitleLength = 30;
         public const int maxTextLength = 255;
 
         private string title;
@@ -30,12 +29,7 @@ namespace TodoList {
 
         public string Title {
             get { return title; }
-            set {
-                if (value.Length <= maxTitleLength)
-                    title = value;
-                else
-                    VisualManager.getInstance().sendNotice("Error:TitleLength out of the MaxTitleLength.", 3);
-            }
+            set { title = value;}
         }
 
         public string MoreText {

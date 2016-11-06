@@ -58,10 +58,13 @@ namespace TodoList {
         }
 
         private void editText_TextChanged(object sender, EventArgs e) {
-            if(editText.Text.Length >= TaskItem.maxTitleLength) {
+            Size size = TextRenderer.MeasureText(editText.Text,visualManager.labelList[0].Font);
+
+            if (size.Width >= 600) {
                 visualManager.sendNotice("Error:Input lenth out of the MaxTitleLength", 2);
                 editText.Focus();
                 editText.Text = tempSaveInputText;
+
             } else {
                 tempSaveInputText = editText.Text;
             }
