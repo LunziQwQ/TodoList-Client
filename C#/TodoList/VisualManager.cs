@@ -10,14 +10,17 @@ using System.Diagnostics;
 
 namespace TodoList {
     class VisualManager {
-        
-        private const int 
+
+        private const int
             taskItemLabel_Heigth = 80,      //每个项目Item高度            
             LabelOffsetAcceleration = 1,    //项目Item动画加速度
             PageOffsetAcceleration = 1;     //翻页动画加速度
         private int
             menuOffsetStartTick,            //Item动画的开始Tick
             pageOffsetStartTick,            //翻页动画的开始Tick
+            moreTextFormShowStartTick,      //moreText窗口开始显示的Tick
+            moreTextFormHideStartTick,      //moreText窗口开始隐藏的Tick
+            moreTextFormAliveTime = 300,    //moreText窗口满透明度生存时间
             nowPage = 1;            //当前主窗口所在页码
         public int
             mainForm_nowTick,               //主窗口的计时器Tick
@@ -27,21 +30,25 @@ namespace TodoList {
         public bool[] isNoticeFormLocationExist = new bool[5];
         public bool 
             isCloseAllForm = false,         //当前是否为点击关闭按钮后触发的消息窗口
-            isPageOffseting = false;        //当前是否在进行翻页动画
+            isPageOffseting = false,        //当前是否在进行翻页动画
+            isMouseItemHover = false;       //当前鼠标是否在Hover Item 
         private bool[]
             isLabelMenuOffseting = new bool[5],     //各个Item动画是否正在进行
             lableMenuOffsetStatus = new bool[5];    //各个Item动画当前位置 ture:Offseted   false:Origin
         private bool isPageOffsetTurnLeft = false;  //当前翻页动画方向
 
-        public mainForm visualMain;             //主窗口实例
-        public noticeForm visualNotice;         //最新通知窗口实例 
+        public MainForm visualMain;             //主窗口实例
+        public NoticeForm visualNotice;         //最新通知窗口实例 
+        public MoreTextForm visualMoreText;     //详情实例
 
         //主窗口的五个编辑，删除按钮以及Item列表
         public Label[] 
             btn_delList, 
             btn_editList, 
-            labelList;                          
-        public Label pageIndex;                 //主窗口的页码label
+            labelList;
+        public Label
+            pageIndex,                  //主窗口的页码label
+            moreTextLabel;              //moreText窗口的Label
 
         public Point[] labelListStartLocation;  //五个项目Item的label初始位置
 
@@ -69,7 +76,7 @@ namespace TodoList {
             if (nowNoticeFormCount == 5) return;
             MessageNotice.getInstance().MessageText = text;
             MessageNotice.getInstance().AliveTime = aliveTime;
-            visualNotice = new noticeForm();
+            visualNotice = new NoticeForm();
             visualNotice.Opacity = 0;
             Point mainFormLocation = visualMain.Location;
             visualNotice.Show();
@@ -197,7 +204,7 @@ namespace TodoList {
         public void item_mouseClick(int item_index) {
             for(int i= 0; i < 5; i++) {
                 if (isLabelMenuOffseting[i]) {
-                    sendNotice("Error:Menu is offseting now.", 2);
+                    sendNotice("Error:Menu is offsetting now.", 2);
                     return;
                 } else if (lableMenuOffsetStatus[i]) {
                     item_index = i;
@@ -208,6 +215,88 @@ namespace TodoList {
             Debug.Print("-->" + (item_index).ToString());
             isLabelMenuOffseting[item_index] = true;
         }
+
+        #region About the MoreTextForm
+        private const int fadeInOut_Tick = 500 / 10;
+        private const double fadeAcceleration = 0.003;
+        public void moreTextForm_changeLocation() {
+            visualMoreText.Location = new Point(
+                visualMain.Location.X - visualMoreText.Size.Width,
+                visualMain.Location.Y
+                );
+        }
+
+        public void moreTextForm_init() {
+            visualMoreText = new MoreTextForm();
+            moreTextForm_changeLocation();
+            visualMoreText.Show();
+            visualMoreText.Opacity = 0;
+        }
+        private int debug = -1;
+        public void moreTextForm_fadeByTick() {
+            int _tick = visualMoreText.tickCount;
+            if (nowMoreTextFormStatus() != debug) {
+                debug = nowMoreTextFormStatus();
+                Debug.Print("-->" + nowMoreTextFormStatus().ToString());
+            }
+            switch (nowMoreTextFormStatus()) {
+                case 0:
+                    int fadeInTick = _tick - moreTextFormShowStartTick;
+                    visualMoreText.Opacity += 0.02 + fadeAcceleration * fadeInTick;
+                    if(visualMoreText.Opacity >= 1) visualMoreText.Opacity = 1;
+                    break;
+                case 1:
+                    moreTextFormAliveTime--;
+                    break;
+                case 2:
+                    int fadeOutTick = _tick - moreTextFormHideStartTick;
+                    visualMoreText.Opacity -= 0.02 /*- fadeAcceleration * (50 - fadeOutTick)*/;
+                    if (visualMoreText.Opacity <= 0) visualMoreText.Opacity = 0;
+                    break;
+                case 3:
+                    moreTextFormAliveTime = 300;
+                    break;
+            }
+            
+        }
+
+        public void item_mouseHover(int index) {
+            isMouseItemHover = true;
+            switch (nowMoreTextFormStatus()) {
+                case 2:
+                    moreTextFormHideStartTick = -1;
+                    moreTextFormShowStartTick = visualMoreText.tickCount;
+                    break;
+                case 3:
+                    moreTextFormShowStartTick = visualMoreText.tickCount;
+                    break;
+            }
+        } 
+
+        public void item_mouseLeave(int index) {
+            isMouseItemHover = false;
+        }
+
+        private int nowMoreTextFormStatus() {
+            int
+                fadeIn = 0,
+                aliveTime = 1,
+                fadeOut = 2,
+                hideTime = 3;
+            if (visualMoreText.Opacity < 1 && visualMoreText.tickCount - moreTextFormShowStartTick <= 50 && isMouseItemHover)
+                return fadeIn;
+            if (visualMoreText.Opacity == 1 && moreTextFormAliveTime >= 0)
+                return aliveTime;
+            if (visualMoreText.Opacity > 0 && moreTextFormAliveTime <= 0) {
+                moreTextFormHideStartTick = visualMoreText.tickCount;
+                return fadeOut;
+            }
+            if (visualMoreText.Opacity > 0 && visualMoreText.tickCount - moreTextFormHideStartTick <= 50 && !isMouseItemHover)
+                return fadeOut;
+            return hideTime;
+        }
+
+        #endregion
 
         #region 主窗口动画实现，Item位移，翻页位移
 

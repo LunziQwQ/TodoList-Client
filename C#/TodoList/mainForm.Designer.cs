@@ -1,5 +1,5 @@
 ﻿namespace TodoList {
-    partial class mainForm {
+    partial class MainForm {
         /// <summary>
         /// Required designer variable.
         /// </summary>
@@ -93,6 +93,8 @@
             this.TaskItem1.Text = "undefined";
             this.TaskItem1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.TaskItem1.MouseClick += new System.Windows.Forms.MouseEventHandler(this.TaskItem1_MouseClick);
+            this.TaskItem1.MouseLeave += new System.EventHandler(this.TaskItem1_MouseLeave);
+            this.TaskItem1.MouseHover += new System.EventHandler(this.TaskItem1_MouseHover);
             // 
             // TaskItem2
             // 
@@ -108,6 +110,8 @@
             this.TaskItem2.Text = "undefined";
             this.TaskItem2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.TaskItem2.MouseClick += new System.Windows.Forms.MouseEventHandler(this.TaskItem2_MouseClick);
+            this.TaskItem2.MouseLeave += new System.EventHandler(this.TaskItem2_MouseLeave);
+            this.TaskItem2.MouseHover += new System.EventHandler(this.TaskItem2_MouseHover);
             // 
             // TaskItem3
             // 
@@ -123,6 +127,8 @@
             this.TaskItem3.Text = "undefined";
             this.TaskItem3.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.TaskItem3.MouseClick += new System.Windows.Forms.MouseEventHandler(this.TaskItem3_MouseClick);
+            this.TaskItem3.MouseLeave += new System.EventHandler(this.TaskItem3_MouseLeave);
+            this.TaskItem3.MouseHover += new System.EventHandler(this.TaskItem3_MouseHover);
             // 
             // TaskItem4
             // 
@@ -138,6 +144,8 @@
             this.TaskItem4.Text = "undefined";
             this.TaskItem4.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.TaskItem4.MouseClick += new System.Windows.Forms.MouseEventHandler(this.TaskItem4_MouseClick);
+            this.TaskItem4.MouseLeave += new System.EventHandler(this.TaskItem4_MouseLeave);
+            this.TaskItem4.MouseHover += new System.EventHandler(this.TaskItem4_MouseHover);
             // 
             // TaskItem5
             // 
@@ -153,6 +161,8 @@
             this.TaskItem5.Text = "undefined";
             this.TaskItem5.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.TaskItem5.MouseClick += new System.Windows.Forms.MouseEventHandler(this.TaskItem5_MouseClick);
+            this.TaskItem5.MouseLeave += new System.EventHandler(this.TaskItem5_MouseLeave);
+            this.TaskItem5.MouseHover += new System.EventHandler(this.TaskItem5_MouseHover);
             // 
             // PageIndex
             // 
@@ -173,7 +183,7 @@
             this.btn_pgUp.Font = new System.Drawing.Font("Microsoft YaHei", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_pgUp.ForeColor = System.Drawing.Color.DimGray;
             this.btn_pgUp.Location = new System.Drawing.Point(286, 458);
-            this.btn_pgUp.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btn_pgUp.Margin = new System.Windows.Forms.Padding(2);
             this.btn_pgUp.Name = "btn_pgUp";
             this.btn_pgUp.Size = new System.Drawing.Size(38, 32);
             this.btn_pgUp.TabIndex = 10;
@@ -188,7 +198,7 @@
             this.btn_pgDn.Font = new System.Drawing.Font("Microsoft YaHei", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_pgDn.ForeColor = System.Drawing.Color.DimGray;
             this.btn_pgDn.Location = new System.Drawing.Point(244, 458);
-            this.btn_pgDn.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btn_pgDn.Margin = new System.Windows.Forms.Padding(2);
             this.btn_pgDn.Name = "btn_pgDn";
             this.btn_pgDn.Size = new System.Drawing.Size(38, 32);
             this.btn_pgDn.TabIndex = 9;
@@ -203,7 +213,7 @@
             this.btn_add.Font = new System.Drawing.Font("Microsoft YaHei", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_add.ForeColor = System.Drawing.Color.DimGray;
             this.btn_add.Location = new System.Drawing.Point(10, 458);
-            this.btn_add.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btn_add.Margin = new System.Windows.Forms.Padding(2);
             this.btn_add.Name = "btn_add";
             this.btn_add.Size = new System.Drawing.Size(38, 32);
             this.btn_add.TabIndex = 11;
@@ -337,7 +347,7 @@
             this.btn_del5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.btn_del5.Click += new System.EventHandler(this.btn_del5_Click);
             // 
-            // mainForm
+            // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -367,7 +377,7 @@
             this.Cursor = System.Windows.Forms.Cursors.Default;
             this.ForeColor = System.Drawing.SystemColors.Window;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Name = "mainForm";
+            this.Name = "MainForm";
             this.Opacity = 0.95D;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "TodoList";

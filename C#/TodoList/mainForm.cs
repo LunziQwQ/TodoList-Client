@@ -9,32 +9,33 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace TodoList {
-    public partial class mainForm : Form {
+    public partial class MainForm : Form {
 
         private VisualManager visualManager = VisualManager.getInstance();
         private FileManager fileManager = FileManager.getInstance();
         
         private int tickCount = -1;
 
-        public mainForm() {
+        public MainForm() {
             InitializeComponent();
         }
 
         
         private void mainForm_Load(object sender,EventArgs e) {
             //visualManager类的初始值传递
-            visualManager.visualMain = this;
-            visualManager.labelList =new Label[]{ TaskItem1, TaskItem2, TaskItem3, TaskItem4, TaskItem5};
-            foreach(Label x in visualManager.labelList) 
-                x.BringToFront();
             #region someToolSendToClass"VisiualManager"
+            visualManager.visualMain = this;
+            visualManager.labelList = new Label[] { TaskItem1, TaskItem2, TaskItem3, TaskItem4, TaskItem5 };
             visualManager.labelListStartLocation = new Point[] { TaskItem1.Location, TaskItem2.Location, TaskItem3.Location, TaskItem4.Location, TaskItem5.Location };
             visualManager.btn_delList = new Label[] { btn_del1, btn_del2, btn_del3, btn_del4, btn_del5 };
             visualManager.btn_editList = new Label[] { btn_edit1, btn_edit2, btn_edit3, btn_edit4, btn_edit5 };
             visualManager.pageIndex = this.PageIndex;
             #endregion
+            foreach (Label x in visualManager.labelList)
+                x.BringToFront();
             visualManager.sendNotice(ItemList.getInstance().init() ? "    Welcome, Click here to hide this notice." : "Error:TaskItem init faild", 2);
             visualManager.showPage();
+            visualManager.moreTextForm_init();
         }
 
         #region 点击窗口非控件区域时拖动窗口改变窗口位置
@@ -152,6 +153,46 @@ namespace TodoList {
             visualManager.mainForm_nowTick = tickCount;
             visualManager.mainForm_menuOffsetByTimer(tickCount);
             visualManager.mainForm_PageOffsetByTimer(tickCount);
+            visualManager.moreTextForm_changeLocation();
         }
+
+        #region Label_HoverEventList
+        private void TaskItem1_MouseHover(object sender, EventArgs e) {
+            visualManager.item_mouseHover(0);
+        }
+        private void TaskItem2_MouseHover(object sender, EventArgs e) {
+            visualManager.item_mouseHover(1);
+        }
+        private void TaskItem3_MouseHover(object sender, EventArgs e) {
+            visualManager.item_mouseHover(2);
+        }
+        private void TaskItem4_MouseHover(object sender, EventArgs e) {
+            visualManager.item_mouseHover(3);
+        }
+        private void TaskItem5_MouseHover(object sender, EventArgs e) {
+            visualManager.item_mouseHover(4);
+        }
+        #endregion
+        #region Label_LeaveEventList
+        private void TaskItem1_MouseLeave(object sender, EventArgs e) {
+            visualManager.item_mouseLeave(0);
+        }
+
+        private void TaskItem2_MouseLeave(object sender, EventArgs e) {
+            visualManager.item_mouseLeave(1);
+        }
+
+        private void TaskItem3_MouseLeave(object sender, EventArgs e) {
+            visualManager.item_mouseLeave(2);
+        }
+
+        private void TaskItem4_MouseLeave(object sender, EventArgs e) {
+            visualManager.item_mouseLeave(3);
+        }
+
+        private void TaskItem5_MouseLeave(object sender, EventArgs e) {
+            visualManager.item_mouseLeave(4);
+        }
+        #endregion
     }
 }

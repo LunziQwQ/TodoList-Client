@@ -1,5 +1,5 @@
 ﻿namespace TodoList {
-    partial class noticeForm {
+    partial class NoticeForm {
         /// <summary>
         /// Required designer variable.
         /// </summary>

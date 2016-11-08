@@ -9,20 +9,21 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace TodoList {
-    public partial class noticeForm : Form {
+    public partial class NoticeForm : Form {
         private VisualManager visualManager = VisualManager.getInstance();
         private MessageNotice messageNotice = MessageNotice.getInstance();
         private const int fadeInOut_Tick = 500 / 10;
         private const double fadeAcceleration = 0.003;
         private int fadeTickCount = 0;          //消息窗口的tickcount
-        public int tickCount = 0;      //计时器tick计数，用于控制淡入淡出阶段
+        private int tickCount = 0;      //计时器tick计数，用于控制淡入淡出阶段
         public int locationIndex;
        
-        public noticeForm() {
+        public NoticeForm() {
             InitializeComponent();
             NoticeText.Text = messageNotice.MessageText;
             visualManager.nowNoticeFormCount++;
         }
+
         private void Timer_Tick(object sender, EventArgs e) {
             tickCount++;
             if (tickCount <= fadeInOut_Tick)

@@ -73,18 +73,24 @@
       <DependentUpon>ItemEditForm.cs</DependentUpon>
     </Compile>
     <Compile Include="ItemList.cs" />
-    <Compile Include="mainForm.cs">
+    <Compile Include="MainForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="mainForm.Designer.cs">
-      <DependentUpon>mainForm.cs</DependentUpon>
+    <Compile Include="MainForm.Designer.cs">
+      <DependentUpon>MainForm.cs</DependentUpon>
     </Compile>
     <Compile Include="MessageNotice.cs" />
-    <Compile Include="noticeForm.cs">
+    <Compile Include="MoreTextForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="noticeForm.Designer.cs">
-      <DependentUpon>noticeForm.cs</DependentUpon>
+    <Compile Include="MoreTextForm.Designer.cs">
+      <DependentUpon>MoreTextForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="NoticeForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="NoticeForm.Designer.cs">
+      <DependentUpon>NoticeForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -93,11 +99,14 @@
     <EmbeddedResource Include="ItemEditForm.resx">
       <DependentUpon>ItemEditForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="mainForm.resx">
-      <DependentUpon>mainForm.cs</DependentUpon>
+    <EmbeddedResource Include="MainForm.resx">
+      <DependentUpon>MainForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="noticeForm.resx">
-      <DependentUpon>noticeForm.cs</DependentUpon>
+    <EmbeddedResource Include="MoreTextForm.resx">
+      <DependentUpon>MoreTextForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="NoticeForm.resx">
+      <DependentUpon>NoticeForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

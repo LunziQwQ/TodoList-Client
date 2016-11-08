@@ -20,3 +20,4 @@ D:\Project\C#\TodoList\C#\TodoList\obj\Debug\TodoList.noticeForm.resources
 D:\Project\C#\TodoList\C#\TodoList\obj\Debug\TodoList.Properties.Resources.resources
 D:\Project\C#\TodoList\C#\TodoList\obj\Debug\TodoList.csproj.GenerateResource.Cache
 F:\Project\C#\TodoList\C#\TodoList\obj\Debug\TodoList.csprojResolveAssemblyReference.cache
+F:\Project\C#\TodoList\C#\TodoList\obj\Debug\TodoList.MoreTextForm.resources
