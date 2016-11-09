@@ -28,7 +28,6 @@ namespace TodoList {
             if (FileManager.getInstance().readSaveFile()) {
                 string[] contentList = FileManager.getInstance().SaveContent.Split(new char[] { '#' });
                 _tempLength = contentList.Length - 1;
-                Debug.Print("-->listLength:" + _tempLength.ToString());
                 for (int i = 0; i < _tempLength; i++) {
                     TaskItem _tempItem = new TaskItem();
                     if (!_tempItem.stringToItem(contentList[i]))
@@ -53,7 +52,7 @@ namespace TodoList {
             int _count = 0;
             for (int i = (page - 1) * 5; i < 5 * page; i++) {
                 _tempList[_count] = i < list.Count ? list[i] : new TaskItem(false);
-                Debug.Print("-->"+_tempList[_count].Title);
+                Debug.Print("list's Title-->"+_tempList[_count].Title);
                 _count++;
             }
             return _tempList;

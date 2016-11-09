@@ -27,16 +27,17 @@
             this.btn_confirm = new System.Windows.Forms.Label();
             this.btn_cancel = new System.Windows.Forms.Label();
             this.btn_isStar = new System.Windows.Forms.PictureBox();
+            this.editMoreText = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.btn_isStar)).BeginInit();
             this.SuspendLayout();
             // 
             // editText
             // 
             this.editText.Font = new System.Drawing.Font("Microsoft YaHei", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.editText.Location = new System.Drawing.Point(51, 32);
-            this.editText.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.editText.Location = new System.Drawing.Point(38, 11);
+            this.editText.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.editText.Name = "editText";
-            this.editText.Size = new System.Drawing.Size(367, 31);
+            this.editText.Size = new System.Drawing.Size(276, 27);
             this.editText.TabIndex = 0;
             this.editText.TextChanged += new System.EventHandler(this.editText_TextChanged);
             this.editText.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.editText_KeyPress);
@@ -45,9 +46,10 @@
             // 
             this.btn_confirm.AutoSize = true;
             this.btn_confirm.Font = new System.Drawing.Font("Microsoft YaHei", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_confirm.Location = new System.Drawing.Point(81, 119);
+            this.btn_confirm.Location = new System.Drawing.Point(56, 148);
+            this.btn_confirm.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.btn_confirm.Name = "btn_confirm";
-            this.btn_confirm.Size = new System.Drawing.Size(93, 27);
+            this.btn_confirm.Size = new System.Drawing.Size(76, 22);
             this.btn_confirm.TabIndex = 1;
             this.btn_confirm.Text = "Confirm";
             this.btn_confirm.Click += new System.EventHandler(this.btn_confirm_Click);
@@ -56,9 +58,10 @@
             // 
             this.btn_cancel.AutoSize = true;
             this.btn_cancel.Font = new System.Drawing.Font("Microsoft YaHei", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_cancel.Location = new System.Drawing.Point(315, 119);
+            this.btn_cancel.Location = new System.Drawing.Point(237, 148);
+            this.btn_cancel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.btn_cancel.Name = "btn_cancel";
-            this.btn_cancel.Size = new System.Drawing.Size(78, 27);
+            this.btn_cancel.Size = new System.Drawing.Size(62, 22);
             this.btn_cancel.TabIndex = 3;
             this.btn_cancel.Text = "Cancel";
             this.btn_cancel.Click += new System.EventHandler(this.btn_cancel_Click);
@@ -66,26 +69,38 @@
             // btn_isStar
             // 
             this.btn_isStar.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btn_isStar.Location = new System.Drawing.Point(213, 80);
-            this.btn_isStar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btn_isStar.Location = new System.Drawing.Point(38, 71);
+            this.btn_isStar.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btn_isStar.Name = "btn_isStar";
-            this.btn_isStar.Size = new System.Drawing.Size(43, 41);
+            this.btn_isStar.Size = new System.Drawing.Size(32, 33);
             this.btn_isStar.TabIndex = 4;
             this.btn_isStar.TabStop = false;
             this.btn_isStar.Click += new System.EventHandler(this.btn_isStar_Click);
             // 
+            // editMoreText
+            // 
+            this.editMoreText.Font = new System.Drawing.Font("Microsoft YaHei", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.editMoreText.Location = new System.Drawing.Point(74, 53);
+            this.editMoreText.Margin = new System.Windows.Forms.Padding(2);
+            this.editMoreText.Multiline = true;
+            this.editMoreText.Name = "editMoreText";
+            this.editMoreText.Size = new System.Drawing.Size(240, 79);
+            this.editMoreText.TabIndex = 5;
+            this.editMoreText.TextChanged += new System.EventHandler(this.editMoreText_TextChanged);
+            // 
             // ItemEditForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(468, 166);
+            this.ClientSize = new System.Drawing.Size(351, 179);
             this.ControlBox = false;
+            this.Controls.Add(this.editMoreText);
             this.Controls.Add(this.btn_isStar);
             this.Controls.Add(this.btn_cancel);
             this.Controls.Add(this.btn_confirm);
             this.Controls.Add(this.editText);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "ItemEditForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "ItemEdit";
@@ -104,5 +119,6 @@
         private System.Windows.Forms.Label btn_confirm;
         private System.Windows.Forms.Label btn_cancel;
         private System.Windows.Forms.PictureBox btn_isStar;
+        private System.Windows.Forms.TextBox editMoreText;
     }
 }

@@ -16,16 +16,12 @@ namespace TodoList {
 
         public TaskItem() {
             title = "Please edit the new item";
+            moreText = "";
         }
         public TaskItem(bool isNull) {
             title = "null";
+            moreText = "";
         }
-
-        /*public override bool Equals(object obj) {
-            if (obj == null) return false;
-            TaskItem objAsTaskItem = obj as TaskItem;
-            return objAsTaskItem.index == index && objAsTaskItem.title == title;
-        }*/
 
         public string Title {
             get { return title; }
@@ -37,12 +33,9 @@ namespace TodoList {
             set {
                 if (value.Length <= maxTextLength)
                     moreText = value;
-                else
-                    VisualManager.getInstance().sendNotice("Error:TextLength out of the MaxTextLength.", 3);
             }
         }
         public bool stringToItem(string itemContent) {
-            Debug.Print("--> Content: " + itemContent);
             string[] temp = itemContent.Split(new char[] {'&'});
             try {
                 index = Int32.Parse(temp[0].Substring(6));

@@ -15,6 +15,10 @@ namespace TodoList {
             taskItemLabel_Heigth = 80,      //每个项目Item高度            
             LabelOffsetAcceleration = 1,    //项目Item动画加速度
             PageOffsetAcceleration = 1;     //翻页动画加速度
+
+        //淡入淡出动画加速度
+        private const double fadeAcceleration = 0.003;
+
         private int
             menuOffsetStartTick,            //Item动画的开始Tick
             pageOffsetStartTick,            //翻页动画的开始Tick
@@ -212,13 +216,12 @@ namespace TodoList {
                 }
             }
             menuOffsetStartTick = mainForm_nowTick;
-            Debug.Print("-->" + (item_index).ToString());
+            Debug.Print("VM.cs line:219-->" + (item_index).ToString());
             isLabelMenuOffseting[item_index] = true;
         }
 
         #region About the MoreTextForm
-        private const int fadeInOut_Tick = 500 / 10;
-        private const double fadeAcceleration = 0.003;
+        
         public void moreTextForm_changeLocation() {
             visualMoreText.Location = new Point(
                 visualMain.Location.X - visualMoreText.Size.Width,
@@ -232,68 +235,58 @@ namespace TodoList {
             visualMoreText.Show();
             visualMoreText.Opacity = 0;
         }
-        private int debug = -1;
         public void moreTextForm_fadeByTick() {
             int _tick = visualMoreText.tickCount;
-            if (nowMoreTextFormStatus() != debug) {
-                debug = nowMoreTextFormStatus();
-                Debug.Print("-->" + nowMoreTextFormStatus().ToString());
-            }
-            switch (nowMoreTextFormStatus()) {
+            if (isMouseItemHover) moreTextFormAliveTime = 300;
+            switch (visualMoreText.status) {
                 case 0:
                     int fadeInTick = _tick - moreTextFormShowStartTick;
                     visualMoreText.Opacity += 0.02 + fadeAcceleration * fadeInTick;
-                    if(visualMoreText.Opacity >= 1) visualMoreText.Opacity = 1;
+                    if (visualMoreText.Opacity >= 1) {
+                        visualMoreText.status = 1;
+                        visualMoreText.Opacity = 1;
+                    }
                     break;
                 case 1:
                     moreTextFormAliveTime--;
+                    if (moreTextFormAliveTime == 0)
+                        visualMoreText.status = 2;
                     break;
                 case 2:
                     int fadeOutTick = _tick - moreTextFormHideStartTick;
-                    visualMoreText.Opacity -= 0.02 /*- fadeAcceleration * (50 - fadeOutTick)*/;
-                    if (visualMoreText.Opacity <= 0) visualMoreText.Opacity = 0;
+                    visualMoreText.Opacity -= 0.02 *- fadeAcceleration * (50 - fadeOutTick);
+                    if (visualMoreText.Opacity <= 0) {
+                        visualMoreText.Opacity = 0;
+                        visualMoreText.status = 3;
+                    }
                     break;
                 case 3:
                     moreTextFormAliveTime = 300;
+                    visualMoreText.status = 3;
                     break;
             }
-            
         }
-
+          
         public void item_mouseHover(int index) {
+            string _temp = getItemByVisualIndex(index).MoreText;
+            moreTextLabel.Text = _temp.Length > 0 ? _temp : "No more text. Please click right this item to add it.";
+
             isMouseItemHover = true;
-            switch (nowMoreTextFormStatus()) {
-                case 2:
-                    moreTextFormHideStartTick = -1;
-                    moreTextFormShowStartTick = visualMoreText.tickCount;
-                    break;
-                case 3:
-                    moreTextFormShowStartTick = visualMoreText.tickCount;
-                    break;
+            if (visualMoreText.status == 3) {
+                moreTextFormShowStartTick = visualMoreText.tickCount;
+                visualMoreText.status = 0;
             }
+            if (visualMoreText.status == 2) {
+                moreTextFormHideStartTick = -1;
+                moreTextFormShowStartTick = visualMoreText.tickCount;
+                visualMoreText.status = 0;
+            }
+            if (visualMoreText.status == 1)
+                moreTextFormAliveTime = 300;
         } 
 
         public void item_mouseLeave(int index) {
             isMouseItemHover = false;
-        }
-
-        private int nowMoreTextFormStatus() {
-            int
-                fadeIn = 0,
-                aliveTime = 1,
-                fadeOut = 2,
-                hideTime = 3;
-            if (visualMoreText.Opacity < 1 && visualMoreText.tickCount - moreTextFormShowStartTick <= 50 && isMouseItemHover)
-                return fadeIn;
-            if (visualMoreText.Opacity == 1 && moreTextFormAliveTime >= 0)
-                return aliveTime;
-            if (visualMoreText.Opacity > 0 && moreTextFormAliveTime <= 0) {
-                moreTextFormHideStartTick = visualMoreText.tickCount;
-                return fadeOut;
-            }
-            if (visualMoreText.Opacity > 0 && visualMoreText.tickCount - moreTextFormHideStartTick <= 50 && !isMouseItemHover)
-                return fadeOut;
-            return hideTime;
         }
 
         #endregion

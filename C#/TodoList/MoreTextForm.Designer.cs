@@ -24,20 +24,19 @@
         /// </summary>
         private void InitializeComponent() {
             this.components = new System.ComponentModel.Container();
-            this.label1 = new System.Windows.Forms.Label();
+            this.moreTextLabel = new System.Windows.Forms.Label();
             this.Timer = new System.Windows.Forms.Timer(this.components);
             this.SuspendLayout();
             // 
-            // label1
+            // moreTextLabel
             // 
-            this.label1.Font = new System.Drawing.Font("Microsoft YaHei", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label1.Location = new System.Drawing.Point(12, 9);
-            this.label1.Name = "label1";
-            this.label1.Padding = new System.Windows.Forms.Padding(15);
-            this.label1.Size = new System.Drawing.Size(289, 194);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "label1";
-            this.label1.Click += new System.EventHandler(this.label1_Click);
+            this.moreTextLabel.Font = new System.Drawing.Font("Microsoft YaHei", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.moreTextLabel.Location = new System.Drawing.Point(12, 9);
+            this.moreTextLabel.Name = "moreTextLabel";
+            this.moreTextLabel.Padding = new System.Windows.Forms.Padding(15);
+            this.moreTextLabel.Size = new System.Drawing.Size(289, 194);
+            this.moreTextLabel.TabIndex = 0;
+            this.moreTextLabel.Text = "No more text. Please click right this item to add it.";
             // 
             // Timer
             // 
@@ -50,7 +49,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.ClientSize = new System.Drawing.Size(313, 212);
             this.ControlBox = false;
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.moreTextLabel);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "MoreTextForm";
             this.Text = "MoreTextForm";
@@ -60,7 +59,7 @@
 
         #endregion
 
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label moreTextLabel;
         private System.Windows.Forms.Timer Timer;
     }
 }

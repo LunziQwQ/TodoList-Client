@@ -13,7 +13,9 @@ namespace TodoList {
         private VisualManager visualManager = VisualManager.getInstance();
         private int index;
         private TaskItem thisItem;
-        private string tempSaveInputText;
+        private string 
+            _tempSaveInputTitleText,
+            _tempSaveInputMoreText;
 
 
         public ItemEditForm(int index,int nowPage) {
@@ -21,12 +23,14 @@ namespace TodoList {
             this.index = index;
             thisItem = visualManager.getItemByVisualIndex(index);
             editText.Text = thisItem.Title;
+            editMoreText.Text = thisItem.MoreText;
             btn_isStar.BackColor = thisItem.isStar ? Color.Orange : Color.White;
             visualManager.visualMain.Enabled = false;
         }
 
         private void btn_confirm_Click(object sender, EventArgs e) {
             thisItem.Title = editText.Text;
+            thisItem.MoreText = editMoreText.Text;
             visualManager.visualMain.Enabled = true;
             visualManager.visualValueUpdate();
             visualManager.item_mouseClick(0);
@@ -63,10 +67,10 @@ namespace TodoList {
             if (size.Width >= 600) {
                 visualManager.sendNotice("Error:Input lenth out of the MaxTitleLength", 2);
                 editText.Focus();
-                editText.Text = tempSaveInputText;
+                editText.Text = _tempSaveInputTitleText;
 
             } else {
-                tempSaveInputText = editText.Text;
+                _tempSaveInputTitleText = editText.Text;
             }
 
         }
@@ -74,6 +78,16 @@ namespace TodoList {
         private void btn_isStar_Click(object sender, EventArgs e) {
             visualManager.changeIsStar(index);
             btn_isStar.BackColor = thisItem.isStar ? Color.Orange : Color.White;
+        }
+
+        private void editMoreText_TextChanged(object sender, EventArgs e) {
+            if(editMoreText.Text.Length >= TaskItem.maxTextLength) {
+                visualManager.sendNotice("Error:Input lenth out of the MaxTitleLength", 2);
+                editMoreText.Focus();
+                editMoreText.Text = _tempSaveInputMoreText;
+            }else{
+                _tempSaveInputMoreText = editMoreText.Text;
+            }
         }
     }
 }
