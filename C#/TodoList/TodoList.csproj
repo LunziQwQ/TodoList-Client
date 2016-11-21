@@ -65,6 +65,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="backImage.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>backImage.resx</DependentUpon>
+    </Compile>
     <Compile Include="FileManager.cs" />
     <Compile Include="ItemEditForm.cs">
       <SubType>Form</SubType>
@@ -96,6 +101,10 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="TaskItem.cs" />
     <Compile Include="VisualManager.cs" />
+    <EmbeddedResource Include="backImage.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>backImage.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
     <EmbeddedResource Include="ItemEditForm.resx">
       <DependentUpon>ItemEditForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -116,6 +125,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -141,6 +151,9 @@
       <ProductName>.NET Framework 3.5 SP1</ProductName>
       <Install>false</Install>
     </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\backImage.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
