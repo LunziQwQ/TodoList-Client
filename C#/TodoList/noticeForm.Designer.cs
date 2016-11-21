@@ -47,16 +47,16 @@
             this.Timer.Interval = 10;
             this.Timer.Tick += new System.EventHandler(this.Timer_Tick);
             // 
-            // noticeForm
+            // NoticeForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 27F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 21F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(376, 85);
+            this.ClientSize = new System.Drawing.Size(380, 85);
             this.Controls.Add(this.NoticeText);
             this.Font = new System.Drawing.Font("Microsoft YaHei", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
-            this.Name = "noticeForm";
+            this.Name = "NoticeForm";
             this.Opacity = 0.9D;
             this.Text = "Notice";
             this.Click += new System.EventHandler(this.noticeForm_Click);

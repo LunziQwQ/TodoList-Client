@@ -182,10 +182,10 @@
             this.btn_pgUp.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_pgUp.Font = new System.Drawing.Font("Microsoft YaHei", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_pgUp.ForeColor = System.Drawing.Color.DimGray;
-            this.btn_pgUp.Location = new System.Drawing.Point(286, 458);
+            this.btn_pgUp.Location = new System.Drawing.Point(285, 458);
             this.btn_pgUp.Margin = new System.Windows.Forms.Padding(2);
             this.btn_pgUp.Name = "btn_pgUp";
-            this.btn_pgUp.Size = new System.Drawing.Size(38, 32);
+            this.btn_pgUp.Size = new System.Drawing.Size(43, 32);
             this.btn_pgUp.TabIndex = 10;
             this.btn_pgUp.Text = "→";
             this.btn_pgUp.TextAlign = System.Drawing.ContentAlignment.TopCenter;
@@ -197,10 +197,10 @@
             this.btn_pgDn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_pgDn.Font = new System.Drawing.Font("Microsoft YaHei", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_pgDn.ForeColor = System.Drawing.Color.DimGray;
-            this.btn_pgDn.Location = new System.Drawing.Point(244, 458);
+            this.btn_pgDn.Location = new System.Drawing.Point(238, 458);
             this.btn_pgDn.Margin = new System.Windows.Forms.Padding(2);
             this.btn_pgDn.Name = "btn_pgDn";
-            this.btn_pgDn.Size = new System.Drawing.Size(38, 32);
+            this.btn_pgDn.Size = new System.Drawing.Size(43, 32);
             this.btn_pgDn.TabIndex = 9;
             this.btn_pgDn.Text = "←";
             this.btn_pgDn.TextAlign = System.Drawing.ContentAlignment.TopCenter;
@@ -215,7 +215,7 @@
             this.btn_add.Location = new System.Drawing.Point(10, 458);
             this.btn_add.Margin = new System.Windows.Forms.Padding(2);
             this.btn_add.Name = "btn_add";
-            this.btn_add.Size = new System.Drawing.Size(38, 32);
+            this.btn_add.Size = new System.Drawing.Size(64, 32);
             this.btn_add.TabIndex = 11;
             this.btn_add.Text = "+";
             this.btn_add.UseVisualStyleBackColor = true;
@@ -352,7 +352,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(334, 500);
+            this.ClientSize = new System.Drawing.Size(335, 500);
             this.Controls.Add(this.btn_edit5);
             this.Controls.Add(this.btn_del5);
             this.Controls.Add(this.btn_edit4);

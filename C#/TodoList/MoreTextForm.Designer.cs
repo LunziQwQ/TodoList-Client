@@ -34,7 +34,7 @@
             this.moreTextLabel.Location = new System.Drawing.Point(12, 9);
             this.moreTextLabel.Name = "moreTextLabel";
             this.moreTextLabel.Padding = new System.Windows.Forms.Padding(15);
-            this.moreTextLabel.Size = new System.Drawing.Size(289, 194);
+            this.moreTextLabel.Size = new System.Drawing.Size(290, 195);
             this.moreTextLabel.TabIndex = 0;
             this.moreTextLabel.Text = "No more text. Please click right this item to add it.";
             // 
@@ -47,7 +47,7 @@
             // MoreTextForm
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
-            this.ClientSize = new System.Drawing.Size(313, 212);
+            this.ClientSize = new System.Drawing.Size(315, 215);
             this.ControlBox = false;
             this.Controls.Add(this.moreTextLabel);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;

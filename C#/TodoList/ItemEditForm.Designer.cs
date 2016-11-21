@@ -35,7 +35,7 @@
             // 
             this.editText.Font = new System.Drawing.Font("Microsoft YaHei", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.editText.Location = new System.Drawing.Point(38, 11);
-            this.editText.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.editText.Margin = new System.Windows.Forms.Padding(2);
             this.editText.Name = "editText";
             this.editText.Size = new System.Drawing.Size(276, 27);
             this.editText.TabIndex = 0;
@@ -70,7 +70,7 @@
             // 
             this.btn_isStar.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.btn_isStar.Location = new System.Drawing.Point(38, 71);
-            this.btn_isStar.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btn_isStar.Margin = new System.Windows.Forms.Padding(2);
             this.btn_isStar.Name = "btn_isStar";
             this.btn_isStar.Size = new System.Drawing.Size(32, 33);
             this.btn_isStar.TabIndex = 4;
@@ -92,7 +92,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(351, 179);
+            this.ClientSize = new System.Drawing.Size(350, 180);
             this.ControlBox = false;
             this.Controls.Add(this.editMoreText);
             this.Controls.Add(this.btn_isStar);
@@ -100,7 +100,7 @@
             this.Controls.Add(this.btn_confirm);
             this.Controls.Add(this.editText);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "ItemEditForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "ItemEdit";
