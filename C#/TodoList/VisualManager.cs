@@ -162,7 +162,7 @@ namespace TodoList {
             foreach (TaskItem x in ItemList.getInstance().getListByPage(nowPage)) {
                 if (x.Title != "") {
                     labelList[_count].Text = x.Title;
-                    labelList[_count].BackColor = x.isStar ? Color.FromArgb(245,179,177) : Color.FromArgb(255, 252, 216);
+                    labelList[_count].BackColor = x.isStar ? Color.FromArgb(150,245,179,177) : Color.FromArgb(175,255, 252, 216);
                 }
                 _count++;
             }
@@ -219,7 +219,7 @@ namespace TodoList {
         public void moreTextForm_changeLocation() {
             visualMoreText.Location = new Point(
                 visualMain.Location.X - visualMoreText.Size.Width,
-                visualMain.Location.Y 
+                visualMain.Location.Y + 35
                 );
         }
 
