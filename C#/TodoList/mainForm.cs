@@ -54,7 +54,7 @@ namespace TodoList {
         }
 
         private void btn_close_MouseEnter(object sender, EventArgs e) {
-            btn_close.BackColor = Color.OrangeRed;
+            btn_close.BackColor = Color.FromArgb(250,112,1);
         }
 
         private void btn_close_MouseLeave(object sender, EventArgs e) {

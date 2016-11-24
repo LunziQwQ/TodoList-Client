@@ -63,9 +63,59 @@ namespace TodoList.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap backImage {
+        internal static System.Drawing.Bitmap EditBackImage {
             get {
-                object obj = ResourceManager.GetObject("backImage", resourceCulture);
+                object obj = ResourceManager.GetObject("EditBackImage", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap MainBackImage {
+            get {
+                object obj = ResourceManager.GetObject("MainBackImage", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap MoreTextBackImage {
+            get {
+                object obj = ResourceManager.GetObject("MoreTextBackImage", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap NoticeBackImage {
+            get {
+                object obj = ResourceManager.GetObject("NoticeBackImage", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap star0 {
+            get {
+                object obj = ResourceManager.GetObject("star0", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap star1 {
+            get {
+                object obj = ResourceManager.GetObject("star1", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

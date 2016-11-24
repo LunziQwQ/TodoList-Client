@@ -32,6 +32,8 @@
             // 
             this.NoticeText.AllowDrop = true;
             this.NoticeText.AutoEllipsis = true;
+            this.NoticeText.BackColor = System.Drawing.Color.Transparent;
+            this.NoticeText.Font = new System.Drawing.Font("Microsoft YaHei", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.NoticeText.Location = new System.Drawing.Point(14, 9);
             this.NoticeText.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.NoticeText.Name = "NoticeText";
@@ -51,13 +53,14 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 21F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackgroundImage = global::TodoList.Properties.Resources.NoticeBackImage;
             this.ClientSize = new System.Drawing.Size(380, 85);
             this.Controls.Add(this.NoticeText);
             this.Font = new System.Drawing.Font("Microsoft YaHei", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
             this.Name = "NoticeForm";
-            this.Opacity = 0.9D;
+            this.Opacity = 0.95D;
             this.Text = "Notice";
             this.Click += new System.EventHandler(this.noticeForm_Click);
             this.ResumeLayout(false);

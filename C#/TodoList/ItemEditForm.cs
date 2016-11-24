@@ -16,6 +16,8 @@ namespace TodoList {
         private string 
             _tempSaveInputTitleText,
             _tempSaveInputMoreText;
+        private bool 
+            _tempSaveIsStar;
 
 
         public ItemEditForm(int index,int nowPage) {
@@ -24,7 +26,9 @@ namespace TodoList {
             thisItem = visualManager.getItemByVisualIndex(index);
             editText.Text = thisItem.Title;
             editMoreText.Text = thisItem.MoreText;
-            btn_isStar.BackColor = thisItem.isStar ? Color.Orange : Color.White;
+            editText.BackColor = thisItem.isStar ? Color.FromArgb(245, 179, 177) : Color.FromArgb(255, 252, 216);
+            editMoreText.BackColor = thisItem.isStar ? Color.FromArgb(245, 179, 177) : Color.FromArgb(255, 252, 216);
+            btn_isStar.BackgroundImage = thisItem.isStar ? Properties.Resources.star1 : Properties.Resources.star0;
             visualManager.visualMain.Enabled = false;
         }
 
@@ -77,7 +81,9 @@ namespace TodoList {
 
         private void btn_isStar_Click(object sender, EventArgs e) {
             visualManager.changeIsStar(index);
-            btn_isStar.BackColor = thisItem.isStar ? Color.Orange : Color.White;
+            btn_isStar.BackgroundImage = thisItem.isStar ? Properties.Resources.star1 : Properties.Resources.star0;
+            editText.BackColor = thisItem.isStar ? Color.FromArgb(245, 179, 177) : Color.FromArgb(255, 252, 216);
+            editMoreText.BackColor = thisItem.isStar ? Color.FromArgb(245, 179, 177) : Color.FromArgb(255, 252, 216);
         }
 
         private void editMoreText_TextChanged(object sender, EventArgs e) {

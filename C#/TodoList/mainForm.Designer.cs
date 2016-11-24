@@ -52,13 +52,14 @@
             // 
             this.btn_close.AccessibleRole = System.Windows.Forms.AccessibleRole.None;
             this.btn_close.BackColor = System.Drawing.Color.Transparent;
+            this.btn_close.FlatAppearance.BorderSize = 0;
             this.btn_close.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_close.Font = new System.Drawing.Font("Consolas", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_close.ForeColor = System.Drawing.SystemColors.ButtonShadow;
-            this.btn_close.Location = new System.Drawing.Point(274, 0);
+            this.btn_close.Font = new System.Drawing.Font("Consolas", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_close.ForeColor = System.Drawing.Color.SaddleBrown;
+            this.btn_close.Location = new System.Drawing.Point(266, -8);
             this.btn_close.Name = "btn_close";
             this.btn_close.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.btn_close.Size = new System.Drawing.Size(62, 33);
+            this.btn_close.Size = new System.Drawing.Size(71, 42);
             this.btn_close.TabIndex = 0;
             this.btn_close.Text = "×";
             this.btn_close.UseVisualStyleBackColor = false;
@@ -70,18 +71,18 @@
             // 
             this.TitleLabel.AutoSize = true;
             this.TitleLabel.BackColor = System.Drawing.Color.Transparent;
-            this.TitleLabel.Font = new System.Drawing.Font("Consolas", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TitleLabel.ForeColor = System.Drawing.Color.DimGray;
-            this.TitleLabel.Location = new System.Drawing.Point(11, 7);
+            this.TitleLabel.Font = new System.Drawing.Font("Consolas", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TitleLabel.ForeColor = System.Drawing.Color.SaddleBrown;
+            this.TitleLabel.Location = new System.Drawing.Point(5, 3);
             this.TitleLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.TitleLabel.Name = "TitleLabel";
-            this.TitleLabel.Size = new System.Drawing.Size(106, 24);
+            this.TitleLabel.Size = new System.Drawing.Size(116, 28);
             this.TitleLabel.TabIndex = 1;
             this.TitleLabel.Text = "TodoList";
             // 
             // TaskItem1
             // 
-            this.TaskItem1.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.TaskItem1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(252)))), ((int)(((byte)(216)))));
             this.TaskItem1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.TaskItem1.Font = new System.Drawing.Font("Microsoft YaHei", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.TaskItem1.ForeColor = System.Drawing.Color.Black;
@@ -98,7 +99,7 @@
             // 
             // TaskItem2
             // 
-            this.TaskItem2.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.TaskItem2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(252)))), ((int)(((byte)(216)))));
             this.TaskItem2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.TaskItem2.Font = new System.Drawing.Font("Microsoft YaHei", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.TaskItem2.ForeColor = System.Drawing.Color.Black;
@@ -115,7 +116,7 @@
             // 
             // TaskItem3
             // 
-            this.TaskItem3.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.TaskItem3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(252)))), ((int)(((byte)(216)))));
             this.TaskItem3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.TaskItem3.Font = new System.Drawing.Font("Microsoft YaHei", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.TaskItem3.ForeColor = System.Drawing.Color.Black;
@@ -132,7 +133,7 @@
             // 
             // TaskItem4
             // 
-            this.TaskItem4.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.TaskItem4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(252)))), ((int)(((byte)(216)))));
             this.TaskItem4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.TaskItem4.Font = new System.Drawing.Font("Microsoft YaHei", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.TaskItem4.ForeColor = System.Drawing.Color.Black;
@@ -149,7 +150,7 @@
             // 
             // TaskItem5
             // 
-            this.TaskItem5.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.TaskItem5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(252)))), ((int)(((byte)(216)))));
             this.TaskItem5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.TaskItem5.Font = new System.Drawing.Font("Microsoft YaHei", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.TaskItem5.ForeColor = System.Drawing.Color.Black;
@@ -352,7 +353,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.BackgroundImage = global::TodoList.Properties.Resources.backImage;
+            this.BackgroundImage = global::TodoList.Properties.Resources.MainBackImage;
             this.ClientSize = new System.Drawing.Size(335, 500);
             this.Controls.Add(this.btn_edit5);
             this.Controls.Add(this.btn_del5);

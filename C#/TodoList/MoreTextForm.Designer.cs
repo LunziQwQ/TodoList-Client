@@ -30,6 +30,7 @@
             // 
             // moreTextLabel
             // 
+            this.moreTextLabel.BackColor = System.Drawing.Color.Transparent;
             this.moreTextLabel.Font = new System.Drawing.Font("Microsoft YaHei", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.moreTextLabel.Location = new System.Drawing.Point(12, 9);
             this.moreTextLabel.Name = "moreTextLabel";
@@ -47,6 +48,7 @@
             // MoreTextForm
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
+            this.BackgroundImage = global::TodoList.Properties.Resources.MoreTextBackImage;
             this.ClientSize = new System.Drawing.Size(315, 215);
             this.ControlBox = false;
             this.Controls.Add(this.moreTextLabel);
