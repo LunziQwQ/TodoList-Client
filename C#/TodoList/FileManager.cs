@@ -4,7 +4,7 @@ using System.Diagnostics;
 
 namespace TodoList {
     class FileManager {
-        private string autoSavePath = @"C:\Users\Public\Documents\TodoList_AutoSave.tdl";
+        private string autoSavePath = @"C:\Users\" + System.Environment.UserName + @"\Documents\TodoList_AutoSave.tdl";
         private string saveContent;
 
         private static FileManager instance;
@@ -22,6 +22,8 @@ namespace TodoList {
 
         public bool readSaveFile() {
             try {
+                if (!File.Exists(autoSavePath))
+                    File.WriteAllText(autoSavePath, "");
                 saveContent = File.ReadAllText(autoSavePath);
             }catch(Exception e) {
                 Debug.Print("-->Class:FileManager, Line: 31 \n "+e.Message+"\n");
