@@ -61,6 +61,7 @@
             this.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
             this.Name = "NoticeForm";
             this.Opacity = 0.95D;
+            this.ShowInTaskbar = false;
             this.Text = "Notice";
             this.Click += new System.EventHandler(this.noticeForm_Click);
             this.ResumeLayout(false);
