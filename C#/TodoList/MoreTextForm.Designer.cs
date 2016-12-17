@@ -55,7 +55,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "MoreTextForm";
             this.ShowInTaskbar = false;
-            this.Text = "MoreTextForm";
+            this.Text = "f";
             this.ResumeLayout(false);
 
         }

@@ -148,6 +148,8 @@ namespace TodoList {
             visualManager.mainForm_menuOffsetByTimer(tickCount);
             visualManager.mainForm_PageOffsetByTimer(tickCount);
             visualManager.moreTextForm_changeLocation();
+            if (tickCount % 3000 == 0)
+                fileManager.autoSave();
         }
 
         #region Label_HoverEventList
