@@ -4,6 +4,8 @@ using System.Diagnostics;
 
 namespace TodoList {
     class FileManager {
+        private MysqlConnector mysqlConnector = new MysqlConnector();
+
         private string autoSavePath = @"C:\Users\" + System.Environment.UserName + @"\Documents\TodoList_AutoSave.tdl";
         private string saveContent;
 
@@ -36,6 +38,7 @@ namespace TodoList {
             saveContent = ItemList.getInstance().listToString();
             try {
                 File.WriteAllText(autoSavePath, saveContent);
+                mysqlConnector.CloudSync(saveContent);
             }catch (Exception e) {
                 Debug.Print("-->Class:FileManager, Line: 42 \n" + e.Message+"\n");
                 return false;

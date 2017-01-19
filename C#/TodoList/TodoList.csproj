@@ -60,6 +60,32 @@
   </PropertyGroup>
   <PropertyGroup />
   <ItemGroup>
+    <Reference Include="Antlr3.Runtime">
+      <HintPath>..\..\mysql-for-visualstudio-1.2.6-noinstall\v45\Antlr3.Runtime.dll</HintPath>
+    </Reference>
+    <Reference Include="mysql.data, Version=6.9.9.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\mysql-for-visualstudio-1.2.6-noinstall\v45\mysql.data.dll</HintPath>
+    </Reference>
+    <Reference Include="mysql.data.entity">
+      <HintPath>..\..\mysql-for-visualstudio-1.2.6-noinstall\v45\mysql.data.entity.dll</HintPath>
+    </Reference>
+    <Reference Include="MySql.Debugger">
+      <HintPath>..\..\mysql-for-visualstudio-1.2.6-noinstall\v45\MySql.Debugger.dll</HintPath>
+    </Reference>
+    <Reference Include="MySql.Debugger.VisualStudio">
+      <HintPath>..\..\mysql-for-visualstudio-1.2.6-noinstall\v45\MySql.Debugger.VisualStudio.dll</HintPath>
+    </Reference>
+    <Reference Include="MySql.Parser">
+      <HintPath>..\..\mysql-for-visualstudio-1.2.6-noinstall\v45\MySql.Parser.dll</HintPath>
+    </Reference>
+    <Reference Include="mysql.visualstudio">
+      <HintPath>..\..\mysql-for-visualstudio-1.2.6-noinstall\v45\mysql.visualstudio.dll</HintPath>
+    </Reference>
+    <Reference Include="mysql.web, Version=6.9.9.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\mysql-for-visualstudio-1.2.6-noinstall\v45\mysql.web.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -86,6 +112,12 @@
       <DependentUpon>ItemEditForm.cs</DependentUpon>
     </Compile>
     <Compile Include="ItemList.cs" />
+    <Compile Include="LoginForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="LoginForm.Designer.cs">
+      <DependentUpon>LoginForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="MainForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -99,6 +131,7 @@
     <Compile Include="MoreTextForm.Designer.cs">
       <DependentUpon>MoreTextForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="MysqlConnector.cs" />
     <Compile Include="NoticeForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -120,6 +153,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="ItemEditForm.resx">
       <DependentUpon>ItemEditForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LoginForm.resx">
+      <DependentUpon>LoginForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
@@ -183,6 +219,7 @@
   <ItemGroup>
     <None Include="Resources\TodoLIstIcon.ico" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

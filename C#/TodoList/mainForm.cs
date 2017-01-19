@@ -4,7 +4,6 @@ using System.Windows.Forms;
 
 namespace TodoList {
     public partial class MainForm : Form {
-
         private VisualManager visualManager = VisualManager.getInstance();
         private FileManager fileManager = FileManager.getInstance();
         
@@ -191,5 +190,6 @@ namespace TodoList {
         }
         #endregion
 
+        
     }
 }
