@@ -1,0 +1,113 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="TodoList.FileManager">
+    <Position X="8.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAiAEAAAABAAAAEAAAAAAAABAAAQAAAAAAAAAAAA=</HashCode>
+      <FileName>FileManager.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TodoList.Account" Collapsed="true">
+    <Position X="5.75" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAABAAAQCAQAAAgEAAAA=</HashCode>
+      <FileName>Account.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TodoList.backImage" Collapsed="true">
+    <Position X="2.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAABEAAAAQAAAAAAAAAAAAAAAIA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TodoList.ItemEditForm" Collapsed="true">
+    <Position X="4" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AJIAAREAACQKAAIAAQDAAAACMAgAAAAAABAAABABAgI=</HashCode>
+      <FileName>ItemEditForm.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TodoList.ItemList" Collapsed="true">
+    <Position X="5.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAgCAAAAAAAAAAACAAAAAQgBAAAYAAiAAAAAAAAI=</HashCode>
+      <FileName>ItemList.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TodoList.LoginForm" Collapsed="true">
+    <Position X="0.5" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAUgIAACQAAAAAAACAAAACAAAAEAACAQIAAAAAAAA=</HashCode>
+      <FileName>LoginForm.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TodoList.MainForm">
+    <Position X="10" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AEAAWAABACYAAIAQoBKAEIKCAJAAMAgAgEAQQhAABiI=</HashCode>
+      <FileName>MainForm.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TodoList.MessageNotice" Collapsed="true">
+    <Position X="4" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAgAAAAAAAAEAAAQAAAAEAAAAAAAQAQAgAAAAIAAA=</HashCode>
+      <FileName>MessageNotice.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TodoList.MoreTextForm" Collapsed="true">
+    <Position X="5.75" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAACABAABAABCAAAACAAAAAAAAAAAAAAAEAgA=</HashCode>
+      <FileName>MoreTextForm.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TodoList.MysqlConnector" Collapsed="true">
+    <Position X="0.5" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAACAAAAAAAAAAAAAABAAAACAAAAAAAAAAA=</HashCode>
+      <FileName>MysqlConnector.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TodoList.NoticeForm" Collapsed="true">
+    <Position X="2.25" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAACEAIABAABCAEIACAEAAAAAAAAgAwAAEAgA=</HashCode>
+      <FileName>NoticeForm.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TodoList.Program" Collapsed="true">
+    <Position X="4" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAA=</HashCode>
+      <FileName>Program.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TodoList.TaskItem" Collapsed="true">
+    <Position X="2.25" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>gAAAAIAAQAEAAEAAAAAAAAAAAAABCAAAAAAAAAAFAAA=</HashCode>
+      <FileName>TaskItem.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TodoList.VisualManager" Collapsed="true">
+    <Position X="4" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>RgwAAQBQggJBAKEVAgCABUAAkcZSYBQsUCAAgACBoAk=</HashCode>
+      <FileName>VisualManager.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TodoList.Properties.Resources" Collapsed="true">
+    <Position X="5.75" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAIAAAIAAAAAARAQAAABEAAAAQAAAAAAAACAAAAAAIA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TodoList.Properties.Settings" Collapsed="true">
+    <Position X="0.5" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAIAAAAAABAAAAAAAAAAAAAAA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Microsoft YaHei UI" Size="9" />
+</ClassDiagram>

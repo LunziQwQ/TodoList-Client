@@ -38,7 +38,7 @@ namespace TodoList {
             saveContent = ItemList.getInstance().listToString();
             try {
                 File.WriteAllText(autoSavePath, saveContent);
-                mysqlConnector.CloudSync(saveContent);
+                //mysqlConnector.CloudSync(saveContent);
             }catch (Exception e) {
                 Debug.Print("-->Class:FileManager, Line: 42 \n" + e.Message+"\n");
                 return false;
