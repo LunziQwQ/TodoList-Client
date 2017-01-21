@@ -30,7 +30,7 @@ namespace TodoList {
             visualManager.showPage();
             visualManager.moreTextForm_init();
         }
-
+        
         #region 点击窗口非控件区域时拖动窗口改变窗口位置
         private void mainForm_MouseDown(object sender, MouseEventArgs e) {
             visualManager.moveForm_MouseDown(e.Location, this);

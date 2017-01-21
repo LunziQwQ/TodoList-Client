@@ -4,11 +4,12 @@ using System.Diagnostics;
 
 namespace TodoList {
     class FileManager {
-        private MysqlConnector mysqlConnector = new MysqlConnector();
-
         private string autoSavePath = @"C:\Users\" + System.Environment.UserName + @"\Documents\TodoList_AutoSave.tdl";
         private string saveContent;
 
+        //private MysqlConnector mysqlConnector = MysqlConnector.getInstance();
+        private Account account = Account.getInstance();
+        
         private static FileManager instance;
         private FileManager() { }
         public static FileManager getInstance() {
@@ -38,7 +39,9 @@ namespace TodoList {
             saveContent = ItemList.getInstance().listToString();
             try {
                 File.WriteAllText(autoSavePath, saveContent);
-                //mysqlConnector.CloudSync(saveContent);
+                //account.mysqlConnector.cloudSync(saveContent);
+                //account.mysqlConnector.insert();
+                //account.mysqlConnector.selectUser();
             }catch (Exception e) {
                 Debug.Print("-->Class:FileManager, Line: 42 \n" + e.Message+"\n");
                 return false;

@@ -6,12 +6,12 @@ using System.Threading.Tasks;
 
 namespace TodoList{
     class User{
-        private string userName;    //用户名
+        private string username;    //用户名
         private string password;    //密码
 
-        public string UserName {
-            get { return userName; }
-            set { userName = value; }
+        public string Username {
+            get { return username; }
+            set { username = value; }
         }
         public string Password {
             get { return password; }

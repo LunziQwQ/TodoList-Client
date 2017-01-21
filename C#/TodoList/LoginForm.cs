@@ -12,14 +12,14 @@ namespace TodoList
 {
     public partial class LoginForm : Form
     {
-        private MysqlConnector mysqlConnector = new MysqlConnector();
+        //private MysqlConnector mysqlConnector = new MysqlConnector();
 
         public LoginForm() {
             InitializeComponent();
         }
 
         private void ConnectTest_Click(object sender, EventArgs e) {
-            mysqlConnector.ConnectionTest();
+            //mysqlConnector.ConnectionTest();
         }
 
         private void btn_close_Click(object sender, EventArgs e) {
