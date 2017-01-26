@@ -6,7 +6,7 @@ namespace TodoList {
     public partial class MainForm : Form {
         private VisualManager visualManager = VisualManager.getInstance();
         private FileManager fileManager = FileManager.getInstance();
-        
+
         private int tickCount = -1;
 
         public MainForm() {

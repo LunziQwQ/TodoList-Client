@@ -10,10 +10,10 @@ using System.Diagnostics;
 namespace TodoList
 {
     class MysqlConnector:User{
-        private static string Mysql_server = "119.29.149.254";              //服务器地址
-        private static string Mysql_username = "todolist_tester";            //访问数据库的用户名
-        private static string Mysql_password = "todolisttest233";           //访问数据库的密码
-        private static string Mysql_database = "todolist_test";             //要访问的数据库
+        private const string Mysql_server = "119.29.149.254";               //服务器地址
+        private const string Mysql_username = "todolist_tester";            //访问数据库的用户名
+        private const string Mysql_password = "todolisttest233";            //访问数据库的密码
+        private const string Mysql_database = "todolist_test";              //要访问的数据库
         private string ConnectStr = String.Format(                          //远程连接Mysql所需要的信息
             "Data Source={0};User Id={1};Password={2};Database={3}",
             Mysql_server, Mysql_username, Mysql_password, Mysql_database);   
@@ -64,7 +64,7 @@ namespace TodoList
         }
 
         //查询用户是否存在
-        public void selectUser() {
+        public bool findUser() {
             try {
                 string QueryStr = String.Format("SELECT username FROM todolists WHERE username='{0}'", Username);
                 MySqlConnection mysqlConnection = new MySqlConnection(ConnectStr);
@@ -73,16 +73,19 @@ namespace TodoList
                 mysqlConnection.Open();
                 MySqlDataReader rdr = mysqlCommand.ExecuteReader();
                 if(rdr.Read()) {
-                    MessageBox.Show(rdr[0].ToString());
+                    rdr.Close();
+                    mysqlCommand.Connection.Close();
+                    return true;
                 }else {
                     MessageBox.Show("No this user");
-
+                    rdr.Close();
+                    mysqlCommand.Connection.Close();
+                    return false;
                 }
-                rdr.Close();
-                mysqlCommand.Connection.Close();
             }
             catch (MySqlException ex) {
                 MessageBox.Show(ex.Message);
+                return false;
             }
         }
 
@@ -101,21 +104,22 @@ namespace TodoList
                         mysqlConnection.Close();
                         return true;
                     }else {
-                        rdr.Close();
-                        mysqlConnection.Close();
-                        MessageBox.Show("wrong password");
-                        return false;
+                        MessageBox.Show("Wrong password.");
                     }
                 }else {
-                    MessageBox.Show("user not found");
-                    rdr.Close();
-                    mysqlConnection.Close();
-                    return false;
+                    MessageBox.Show("Username not found.");
+                    
                 }
-            }catch(MySqlException ex) {
+                rdr.Close();
+                mysqlConnection.Close();
+                return false;
+            }
+            catch(MySqlException ex) {
                 MessageBox.Show(ex.Message);
                 return false;
             }
         }
+
+        
     }
 }

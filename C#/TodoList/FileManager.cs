@@ -8,7 +8,7 @@ namespace TodoList {
         private string saveContent;
 
         //private MysqlConnector mysqlConnector = MysqlConnector.getInstance();
-        private Account account = Account.getInstance();
+        public Account account = Account.getInstance();
         
         private static FileManager instance;
         private FileManager() { }
@@ -41,10 +41,10 @@ namespace TodoList {
                 File.WriteAllText(autoSavePath, saveContent);
                 //account.mysqlConnector.cloudSync(saveContent);
                 //account.mysqlConnector.insert();
-                //account.mysqlConnector.selectUser();
-                account.mysqlConnector.comparePassword(account.Password);
+                //account.mysqlConnector.findUser();
+                //account.mysqlConnector.comparePassword(account.Password);
             }catch (Exception e) {
-                Debug.Print("-->Class:FileManager, Line: 42 \n" + e.Message+"\n");
+                Debug.Print("-->Class:FileManager, Line: 42 \n" + e.Message + "\n");
                 return false;
             }
             return true;

@@ -10,21 +10,20 @@ using System.Windows.Forms;
 
 namespace TodoList
 {
-    public partial class LoginForm : Form
+    public partial class SignInForm : Form
     {
         //private MysqlConnector mysqlConnector = new MysqlConnector();
 
-        public LoginForm() {
+        public SignInForm() {
             InitializeComponent();
         }
 
-        private void ConnectTest_Click(object sender, EventArgs e) {
+        private void btn_signin_Click(object sender, EventArgs e) {
             //mysqlConnector.ConnectionTest();
         }
 
         private void btn_close_Click(object sender, EventArgs e) {
             this.Close();
-            Application.Exit();
         }
 
         private void btn_close_MouseEnter(object sender, EventArgs e) {

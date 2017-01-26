@@ -1,6 +1,6 @@
 ﻿namespace TodoList
 {
-    partial class LoginForm
+    partial class SignInForm
     {
         /// <summary>
         /// Required designer variable.
@@ -25,46 +25,37 @@
         /// the contents of this method with the code editor.
         /// </summary>
         private void InitializeComponent() {
-            this.UserName = new System.Windows.Forms.TextBox();
-            this.Password = new System.Windows.Forms.TextBox();
-            this.LoginMessageBox = new System.Windows.Forms.TextBox();
-            this.ConnectTest = new System.Windows.Forms.Button();
+            this.textbox_username = new System.Windows.Forms.TextBox();
+            this.textbox_password = new System.Windows.Forms.TextBox();
+            this.btn_signin = new System.Windows.Forms.Button();
             this.btn_close = new System.Windows.Forms.Button();
+            this.label_username = new System.Windows.Forms.Label();
+            this.label_password = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
-            // UserName
+            // textbox_username
             // 
-            this.UserName.Location = new System.Drawing.Point(30, 49);
-            this.UserName.Name = "UserName";
-            this.UserName.Size = new System.Drawing.Size(100, 25);
-            this.UserName.TabIndex = 0;
+            this.textbox_username.Location = new System.Drawing.Point(114, 49);
+            this.textbox_username.Name = "textbox_username";
+            this.textbox_username.Size = new System.Drawing.Size(100, 25);
+            this.textbox_username.TabIndex = 0;
             // 
-            // Password
+            // textbox_password
             // 
-            this.Password.Location = new System.Drawing.Point(30, 105);
-            this.Password.Name = "Password";
-            this.Password.Size = new System.Drawing.Size(100, 25);
-            this.Password.TabIndex = 1;
+            this.textbox_password.Location = new System.Drawing.Point(114, 107);
+            this.textbox_password.Name = "textbox_password";
+            this.textbox_password.Size = new System.Drawing.Size(100, 25);
+            this.textbox_password.TabIndex = 1;
             // 
-            // LoginMessageBox
+            // btn_signin
             // 
-            this.LoginMessageBox.BackColor = System.Drawing.SystemColors.Control;
-            this.LoginMessageBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.LoginMessageBox.Location = new System.Drawing.Point(30, 216);
-            this.LoginMessageBox.Multiline = true;
-            this.LoginMessageBox.Name = "LoginMessageBox";
-            this.LoginMessageBox.Size = new System.Drawing.Size(290, 141);
-            this.LoginMessageBox.TabIndex = 2;
-            // 
-            // ConnectTest
-            // 
-            this.ConnectTest.Location = new System.Drawing.Point(245, 129);
-            this.ConnectTest.Name = "ConnectTest";
-            this.ConnectTest.Size = new System.Drawing.Size(75, 23);
-            this.ConnectTest.TabIndex = 23;
-            this.ConnectTest.Text = "button1";
-            this.ConnectTest.UseVisualStyleBackColor = true;
-            this.ConnectTest.Click += new System.EventHandler(this.ConnectTest_Click);
+            this.btn_signin.Location = new System.Drawing.Point(245, 129);
+            this.btn_signin.Name = "btn_signin";
+            this.btn_signin.Size = new System.Drawing.Size(75, 23);
+            this.btn_signin.TabIndex = 23;
+            this.btn_signin.Text = "SignIn";
+            this.btn_signin.UseVisualStyleBackColor = true;
+            this.btn_signin.Click += new System.EventHandler(this.btn_signin_Click);
             // 
             // btn_close
             // 
@@ -86,19 +77,38 @@
             this.btn_close.MouseEnter += new System.EventHandler(this.btn_close_MouseEnter);
             this.btn_close.MouseLeave += new System.EventHandler(this.btn_close_MouseLeave);
             // 
-            // LoginForm
+            // label_username
+            // 
+            this.label_username.AutoSize = true;
+            this.label_username.Location = new System.Drawing.Point(29, 49);
+            this.label_username.Name = "label_username";
+            this.label_username.Size = new System.Drawing.Size(79, 15);
+            this.label_username.TabIndex = 25;
+            this.label_username.Text = "username:";
+            // 
+            // label_password
+            // 
+            this.label_password.AutoSize = true;
+            this.label_password.Location = new System.Drawing.Point(29, 107);
+            this.label_password.Name = "label_password";
+            this.label_password.Size = new System.Drawing.Size(79, 15);
+            this.label_password.TabIndex = 26;
+            this.label_password.Text = "password:";
+            // 
+            // SignInForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(347, 383);
+            this.ClientSize = new System.Drawing.Size(347, 176);
             this.ControlBox = false;
+            this.Controls.Add(this.label_password);
+            this.Controls.Add(this.label_username);
             this.Controls.Add(this.btn_close);
-            this.Controls.Add(this.ConnectTest);
-            this.Controls.Add(this.LoginMessageBox);
-            this.Controls.Add(this.Password);
-            this.Controls.Add(this.UserName);
+            this.Controls.Add(this.btn_signin);
+            this.Controls.Add(this.textbox_password);
+            this.Controls.Add(this.textbox_username);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Name = "LoginForm";
+            this.Name = "SignInForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "LoginForm";
             this.ResumeLayout(false);
@@ -108,10 +118,11 @@
 
         #endregion
 
-        private System.Windows.Forms.TextBox UserName;
-        private System.Windows.Forms.TextBox Password;
-        private System.Windows.Forms.TextBox LoginMessageBox;
-        private System.Windows.Forms.Button ConnectTest;
+        private System.Windows.Forms.TextBox textbox_username;
+        private System.Windows.Forms.TextBox textbox_password;
+        private System.Windows.Forms.Button btn_signin;
         private System.Windows.Forms.Button btn_close;
+        private System.Windows.Forms.Label label_username;
+        private System.Windows.Forms.Label label_password;
     }
 }

@@ -10,7 +10,7 @@ using System.Windows.Forms;
 namespace TodoList{
     class Account : User {
         private static Account instance;
-
+        private bool signInStatus = false;
         public MysqlConnector mysqlConnector;
 
         private Account() {
@@ -54,9 +54,20 @@ namespace TodoList{
 
         //注册
         /*public void signUp() {
+            if (!mysqlConnector.findUser() && 两次输入的密码相等) {
 
+                mysqlConnector.insert();
+            }else {
+                MessageBox.Show("Username already signup.Please use another username.");
+            }
         }*/
 
-        
+        //登录
+        /*public void signIn() {
+            if (mysqlConnector.comparePassword(Password))
+                signInStatus = true;
+            else 
+                signInStatus = false;
+        }*/
     }
 }
