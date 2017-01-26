@@ -4,6 +4,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Security.Cryptography;
+using MySql.Data.MySqlClient;
+using System.Windows.Forms;
 
 namespace TodoList{
     class Account : User {
@@ -46,13 +48,15 @@ namespace TodoList{
 
         //将Account的用户名与密码传给MysqlConnector
         public void setAccount() {
-            mysqlConnector.Username = "alsdfk312322";
-            mysqlConnector.Password = encryptPassword("password332");
+            mysqlConnector.Username = "test002";
+            mysqlConnector.Password = encryptPassword("password002");
         }
 
         //注册
-        public void signUp() {
+        /*public void signUp() {
 
-        }
+        }*/
+
+        
     }
 }

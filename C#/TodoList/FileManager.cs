@@ -42,6 +42,7 @@ namespace TodoList {
                 //account.mysqlConnector.cloudSync(saveContent);
                 //account.mysqlConnector.insert();
                 //account.mysqlConnector.selectUser();
+                account.mysqlConnector.comparePassword(account.Password);
             }catch (Exception e) {
                 Debug.Print("-->Class:FileManager, Line: 42 \n" + e.Message+"\n");
                 return false;
