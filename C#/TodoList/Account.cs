@@ -10,12 +10,12 @@ using System.Windows.Forms;
 namespace TodoList{
     class Account : User {
         private static Account instance;
-        private bool signInStatus = false;
+        public bool signInStatus = false;
         public MysqlConnector mysqlConnector;
 
         private Account() {
             mysqlConnector = MysqlConnector.getInstance();
-            setAccount();
+            //setAccount();
         }
         public static Account getInstance() {
             if (instance == null)
@@ -23,6 +23,18 @@ namespace TodoList{
             return instance;
         }
 
+        public override string Password {
+            get {
+                return base.Password;
+            }
+
+            set {
+                if (value != String.Empty)
+                    base.Password = encryptPassword(value);
+                else
+                    MessageBox.Show("Password can not be empty!");
+            }
+        }
 
         #region 用MD5加密来加密密码
         private static string encryptPassword(string sourcePassword) {
@@ -48,26 +60,25 @@ namespace TodoList{
 
         //将Account的用户名与密码传给MysqlConnector
         public void setAccount() {
-            mysqlConnector.Username = "test002";
-            mysqlConnector.Password = encryptPassword("password002");
+            mysqlConnector.Username = Username;
+            mysqlConnector.Password = Password;
         }
 
         //注册
-        /*public void signUp() {
-            if (!mysqlConnector.findUser() && 两次输入的密码相等) {
-
-                mysqlConnector.insert();
+        public void signUp(string password_1, string password_2) {
+            if (!mysqlConnector.findUser() && password_1 == password_2) {
+                mysqlConnector.Username 
             }else {
                 MessageBox.Show("Username already signup.Please use another username.");
             }
-        }*/
+        }
 
         //登录
-        /*public void signIn() {
+        public void signIn() {
             if (mysqlConnector.comparePassword(Password))
                 signInStatus = true;
             else 
                 signInStatus = false;
-        }*/
+        }
     }
 }

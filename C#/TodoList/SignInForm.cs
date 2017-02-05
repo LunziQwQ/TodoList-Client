@@ -19,7 +19,15 @@ namespace TodoList
         }
 
         private void btn_signin_Click(object sender, EventArgs e) {
-            //mysqlConnector.ConnectionTest();
+            
+            FileManager.getInstance().account.Username = textbox_username1.Text;
+            FileManager.getInstance().account.Password = textbox_password1.Text;
+            FileManager.getInstance().account.setAccount();
+            FileManager.getInstance().account.signIn();
+            if (Account.getInstance().signInStatus)
+                MessageBox.Show("SignIn success!");
+            else
+                MessageBox.Show("SignIn failed, try again!");   
         }
 
         private void btn_close_Click(object sender, EventArgs e) {
@@ -32,6 +40,10 @@ namespace TodoList
 
         private void btn_close_MouseLeave(object sender, EventArgs e) {
             btn_close.BackColor = Color.Transparent;
+        }
+
+        private void btn_signup_Click(object sender, EventArgs e) {
+            Account.getInstance().signUp(textbox_password1.Text, textbox_password2.Text);
         }
     }
 }

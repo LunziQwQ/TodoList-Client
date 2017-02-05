@@ -80,6 +80,7 @@
             this.TitleLabel.Size = new System.Drawing.Size(143, 36);
             this.TitleLabel.TabIndex = 1;
             this.TitleLabel.Text = "TodoList";
+            this.TitleLabel.Click += new System.EventHandler(this.TitleLabel_Click);
             // 
             // TaskItem1
             // 

@@ -30,7 +30,6 @@ F:\Projects\Git\TodoList_ByCloudSync\C#\TodoList\bin\Debug\MySql.Web.dll
 F:\Projects\Git\TodoList_ByCloudSync\C#\TodoList\obj\Debug\TodoList.csprojResolveAssemblyReference.cache
 F:\Projects\Git\TodoList_ByCloudSync\C#\TodoList\obj\Debug\TodoList.backImage.resources
 F:\Projects\Git\TodoList_ByCloudSync\C#\TodoList\obj\Debug\TodoList.ItemEditForm.resources
-F:\Projects\Git\TodoList_ByCloudSync\C#\TodoList\obj\Debug\TodoList.LoginForm.resources
 F:\Projects\Git\TodoList_ByCloudSync\C#\TodoList\obj\Debug\TodoList.MainForm.resources
 F:\Projects\Git\TodoList_ByCloudSync\C#\TodoList\obj\Debug\TodoList.MoreTextForm.resources
 F:\Projects\Git\TodoList_ByCloudSync\C#\TodoList\obj\Debug\TodoList.NoticeForm.resources
@@ -52,3 +51,4 @@ F:\Projects\Git\TodoList_ByCloudSync\C#\TodoList\bin\Debug\Microsoft.MSXML.dll
 F:\Projects\Git\TodoList_ByCloudSync\C#\TodoList\bin\Debug\Microsoft.VisualStudio.TemplateWizardInterface.xml
 F:\Projects\Git\TodoList_ByCloudSync\C#\TodoList\bin\Debug\EnvDTE.xml
 F:\Projects\Git\TodoList_ByCloudSync\C#\TodoList\bin\Debug\EnvDTE80.xml
+F:\Projects\Git\TodoList_ByCloudSync\C#\TodoList\obj\Debug\TodoList.SignInForm.resources

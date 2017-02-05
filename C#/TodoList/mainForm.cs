@@ -6,6 +6,7 @@ namespace TodoList {
     public partial class MainForm : Form {
         private VisualManager visualManager = VisualManager.getInstance();
         private FileManager fileManager = FileManager.getInstance();
+        SignInForm signInForm;
 
         private int tickCount = -1;
 
@@ -188,8 +189,14 @@ namespace TodoList {
         private void TaskItem5_MouseLeave(object sender, EventArgs e) {
             visualManager.item_mouseLeave(4);
         }
+
         #endregion
 
-        
+
+        private void TitleLabel_Click(object sender, EventArgs e) {
+            signInForm = new SignInForm();
+            signInForm.TopMost = true;
+            signInForm.Show();
+        }
     }
 }

@@ -7,7 +7,6 @@ namespace TodoList {
         private string autoSavePath = @"C:\Users\" + System.Environment.UserName + @"\Documents\TodoList_AutoSave.tdl";
         private string saveContent;
 
-        //private MysqlConnector mysqlConnector = MysqlConnector.getInstance();
         public Account account = Account.getInstance();
         
         private static FileManager instance;

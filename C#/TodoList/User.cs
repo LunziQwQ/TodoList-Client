@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace TodoList{
     class User{
@@ -10,12 +11,27 @@ namespace TodoList{
         private string password;    //密码
 
         public string Username {
-            get { return username; }
-            set { username = value; }
+            get {
+                return username;
+            }
+
+            set {
+                if (value != String.Empty)
+                    username = value;
+                else
+                    MessageBox.Show("Please enter the username.");
+            }
         }
-        public string Password {
-            get { return password; }
-            set { password = value; }
+        public virtual string Password {
+            get {
+                return password;
+            }
+            set {
+                if (value != String.Empty)
+                    password = value;
+                else
+                    MessageBox.Show("Password can not be empty!");
+            }
         }
     }
 }
