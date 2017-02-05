@@ -58,6 +58,7 @@
             this.textbox_password1.Location = new System.Drawing.Point(126, 93);
             this.textbox_password1.MaxLength = 32;
             this.textbox_password1.Name = "textbox_password1";
+            this.textbox_password1.PasswordChar = '*';
             this.textbox_password1.Size = new System.Drawing.Size(100, 32);
             this.textbox_password1.TabIndex = 1;
             // 
@@ -204,14 +205,18 @@
             // textbox_password2
             // 
             this.textbox_password2.Location = new System.Drawing.Point(152, 75);
+            this.textbox_password2.MaxLength = 32;
             this.textbox_password2.Name = "textbox_password2";
+            this.textbox_password2.PasswordChar = '*';
             this.textbox_password2.Size = new System.Drawing.Size(100, 32);
             this.textbox_password2.TabIndex = 35;
             // 
             // textbox_password3
             // 
             this.textbox_password3.Location = new System.Drawing.Point(152, 132);
+            this.textbox_password3.MaxLength = 32;
             this.textbox_password3.Name = "textbox_password3";
+            this.textbox_password3.PasswordChar = '*';
             this.textbox_password3.Size = new System.Drawing.Size(100, 32);
             this.textbox_password3.TabIndex = 36;
             // 

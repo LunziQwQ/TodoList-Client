@@ -65,11 +65,18 @@ namespace TodoList{
         }
 
         //注册
-        public void signUp(string password_1, string password_2) {
-            if (!mysqlConnector.findUser() && password_1 == password_2) {
-                mysqlConnector.Username 
+        public bool signUp(string password_1, string password_2) {
+            if (!mysqlConnector.findUser()) {
+                if (password_1 == password_2) {
+                    mysqlConnector.insert();
+                    return true;
+                }else {
+                    MessageBox.Show("The password you enter twice must be same.");
+                    return false;
+                }
             }else {
                 MessageBox.Show("Username already signup.Please use another username.");
+                return false;
             }
         }
 

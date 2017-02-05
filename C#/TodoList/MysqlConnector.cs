@@ -27,11 +27,11 @@ namespace TodoList
         }
 
 
-        //测试mysql能否连接上
+        //新增用户
         public void insert() {
             string QueryStr = String.Format(
                 "INSERT INTO todolists (username,password,todo) VALUES ('{0}','{1}','{2}')"
-                ,Username,Password,"test");
+                ,Username,Password,"");
             try {
                 MySqlConnection mysqlConnection = new MySqlConnection(ConnectStr);
                 MySqlCommand mysqlCommand = new MySqlCommand(QueryStr);
@@ -77,7 +77,7 @@ namespace TodoList
                     mysqlCommand.Connection.Close();
                     return true;
                 }else {
-                    MessageBox.Show("No this user");
+                    Debug.Print("-->Class:MysqlConnector, Line: 67 \n User not found.\n");
                     rdr.Close();
                     mysqlCommand.Connection.Close();
                     return false;

@@ -19,14 +19,14 @@ namespace TodoList
         }
 
         private void btn_signin_Click(object sender, EventArgs e) {
-            
             FileManager.getInstance().account.Username = textbox_username1.Text;
             FileManager.getInstance().account.Password = textbox_password1.Text;
             FileManager.getInstance().account.setAccount();
             FileManager.getInstance().account.signIn();
-            if (Account.getInstance().signInStatus)
+            if (Account.getInstance().signInStatus) {
                 MessageBox.Show("SignIn success!");
-            else
+                this.Close();
+            }else
                 MessageBox.Show("SignIn failed, try again!");   
         }
 
@@ -43,7 +43,14 @@ namespace TodoList
         }
 
         private void btn_signup_Click(object sender, EventArgs e) {
-            Account.getInstance().signUp(textbox_password1.Text, textbox_password2.Text);
+            FileManager.getInstance().account.Username = textbox_username2.Text;
+            FileManager.getInstance().account.Password = textbox_password2.Text;
+            FileManager.getInstance().account.setAccount();
+            if (Account.getInstance().signUp(textbox_password2.Text, textbox_password3.Text)) {
+                MessageBox.Show("SignUp success!");
+            }
+            else
+                MessageBox.Show("SignUp failed,please try again.");
         }
     }
 }
