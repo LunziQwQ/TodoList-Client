@@ -19,11 +19,11 @@ namespace TodoList
         }
 
         private void btn_signin_Click(object sender, EventArgs e) {
-            FileManager.getInstance().account.Username = textbox_username1.Text;
-            FileManager.getInstance().account.Password = textbox_password1.Text;
-            FileManager.getInstance().account.setAccount();
-            FileManager.getInstance().account.signIn();
-            if (Account.getInstance().signInStatus) {
+            Account.getInstance().Username = textbox_username1.Text;
+            Account.getInstance().Password = textbox_password1.Text;
+            Account.getInstance().setAccount();
+            Account.getInstance().signIn();
+            if (Account.getInstance()._signInStatus) {
                 MessageBox.Show("SignIn success!");
                 this.Close();
             }else
@@ -43,9 +43,9 @@ namespace TodoList
         }
 
         private void btn_signup_Click(object sender, EventArgs e) {
-            FileManager.getInstance().account.Username = textbox_username2.Text;
-            FileManager.getInstance().account.Password = textbox_password2.Text;
-            FileManager.getInstance().account.setAccount();
+            Account.getInstance().Username = textbox_username2.Text;
+            Account.getInstance().Password = textbox_password2.Text;
+            Account.getInstance().setAccount();
             if (Account.getInstance().signUp(textbox_password2.Text, textbox_password3.Text)) {
                 MessageBox.Show("SignUp success!");
             }

@@ -4,11 +4,20 @@ using System.Diagnostics;
 
 namespace TodoList {
     class FileManager {
-        private string autoSavePath = @"C:\Users\" + System.Environment.UserName + @"\Documents\TodoList_AutoSave.tdl";
+        private string autoSavePath = @"C:\Users\" + System.Environment.UserName + @"\Documents\TodoList_AutoSave\";
+        private string AutoSavePath {
+            get {
+                if (!Directory.Exists(autoSavePath))                //如果路径文件夹不存在，先创建一个
+                    Directory.CreateDirectory(autoSavePath);
+                if (MysqlConnector.getInstance().Username != null)  //登录成功后Username非null后将会使用以Username作为缓存文件的文件名
+                    return autoSavePath + MysqlConnector.getInstance().Username + ".tdl";
+                else
+                    return autoSavePath + "default.tdl";            //未登录状态下Username为null，将使用“default”作为缓存文件的文件名
+            }
+        }
+
         private string saveContent;
 
-        public Account account = Account.getInstance();
-        
         private static FileManager instance;
         private FileManager() { }
         public static FileManager getInstance() {
@@ -24,9 +33,9 @@ namespace TodoList {
 
         public bool readSaveFile() {
             try {
-                if (!File.Exists(autoSavePath))
-                    File.WriteAllText(autoSavePath, "");
-                saveContent = File.ReadAllText(autoSavePath);
+                if (!File.Exists(AutoSavePath))
+                    File.WriteAllText(AutoSavePath, "");
+                saveContent = File.ReadAllText(AutoSavePath);
             }catch(Exception e) {
                 Debug.Print("-->Class:FileManager, Line: 31 \n "+e.Message+"\n");
                 return false;
@@ -37,11 +46,9 @@ namespace TodoList {
         public bool autoSave() {
             saveContent = ItemList.getInstance().listToString();
             try {
-                File.WriteAllText(autoSavePath, saveContent);
-                //account.mysqlConnector.cloudSync(saveContent);
-                //account.mysqlConnector.insert();
-                //account.mysqlConnector.findUser();
-                //account.mysqlConnector.comparePassword(account.Password);
+                File.WriteAllText(AutoSavePath, saveContent);
+                //Account.getInstance().mysqlConnector.cloudSync_Download();
+                //Account.getInstance().mysqlConnector.cloudSync_Upload(saveContent);
             }catch (Exception e) {
                 Debug.Print("-->Class:FileManager, Line: 42 \n" + e.Message + "\n");
                 return false;

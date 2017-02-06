@@ -10,12 +10,12 @@ using System.Windows.Forms;
 namespace TodoList{
     class Account : User {
         private static Account instance;
-        public bool signInStatus = false;
         public MysqlConnector mysqlConnector;
+        public bool _signInStatus = false;
+
 
         private Account() {
             mysqlConnector = MysqlConnector.getInstance();
-            //setAccount();
         }
         public static Account getInstance() {
             if (instance == null)
@@ -82,10 +82,12 @@ namespace TodoList{
 
         //登录
         public void signIn() {
-            if (mysqlConnector.comparePassword(Password))
-                signInStatus = true;
-            else 
-                signInStatus = false;
+            if (mysqlConnector.comparePassword(Password)) {
+                _signInStatus = true;
+                FileManager.getInstance().readSaveFile();
+            }
+            else
+                _signInStatus = false;
         }
     }
 }

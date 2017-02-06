@@ -19,7 +19,7 @@ namespace TodoList{
                 if (value != String.Empty)
                     username = value;
                 else
-                    MessageBox.Show("Please enter the username.");
+                    MessageBox.Show("Please enter your username.");
             }
         }
         public virtual string Password {

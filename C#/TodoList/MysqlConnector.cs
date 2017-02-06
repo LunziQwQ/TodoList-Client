@@ -45,8 +45,8 @@ namespace TodoList
             }
         }
 
-        //将本地文件上传到Mysql中
-        public void cloudSync(string saveContent) {
+        //将本地缓存中的todo上传到Mysql中
+        public void cloudSync_Upload(string saveContent) {
             string QueryStr = String.Format(
                 "UPDATE todolists SET todo='{0}' WHERE username='{1}' and password='{2}'",
                 saveContent, Username, Password);
@@ -59,6 +59,27 @@ namespace TodoList
                 mysqlCommand.Connection.Close();
             }
             catch (MySqlException ex) {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        //将Mysql储存的todo下载下来
+        public void cloudSync_Download() {
+            string QueryStr = String.Format(
+                "SELECT todo FROM todolists WHERE username = '{0}' and password = '{1}'", 
+                Username, Password);
+            try {
+                MySqlConnection mysqlConnection = new MySqlConnection(ConnectStr);
+                MySqlCommand mysqlCommand = new MySqlCommand(QueryStr);
+                mysqlCommand.Connection = mysqlConnection;
+                mysqlConnection.Open();
+                MySqlDataReader rdr = mysqlCommand.ExecuteReader();
+                if (rdr.Read()) {
+                    FileManager.getInstance().SaveContent = rdr[0].ToString();
+                }else {
+                    MessageBox.Show("todo not found in table.");
+                }
+            }catch(MySqlException ex) {
                 MessageBox.Show(ex.Message);
             }
         }
