@@ -66,8 +66,8 @@ namespace TodoList{
 
         //注册
         public bool signUp(string password_1, string password_2) {
-            if (!mysqlConnector.findUser()) {
-                if (password_1 == password_2) {
+            if (!mysqlConnector.findUser()) {       //如果没有重复用户
+                if (password_1 == password_2) {     //如果两次输入的密码相同
                     mysqlConnector.insert();
                     return true;
                 }else {
@@ -84,9 +84,8 @@ namespace TodoList{
         public void signIn() {
             if (mysqlConnector.comparePassword(Password)) {
                 _signInStatus = true;
-                FileManager.getInstance().readSaveFile();
-            }
-            else
+                mysqlConnector.cloudSync_Download();    //登录后立马将mysql中储存的todo下载下来
+            }else
                 _signInStatus = false;
         }
     }

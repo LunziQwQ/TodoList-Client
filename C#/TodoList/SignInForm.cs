@@ -26,8 +26,9 @@ namespace TodoList
             if (Account.getInstance()._signInStatus) {
                 MessageBox.Show("SignIn success!");
                 this.Close();
-            }else
-                MessageBox.Show("SignIn failed, try again!");   
+            }
+            else
+                MessageBox.Show("SignIn failed, try again!"); 
         }
 
         private void btn_close_Click(object sender, EventArgs e) {
@@ -48,8 +49,7 @@ namespace TodoList
             Account.getInstance().setAccount();
             if (Account.getInstance().signUp(textbox_password2.Text, textbox_password3.Text)) {
                 MessageBox.Show("SignUp success!");
-            }
-            else
+            }else
                 MessageBox.Show("SignUp failed,please try again.");
         }
     }

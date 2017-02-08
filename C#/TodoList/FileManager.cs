@@ -5,7 +5,7 @@ using System.Diagnostics;
 namespace TodoList {
     class FileManager {
         private string autoSavePath = @"C:\Users\" + System.Environment.UserName + @"\Documents\TodoList_AutoSave\";
-        private string AutoSavePath {
+        public string AutoSavePath {
             get {
                 if (!Directory.Exists(autoSavePath))                //如果路径文件夹不存在，先创建一个
                     Directory.CreateDirectory(autoSavePath);

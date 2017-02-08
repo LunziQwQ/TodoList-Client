@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using MySql.Data.MySqlClient;
+using System.IO;
 using System.Diagnostics;
 
 namespace TodoList
@@ -76,7 +77,9 @@ namespace TodoList
                 MySqlDataReader rdr = mysqlCommand.ExecuteReader();
                 if (rdr.Read()) {
                     FileManager.getInstance().SaveContent = rdr[0].ToString();
-                }else {
+                    File.WriteAllText(FileManager.getInstance().AutoSavePath, FileManager.getInstance().SaveContent);
+                }
+                else {
                     MessageBox.Show("todo not found in table.");
                 }
             }catch(MySqlException ex) {
