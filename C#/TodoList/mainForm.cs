@@ -46,6 +46,7 @@ namespace TodoList {
         #region 关闭，新增Item，翻页按钮
         private void btn_close_Click(object sender, EventArgs e) {
             if (fileManager.autoSave()) {
+                MysqlConnector.getInstance().cloudSync_Upload(fileManager.SaveContent);
                 visualManager.sendNotice("Save success.", 2);
                 visualManager.isCloseAllForm = true;
             } else {
