@@ -81,6 +81,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>backImage.resx</DependentUpon>
     </Compile>
+    <Compile Include="Command.cs" />
     <Compile Include="FileManager.cs" />
     <Compile Include="ItemEditForm.cs">
       <SubType>Form</SubType>

@@ -6,16 +6,9 @@ using System.Windows.Forms;
 
 namespace TodoList {
     public partial class LoginForm: Form {
+        private Sync sync = new Sync();
         public LoginForm() {
             InitializeComponent();
-        }
-
-        private void LoginForm_Load(object sender, EventArgs e) {
-
-        }
-
-        private void textBox_username_TextChanged(object sender, EventArgs e) {
-
         }
 
         private void btn_login_Click(object sender, EventArgs e) {
@@ -28,8 +21,7 @@ namespace TodoList {
 
         private void btn_create_Click(object sender, EventArgs e) {
             if (checkInput()) {
-                
-                
+                Debug.Print(Command.praseJsonText("{\"command\":\"login\",\"isSuccess\":\"true\",\"keyword\":\"123456\"}").toJsonText());
             } else
                 MessageBox.Show("输入有误");
         }

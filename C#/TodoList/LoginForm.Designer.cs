@@ -57,7 +57,6 @@
             this.textBox_username.Name = "textBox_username";
             this.textBox_username.Size = new System.Drawing.Size(174, 20);
             this.textBox_username.TabIndex = 2;
-            this.textBox_username.TextChanged += new System.EventHandler(this.textBox_username_TextChanged);
             // 
             // textBox_keyword
             // 
@@ -100,7 +99,6 @@
             this.Controls.Add(this.btn_login);
             this.Name = "LoginForm";
             this.Text = "LoginForm";
-            this.Load += new System.EventHandler(this.LoginForm_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
