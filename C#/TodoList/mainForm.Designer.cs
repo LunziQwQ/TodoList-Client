@@ -25,7 +25,6 @@
         private void InitializeComponent() {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
-            this.btn_close = new System.Windows.Forms.Button();
             this.TitleLabel = new System.Windows.Forms.Label();
             this.TaskItem1 = new System.Windows.Forms.Label();
             this.TaskItem2 = new System.Windows.Forms.Label();
@@ -47,26 +46,9 @@
             this.btn_del4 = new System.Windows.Forms.Label();
             this.btn_edit5 = new System.Windows.Forms.Label();
             this.btn_del5 = new System.Windows.Forms.Label();
+            this.btn_close = new System.Windows.Forms.Button();
+            this.btn_Login = new System.Windows.Forms.Button();
             this.SuspendLayout();
-            // 
-            // btn_close
-            // 
-            this.btn_close.AccessibleRole = System.Windows.Forms.AccessibleRole.None;
-            this.btn_close.BackColor = System.Drawing.Color.Transparent;
-            this.btn_close.FlatAppearance.BorderSize = 0;
-            this.btn_close.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_close.Font = new System.Drawing.Font("Consolas", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_close.ForeColor = System.Drawing.Color.SaddleBrown;
-            this.btn_close.Location = new System.Drawing.Point(266, -8);
-            this.btn_close.Name = "btn_close";
-            this.btn_close.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.btn_close.Size = new System.Drawing.Size(71, 42);
-            this.btn_close.TabIndex = 0;
-            this.btn_close.Text = "×";
-            this.btn_close.UseVisualStyleBackColor = false;
-            this.btn_close.Click += new System.EventHandler(this.btn_close_Click);
-            this.btn_close.MouseEnter += new System.EventHandler(this.btn_close_MouseEnter);
-            this.btn_close.MouseLeave += new System.EventHandler(this.btn_close_MouseLeave);
             // 
             // TitleLabel
             // 
@@ -349,6 +331,42 @@
             this.btn_del5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.btn_del5.Click += new System.EventHandler(this.btn_del5_Click);
             // 
+            // btn_close
+            // 
+            this.btn_close.AccessibleRole = System.Windows.Forms.AccessibleRole.None;
+            this.btn_close.BackColor = System.Drawing.Color.Transparent;
+            this.btn_close.FlatAppearance.BorderSize = 0;
+            this.btn_close.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_close.Font = new System.Drawing.Font("Consolas", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_close.ForeColor = System.Drawing.Color.SaddleBrown;
+            this.btn_close.Location = new System.Drawing.Point(300, -8);
+            this.btn_close.Name = "btn_close";
+            this.btn_close.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.btn_close.Size = new System.Drawing.Size(38, 42);
+            this.btn_close.TabIndex = 0;
+            this.btn_close.Text = "×";
+            this.btn_close.UseVisualStyleBackColor = false;
+            this.btn_close.Click += new System.EventHandler(this.btn_close_Click);
+            this.btn_close.MouseEnter += new System.EventHandler(this.btn_close_MouseEnter);
+            this.btn_close.MouseLeave += new System.EventHandler(this.btn_close_MouseLeave);
+            // 
+            // btn_Login
+            // 
+            this.btn_Login.AccessibleRole = System.Windows.Forms.AccessibleRole.None;
+            this.btn_Login.BackColor = System.Drawing.Color.Transparent;
+            this.btn_Login.FlatAppearance.BorderSize = 0;
+            this.btn_Login.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_Login.Font = new System.Drawing.Font("Consolas", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_Login.ForeColor = System.Drawing.Color.SaddleBrown;
+            this.btn_Login.Location = new System.Drawing.Point(227, -4);
+            this.btn_Login.Name = "btn_Login";
+            this.btn_Login.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.btn_Login.Size = new System.Drawing.Size(71, 42);
+            this.btn_Login.TabIndex = 22;
+            this.btn_Login.Text = "Login";
+            this.btn_Login.UseVisualStyleBackColor = false;
+            this.btn_Login.Click += new System.EventHandler(this.btn_Login_Click);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -356,6 +374,7 @@
             this.BackColor = System.Drawing.Color.White;
             this.BackgroundImage = global::TodoList.Properties.Resources.MainBackImage;
             this.ClientSize = new System.Drawing.Size(335, 500);
+            this.Controls.Add(this.btn_Login);
             this.Controls.Add(this.btn_edit5);
             this.Controls.Add(this.btn_del5);
             this.Controls.Add(this.btn_edit4);
@@ -395,8 +414,6 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.Button btn_close;
         private System.Windows.Forms.Label TitleLabel;
         private System.Windows.Forms.Label TaskItem1;
         private System.Windows.Forms.Label TaskItem2;
@@ -418,6 +435,8 @@
         private System.Windows.Forms.Label btn_del4;
         private System.Windows.Forms.Label btn_edit5;
         private System.Windows.Forms.Label btn_del5;
+        private System.Windows.Forms.Button btn_close;
+        private System.Windows.Forms.Button btn_Login;
     }
 }
 

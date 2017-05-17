@@ -1,0 +1,17 @@
+F:\Project\C#\TodoList\C#\TodoList\bin\Debug\TodoList.exe.config
+F:\Project\C#\TodoList\C#\TodoList\obj\Debug\TodoList.exe
+F:\Project\C#\TodoList\C#\TodoList\obj\Debug\TodoList.pdb
+F:\Project\C#\TodoList\C#\TodoList\bin\Debug\TodoList.exe
+F:\Project\C#\TodoList\C#\TodoList\bin\Debug\TodoList.pdb
+F:\Project\C#\TodoList\C#\TodoList\bin\Debug\Newtonsoft.Json.dll
+F:\Project\C#\TodoList\C#\TodoList\bin\Debug\Newtonsoft.Json.pdb
+F:\Project\C#\TodoList\C#\TodoList\bin\Debug\Newtonsoft.Json.xml
+F:\Project\C#\TodoList\C#\TodoList\obj\Debug\TodoList.csprojResolveAssemblyReference.cache
+F:\Project\C#\TodoList\C#\TodoList\obj\Debug\TodoList.backImage.resources
+F:\Project\C#\TodoList\C#\TodoList\obj\Debug\TodoList.ItemEditForm.resources
+F:\Project\C#\TodoList\C#\TodoList\obj\Debug\TodoList.LoginForm.resources
+F:\Project\C#\TodoList\C#\TodoList\obj\Debug\TodoList.MainForm.resources
+F:\Project\C#\TodoList\C#\TodoList\obj\Debug\TodoList.MoreTextForm.resources
+F:\Project\C#\TodoList\C#\TodoList\obj\Debug\TodoList.NoticeForm.resources
+F:\Project\C#\TodoList\C#\TodoList\obj\Debug\TodoList.Properties.Resources.resources
+F:\Project\C#\TodoList\C#\TodoList\obj\Debug\TodoList.csproj.GenerateResource.Cache
