@@ -6,13 +6,12 @@ using System.Windows.Forms;
 
 namespace TodoList {
     public partial class LoginForm: Form {
-        private Sync sync = new Sync();
+        private Sync sync = Sync.getInstance();
         public LoginForm() {
             InitializeComponent();
         }
 
         private void btn_login_Click(object sender, EventArgs e) {
-
             if (checkInput()) {
                 
             } else
@@ -21,7 +20,7 @@ namespace TodoList {
 
         private void btn_create_Click(object sender, EventArgs e) {
             if (checkInput()) {
-                Debug.Print(Command.praseJsonText("{\"command\":\"login\",\"isSuccess\":\"true\",\"keyword\":\"123456\"}").toJsonText());
+
             } else
                 MessageBox.Show("输入有误");
         }
